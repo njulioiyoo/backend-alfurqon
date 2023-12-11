@@ -1,0 +1,44 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Orchid\Layouts\MasterData\ContentType;
+
+use Orchid\Screen\TD;
+use Orchid\Screen\Field;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Fields\Select;
+use Orchid\Screen\Fields\Switcher;
+
+class ContentTypeEditLayout extends Rows
+{
+    /**
+     * The screen's layout elements.
+     *
+     * @return Field[]
+     */
+    public function fields(): array
+    {
+        return [
+            Select::make('contentType.type')
+                ->options([
+                    'contents'  => 'Contents',
+                    'about'     => 'About',
+                ])
+                ->title('Select type')
+                ->help('Allow search bots to index'),
+            Input::make('contentType.name')
+                ->type('text')
+                ->max(50)
+                ->required()
+                ->title(__('Name'))
+                ->placeholder(__('Name')),
+            Switcher::make('contentType.active')
+                ->sendTrueOrFalse()
+                ->align(TD::ALIGN_RIGHT)
+                ->help('Slide the switch to on to change it to true.')
+                ->title('Status Active'),
+        ];
+    }
+}
