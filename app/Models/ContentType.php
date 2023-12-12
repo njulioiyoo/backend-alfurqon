@@ -24,7 +24,7 @@ class ContentType extends Content
      *
      * @return Builder
      */
-    public function scopeNews(Builder $query)
+    public function scopeNewsType(Builder $query)
     {
         return $query->where('type', 'news_type');
     }

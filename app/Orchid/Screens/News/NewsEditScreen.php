@@ -114,7 +114,7 @@ class NewsEditScreen extends Screen
                     ->title('Content Categories')
                     ->required()
                     ->horizontal()
-                    ->fromModel(ContentType::class, 'name')->applyScope('news'),
+                    ->fromModel(ContentType::class, 'name')->applyScope('newsType'),
 
                 Input::make('news.name')
                     ->title('Name')
