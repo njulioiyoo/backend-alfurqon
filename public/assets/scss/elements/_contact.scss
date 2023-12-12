@@ -1,0 +1,78 @@
+
+/*======================================
+=         12. Contact Us Css             =
+=======================================*/
+
+.single-contact-info {
+    text-align: center;
+    & .contact-icon {
+        border-radius: 50%;
+        height: 100px;
+        width: 100px;
+        line-height: 100px;
+        text-align: center;
+        border: 2px solid #F2B263;
+        color: #F2B263;
+        margin: auto;
+        font-size: 40px;
+    }
+    .contact-info {
+        margin-top: 30px;
+        & h4 {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            position: relative;
+            &::after{
+                background: #F2B263;
+                height: 4px;
+                width: 70px;
+                content: "";
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 0;
+                position: absolute;
+            }
+        }
+        & p {
+            font-size: 24px;
+        }
+    }
+}
+
+#googleMap-1{
+    height: 600px;
+    border-radius: 5px;
+    @media #{$large-mobile,$tablet-device}{
+        height: 400px;
+        margin-bottom: 30px;
+    }
+}
+
+.contact-form__one {
+    & .contact-input {
+        margin-bottom: 30px;
+        // & label {
+
+        // }
+        & .contact-inner {
+            input {
+                border-radius: 25px;
+                border: 1px solid #ddd;
+                padding: 10px 20px;
+                width: 100%;
+                font-style: italic;
+            }
+        }
+    }
+}
+
+.submit-btn {
+    background: #F8FFFF;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    padding: 6px 30px;
+    &:hover {
+        background: #333;
+        color: #fff;
+    }
+}

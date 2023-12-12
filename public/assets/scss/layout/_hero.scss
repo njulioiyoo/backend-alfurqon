@@ -1,0 +1,221 @@
+
+/*=======================================
+=            06. Hero Area Css           =
+=========================================*/
+.hindu-hero-bg {
+    background: url(../images/hero/hindu-hero-bg-01.png); 
+}
+.hero-style-01{
+    display: flex;
+    align-items: center;
+    height: 720px;
+    @media #{$desktop-device}{
+        height: 600px;
+    }
+    @media #{$tablet-device}{
+        height: 450px;
+    }
+    @media #{$large-mobile}{
+        height: 440px;
+    }
+}
+.hero-content {
+    @media #{$small-mobile}{
+        & br {
+            display: none;
+        }
+    }
+}
+
+.muslim-hero-bg {
+    background: url(../images/hero/muslim-hero-bg-01.png);
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.christian-hero-bg {
+    background: url(../images/hero/christian-hero-bg-01.png);
+    background-size: cover;
+    background-position: center;
+    
+}
+.christian-hero-bg-two {
+    background: url(../images/hero/christian-hero-bg-02.png);
+    background-size: cover;
+    background-position: center;
+    
+}
+.hero-style-02{
+    display: flex;
+    align-items: center;
+    height: 790px;
+    @media #{$desktop-device}{
+        height: 600px;
+    }
+    @media #{$tablet-device}{
+        height: 450px;
+        padding-bottom: 100px;
+    }
+    @media #{$large-mobile}{
+        height: 540px;
+        padding-bottom: 100px;
+    }
+}
+.hero-style-03{
+    display: flex;
+    align-items: center;
+    height: 850px;
+    @media #{$laptop-device}{
+        height: 700px;
+    }
+    @media #{$desktop-device}{
+        height: 600px;
+    }
+    @media #{$tablet-device}{
+        height: 450px;
+    }
+    @media #{$large-mobile}{
+        height: 440px;
+    }
+}
+.muslim-hero-color {
+    background: #F4F3F1;
+}
+.muslim-hero-wrap {
+    -webkit-clip-path: polygon(0 0, 100% 0, 128% 109%, 50% 83%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 128% 109%, 50% 83%, 0 100%);
+    @media #{$desktop-device}{
+        clip-path: polygon(0 0, 100% 0, 130% 115%, 50% 73%, 0 100%);
+    }
+    @media #{$tablet-device}{
+        clip-path: polygon(0 0, 100% 0, 130% 115%, 50% 70%, 0 100%);
+    }
+}
+
+.muslim-salte-time {
+    position: relative;
+}
+.muslim-salat-time-bg {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 30%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 30%, 0 100%);
+    background: #F4F3F1;
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    top: 0;
+     @media #{$large-mobile}{
+        clip-path: polygon(0 0, 100000% 0, 0% 100%, 0% 0%, 0 100%);
+        height: 100%;
+    }
+   
+}
+.salat-content {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 33;
+    padding: 0px 0 30px;
+    @media #{$large-mobile}{
+        flex-wrap: wrap;
+    }
+    & .single-salat-time {
+        position: relative;
+        width: 100px;
+        text-align: center;
+
+        & img {
+            margin-bottom: 10px;
+        }
+
+        &::after {
+            position: absolute;
+            right: -80%;
+            top: 0%;
+            height: 80px;
+            transform: translateX(100%);
+            width: 2px;
+            background: #fff;
+            content: '';
+        }
+        @media #{$desktop-device}{
+            &::after {
+                 right: -50%;
+            }
+        }
+        @media #{$tablet-device}{
+            &::after {
+                 right: -25%;
+            }
+        }
+        &:last-child {
+            &::after {
+                display: none;
+            }
+        }
+        &:nth-child(2){
+            margin-top: -50px;
+        }
+        &:nth-child(3){
+            margin-top: -90px;
+            &::after {
+                top: 30px;
+            }
+        }
+        &:nth-child(4){
+            margin-top: -50px;
+            &::after {
+                top: 50px;
+            }
+        }
+
+        @media #{$large-mobile}{
+            width: 200px;
+            margin-bottom: 30px;
+            &::after {
+                display:  none;
+           }
+            &:nth-child(2){
+                margin-top: 0px;
+            }
+            &:nth-child(3){
+                margin-top: 0px;
+            }
+            &:nth-child(4){
+                margin-top: 0px;
+            }
+        }
+
+        @media #{$small-mobile}{
+            width: 130px;
+            margin-bottom: 30px;
+            &::after {
+                display:  none;
+           }
+
+        }
+
+    }
+}
+.hero-btn {
+    border: 2px solid #ddd;
+    padding: 5px 40px;
+    background: #fff;
+    color:  #333;
+    border-radius: 25px;
+    &:hover{
+        background: $theme-color--default;
+        color: #fff;
+        border: 2px solid $theme-color--default
+    }
+}
+.hero-boder-top {
+    position: relative;
+    margin-top: 150px;
+    &::after {
+        content: url(../images/icons/border-top.png);
+        left: 50%;
+        bottom: 100%;
+        position: absolute;
+    }
+}

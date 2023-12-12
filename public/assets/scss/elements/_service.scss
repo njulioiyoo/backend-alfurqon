@@ -1,0 +1,230 @@
+/*=======================================
+=            07. Services Css           =
+=========================================*/
+.single-service-wrap {
+    .service-image {
+        a {
+            display: block;
+            & img {
+                width: 100%;
+            }
+        }
+    }
+}
+.service-content {
+    text-align: center;
+    padding: 0 12px;
+    margin-top: 25px;
+   
+    & .service-title {
+        margin-bottom: 15px;
+        &-two{
+            margin-bottom: 25px;
+            position: relative;
+            padding-top: 25px;
+            margin-top: 35px;
+            &::after {
+                position: absolute;
+                top: 0;
+                content: '';
+                height: 4px;
+                width: 65px;
+                background: #F56C2A;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    }
+}
+
+.single-activities-wrap {
+    margin-top: 30px;
+}
+.activities-imgaes {
+    display: block;
+    & img {
+        width: 100%;
+    }
+}
+.activities-content {
+    margin-top: 30px;
+    padding: 0 14px;
+    & .widget-metadata {
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+    & .activities-title {
+        position: relative;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        position: relative;
+        display: inline-block;
+        font-weight: 600;
+        &::after {
+            position: absolute;
+            bottom: 0;
+            content: '';
+            height: 4px;
+            width: 75px;
+            background: #F56C2A;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+
+.single-foundation {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px 5px 5px 5px;
+    margin-top: 30px;
+    & .foundation-image {
+        & a {
+            display: block;
+            & img {
+                width: 100%;
+                transform: scale(1.0);
+            }
+        }
+    }
+    &:hover {
+        & .foundation-image {
+            & a {
+                & img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+    .foundation-content {
+        position: absolute;
+        padding: 5px 30px 17px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        text-align: left;
+        color: #ef532a;
+        font-size: 13px;
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 10%, rgba(0, 0, 0, 0.99) 99%, rgba(0, 0, 0, 1) 100%);
+            background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 10%, rgba(0, 0, 0, 0.99) 99%, rgba(0, 0, 0, 1) 100%);
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 10%, rgba(0, 0, 0, 0.99) 99%, rgba(0, 0, 0, 1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#000000', GradientType=0);
+        }
+        .location {
+            z-index: 3;
+            position: relative;
+            & h5 {
+                color: #ffff;
+                font-weight: 600;
+                font-family: $font-family-name;
+                margin-bottom: 6px;
+                &:hover {
+                    color: $theme-color--default;
+                }
+            }
+            .foundation-loction {
+                color: $white;
+                font-weight: 600;
+            }
+        }
+
+    }
+}
+.about-muslim-image {
+    position: relative;
+}
+.muslim-image-1 {
+    position: relative;
+    z-index: 2;
+}
+.bottom-image-2 {
+    position: absolute;
+    bottom: 0;
+    left: -235px;
+    z-index: 3;
+}
+.bottom-image-3 {
+    position: absolute;
+    bottom: 32px;
+    right: -220px;
+}
+/* spiritual Classes Css */
+
+.single-spiritual-wrap {
+    margin-top: 30px;
+    padding: 30px;
+    background: #F6F7FA;
+    transition: all 0.3s ease-in-out;
+    .spitiutal-title {
+        border-bottom: 4px solid #E9E9E9;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    .classes-time {
+        margin-top: 25px;
+    }
+    &:hover{
+        box-shadow: 0 2px 6px rgba(112,112,112, 0.3);
+    }
+}
+.service-area {
+    z-index: 3;
+    position: relative;
+}
+.service-top-banner {
+    position: relative;
+    z-index: 0;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 350px;
+        width: 300px;
+        background: url(../images/bg/banner-top.png);
+            background-repeat: repeat;
+            background-size: auto;
+        background-size: contain;
+        background-repeat: no-repeat;
+        left: auto;
+        z-index: -1;
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 350px;
+        width: 300px;
+        background: url(../images/bg/banner-bottom.png);
+            background-repeat: repeat;
+            background-size: auto;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: bottom;
+    }
+}
+.mision-list {
+    & li {
+        margin-bottom: 10px;
+    }
+}
+.single-event-wrap {
+    .event-image {
+        a {
+            display: block;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

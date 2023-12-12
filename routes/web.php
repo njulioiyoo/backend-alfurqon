@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/about-us/{slug}', [PageController::class, 'about'])->name('about');
+Route::get('/gallery/{slug}', [PageController::class, 'gallery'])->name('gallery');
+Route::get('/news/{slug}', [PageController::class, 'news'])->name('news');
+
+Route::fallback(function ($e) {
+    return redirect('/');
 });

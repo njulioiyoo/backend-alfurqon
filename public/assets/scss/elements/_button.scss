@@ -1,0 +1,12 @@
+
+.about-us-btn {
+    border-radius: 25px;
+    height: 40px;
+    padding: 0 45px;
+    line-height: 2.2;
+    border: 2px solid #6CBEF1;
+    &:hover {
+        color: #333;
+        background: #6CBEF1;
+    }
+}

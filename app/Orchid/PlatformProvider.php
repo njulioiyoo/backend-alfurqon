@@ -62,7 +62,12 @@ class PlatformProvider extends OrchidServiceProvider
                         ->icon('bs.video')
                         ->permission('platform.systems.gallery.video')
                         ->route('platform.systems.gallery.video')
-                ])->divider(),
+                ]),
+            Menu::make(__('News & Announcements'))
+                ->icon('bs.notebook')
+                ->route('platform.systems.news')
+                ->permission('platform.systems.news')
+                ->divider(),
 
             Menu::make(__('Partnerships'))
                 ->icon('bs.server')
@@ -105,7 +110,8 @@ class PlatformProvider extends OrchidServiceProvider
         return [
             ItemPermission::group(__('System'))
                 ->addPermission('platform.systems.roles', __('Roles'))
-                ->addPermission('platform.systems.users', __('Users')),
+                ->addPermission('platform.systems.users', __('Users'))
+                ->addPermission('platform.systems.news', __('News & Announcements')),
 
             ItemPermission::group(__('Settings'))
                 ->addPermission('platform.systems.configurations', __('Configurations')),
@@ -122,6 +128,7 @@ class PlatformProvider extends OrchidServiceProvider
             ItemPermission::group(__('Gallery'))
                 ->addPermission('platform.systems.gallery.photo', __('Mosque photos, events, and activities'))
                 ->addPermission('platform.systems.gallery.video', __('Video recordings of important events'))
+
         ];
     }
 }

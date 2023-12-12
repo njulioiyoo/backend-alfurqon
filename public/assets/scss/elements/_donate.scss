@@ -1,0 +1,499 @@
+/*=======================================
+=            09. Donate Css           =
+=========================================*/
+.donation-image {
+    @media #{$tablet-device,$large-mobile}{
+        margin-bottom: 30px;
+        & img {
+            width: 100%;
+        }
+    }
+}
+.single-donation-wrap {
+    margin-top: 30px;
+    & .content-title {
+        margin-bottom: 35px;
+    }
+}
+.progress-bar {
+    &--one {
+        & .progress-charts {
+            margin-top: 5px;
+            margin-bottom: 20px;
+
+            & .heading {
+                color: #6d70a6;
+                margin-bottom: 12px;
+                font-weight: 400;
+            }
+            
+            & .progress  {
+                height: 15px;
+                overflow: visible;
+                font-size: 14px;
+                background-color: #F8F9F9;
+                border: 1px solid #FCF2D5;
+                border-radius: 25px;
+                
+                & .progress-bar {
+                    position: relative;
+                    background-color: #9C7AF2;
+                    background-image: linear-gradient(-224deg, #FBD0A9 0, #F34B00 100%);
+                    color: #F34B00;
+                    overflow: inherit;
+                    border-radius: 25px;
+        
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        right: -4px;
+                        top: 50%;
+                        border-radius: 50%;
+                        transform: translate(50%, -50%);
+                        color: currentColor;
+                        background: #F34B00;
+                    }
+        
+                    &::after {
+                        height: 30px;
+                        width: 30px;
+                        border: 4px solid #FCF2D5;
+                    }
+        
+                    & .percent-label {
+                        position: absolute;
+                        right: -35px;
+                        font-size: 14px;
+                        font-weight: 500;
+                        bottom: -45px;
+                        text-align: center;
+                        margin-bottom: 0;
+                        color: $theme-color--default;
+                        line-height: 1.2;
+                        & span {
+                            font-size: 10px;
+                            color: $theme-color--default;
+                        }
+        
+                    }
+                }
+            }
+
+        }
+    }
+    &--two {
+        & .progress-charts {
+            margin-top: 5px;
+            margin-bottom: 20px;
+
+            & .heading {
+                color: #6d70a6;
+                margin-bottom: 12px;
+                font-weight: 400;
+            }
+            
+            & .progress  {
+                height: 15px;
+                overflow: visible;
+                font-size: 14px;
+                background-color: #F8F9F9;
+                border: 1px solid #D5FCFB;
+                border-radius: 25px;
+                
+                & .progress-bar {
+                    position: relative;
+                    background-color: #9C7AF2;
+                    background-image: linear-gradient(-224deg, #A9FBF0 0, #0051F3 100%);
+                    color: #6CBEF1;
+                    overflow: inherit;
+                    border-radius: 25px;
+        
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        right: -4px;
+                        top: 50%;
+                        border-radius: 50%;
+                        transform: translate(50%, -50%);
+                        color: currentColor;
+                        background: #6CBEF1;
+                    }
+        
+                    &::after {
+                        height: 30px;
+                        width: 30px;
+                        border: 4px solid #D5FCF7;
+                    }
+        
+                    & .percent-label {
+                        position: absolute;
+                        right: -35px;
+                        font-size: 14px;
+                        font-weight: 600;
+                        top: -35px;
+                        text-align: center;
+                        margin-bottom: 0;
+                        color: #444;
+                        line-height: 1.2;
+                    }
+                }
+            }
+
+        }
+    }
+}
+.progress-wrap-hindu { 
+    .progress_sold_av {
+        margin-top: 10px;
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+        & .start-sold {
+            color: $theme-color--default;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        & .sold-av {
+            text-align: center;
+            margin-bottom: 0;
+            color: #54B5BF;
+            font-weight: 600;
+            line-height: 1.2;
+            & span {
+                font-size: 10px;
+                color: $theme-color--default;
+            }
+        }
+    }
+
+
+    .donate-btn {
+        & .btn {
+            border-radius: 25px;
+            border: 2px solid $theme-color--default;
+            padding: 10px 20px;
+            width: 150px;
+            background: transparent;
+            &:hover {
+                background: $theme-color--default;
+            }
+        }
+    }
+}
+.progress_sold_causes {
+    display: flex;
+    margin-top: 20px;
+    font-weight: 500;
+    & p {
+        margin-bottom: 0;
+    }
+}
+.single-causes-wrap {
+    .event-image {
+        img{
+            width: 100%;
+        }
+    }
+}
+
+.causes-cont {
+    padding: 30px 20px;
+    background: #FAFAFA;
+    border-bottom: 1px solid #E8E8E8;
+    border-left: 1px solid #E8E8E8;
+    border-right: 1px solid #E8E8E8;
+
+    & .progress-bar--two .progress-charts  .progress {
+        background-color: transparent;
+        border-color: 2px solid #D5FCFB;
+    }
+}
+
+.progress-wrap-muslim {
+    .progress_sold_av {
+        margin-top: 10px;
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+        & .start-sold {
+            color: #333;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        & .sold-av {
+            text-align: center;
+            margin-bottom: 0;
+            color: #54B5BF;
+            font-weight: 600;
+            line-height: 1.2;
+            & span {
+                font-size: 10px;
+                color: #333;
+            }
+        }
+    }
+    
+    
+    .donate-btn {
+        & .btn {
+            border-radius: 25px;
+            border: 2px solid #6CBEF1;
+            padding: 10px 20px;
+            width: 150px;
+            background: transparent;
+            &:hover {
+                background: #6CBEF1;
+                color: $white;
+            }
+        }
+    }
+    
+}
+
+.hindu-video-section-pb {
+    padding-top: 220px;
+    padding-bottom: 70px;
+    @media #{$desktop-device}{
+        padding-top: 120px;
+    }
+    @media #{$tablet-device,$large-mobile}{
+        padding-top: 80px;
+    }
+}
+
+.bg-overlay-black {
+    position: relative;
+    &::before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0,0,0,0.6);
+        content: '';
+        border-radius: 5px;
+    }
+}
+
+.newsletter-bg {
+    background: url(../images/bg/newsletter-bg.png);
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+}
+
+.hindu-video-bg {
+    background: url(../images/bg/hindu-video-bg.png);
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+.church-video-bg{
+    background: url(../images/bg/church-video-bg.png);
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+.church-testmonial-bg {
+    background: url(../images/bg/church-testmonial.png);
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+.about-video-bg {
+    background: url(../images/bg/about-video-bg.png);
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+.about-video-box {
+    height: 460px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.progress_sold_target {
+    margin-bottom: 10px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    & .start-sold {
+        color: #333;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+    & .sold-av {
+        text-align: center;
+        margin-bottom: 0;
+        font-weight: 500;
+    }
+}
+
+
+.christian-donate-box {
+    border-top: 1px solid #ddd;
+    padding-top: 25px;
+    display: flex;
+    align-items: center;
+   
+    .social-share {
+        display: flex;
+        margin-left: 30px;
+        align-items: center;
+        & p {
+            margin-bottom: 0;
+            font-size: 16px;
+        }
+    }
+    .social-share-icon {
+        & li {
+            display: inline-block;
+            margin-left: 20px;
+            & a {
+                font-size: 16px;
+            }
+        }
+    }
+    @media #{$small-mobile}{
+        flex-direction: column;
+        .social-share {
+            margin-top: 20px;
+            margin-left: 0px;
+        }
+    }
+}
+
+.contact-us-btn-white {
+    border: 2px solid #A1978A;
+    height: 44px;
+    padding: 0 45px;
+    border-radius: 25px;
+    background: #fff;
+    line-height: 2.4;
+    &:hover{
+        background: #A1978A;
+        color: $white;
+    }
+}
+.event-image {
+    @media #{$large-mobile} {
+        img {
+            width: 100%;
+        }
+    }
+}
+.event-content {
+    margin-top: 25px;
+    & .event-date {
+        font-weight: 600;
+        color: #707070;
+        margin-bottom: 15px;
+        & span {
+            margin-right: 20px;
+        }
+    }
+}
+
+.ticket-btn {
+    border: 2px solid #F56C2A;
+    height: 44px;
+    padding: 0 45px;
+    border-radius: 25px;
+    background: #fff;
+    line-height: 40px;
+    font-size: 14px;
+    &:hover{
+        background: #F56C2A;
+        color: #fff;
+    }
+}
+
+
+.newsletter-box-area {
+    display: flex;
+    justify-content: space-between;
+    padding: 70px 120px;
+    align-items: center;
+    @media #{$large-mobile}{
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+    @media #{$tablet-device}{
+        padding: 60px 23px;
+    }
+    @media #{$desktop-device}{
+        padding: 60px 40px;
+    }
+
+    & .newsletter-input-box {
+        position: relative;
+        &  input {
+            border: 2px solid #ddd;
+            width: 392px;
+            border-radius: 25px;
+            padding: 8px 101px 8px 20px;
+            position: relative;
+        }
+        & .subscribe-btn {
+            position: absolute;
+            right: 8px;
+            background: #F8F4EB;
+            border-radius: 25px;
+            top: 8px;
+            padding: 4px 18px;
+            font-size: 13px;
+            &:hover{
+                background: #ddd;
+            }
+        }
+        @media #{$large-mobile}{
+            margin-top: 30px;
+        }
+        @media #{$tablet-device}{
+            &  input {
+                width: 292px;
+            }
+        }
+    }
+} 
+
+.event-date {
+    font-weight: 600;
+    color: #707070;
+    margin-bottom: 15px;
+    span {
+        margin-right: 20px;
+    }
+}
+.venue-list {
+    & li {
+        margin-bottom: 20px;
+        & span {
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+    }
+}
+
+
+.googleMap-2 {
+    height: 300px !important;
+    border-radius: 0 !important;
+    @media #{$large-mobile,$tablet-device}{
+        margin-bottom: 30px;
+    }
+}
+
+.single-by-ticket-btn {
+    background: #F8F4EB;
+    border: 2px solid #E5DEDE;
+    border-radius: 25px;
+    padding: 6px 40px;
+    &:hover {
+        background: #E5DEDE;
+    }
+}

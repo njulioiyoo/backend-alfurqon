@@ -29,6 +29,8 @@ use App\Orchid\Screens\Gallery\Video\EventVideoScreen;
 use App\Orchid\Screens\MasterData\ContentType\ContentTypeScreen;
 use App\Orchid\Screens\MasterData\Partnership\PartnershipEditScreen;
 use App\Orchid\Screens\MasterData\Partnership\PartnershipListScreen;
+use App\Orchid\Screens\News\NewsEditScreen;
+use App\Orchid\Screens\News\NewsListScreen;
 
 /*
 |--------------------------------------------------------------------------
@@ -190,3 +192,24 @@ Route::screen('video', EventVideoScreen::class)
             ->parent('platform.index')
             ->push('Video');
     });
+
+// Platform > System > News
+Route::screen('news', NewsListScreen::class)
+    ->name('platform.systems.news')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.index')
+        ->push(__('News'), route('platform.systems.news')));
+
+// Platform > System > News > Create
+Route::screen('news/create', NewsEditScreen::class)
+    ->name('platform.systems.news.create')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.systems.news')
+        ->push(__('Create'), route('platform.systems.news.create')));
+
+// Platform > System > News > Edit
+Route::screen('news/{news}/edit', NewsEditScreen::class)
+    ->name('platform.systems.news.edit')
+    ->breadcrumbs(fn (Trail $trail, $news) => $trail
+        ->parent('platform.systems.news')
+        ->push($news->name, route('platform.systems.news.edit', $news)));

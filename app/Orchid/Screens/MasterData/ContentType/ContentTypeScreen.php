@@ -27,7 +27,7 @@ class ContentTypeScreen extends Screen
     public function query(): iterable
     {
         return [
-            'ContentType' => ContentType::whereIn('type', ['contents'])->latest()->paginate(10),
+            'ContentType' => ContentType::whereIn('type', ['news_type'])->latest()->paginate(10),
         ];
     }
 
@@ -116,8 +116,7 @@ class ContentTypeScreen extends Screen
             Layout::modal('ContentTypeModal', Layout::rows([
                 Select::make('contentType.type')
                     ->options([
-                        'contents'  => 'Contents',
-                        'about'     => 'About',
+                        'news_type' => 'News',
                     ])
                     ->title('Select type')
                     ->help('Allow search bots to index'),

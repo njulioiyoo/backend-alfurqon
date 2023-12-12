@@ -1,0 +1,39 @@
+
+/*======================================
+=         11. Counters Css             =
+=======================================*/
+
+.fun-fact-style-one {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    & .single-fun-fact {
+        padding: 0 15px;
+        margin-bottom: 30px;
+    }
+    @media #{$large-mobile}{
+        justify-content: flex-start;
+        & .single-fun-fact {
+            width: 33.33%;
+        }
+    }
+    @media #{$small-mobile}{
+        justify-content: center;
+        text-align: center;
+        & .single-fun-fact {
+            width: 100%;
+        }
+    }
+}
+.fun-fact {
+    &--one {
+        & .fun-fact__count {
+            color: #333;
+        }
+        & .fun-fact__text {
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+        }
+    }
+}
