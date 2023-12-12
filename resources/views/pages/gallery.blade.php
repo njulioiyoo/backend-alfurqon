@@ -16,7 +16,7 @@
             @unless (count($data))
             <div class="row">
                 <div class="col-12 text-center">
-                    <p>Maaf, saat ini belum ada {{ $menuData['news']['label'] }} yang tersedia.</p>
+                    <p>Maaf, saat ini belum ada {{ $menuData['gallery']['label'] }} yang tersedia.</p>
                 </div>
             </div>
             @else
