@@ -15,7 +15,8 @@ class NewsRepository implements NewsRepositoryInterface
                 'slug' => $slug,
                 'active' => '1'
             ])->with(['news' => function ($query) {
-                $query->select('name', 'slug', 'image', 'description', 'parent_id', 'active', 'created_at');
+                $query->select('name', 'slug', 'image', 'description', 'parent_id', 'active', 'created_at')
+                    ->where('active', '1');
             }])->first();
 
         return $data;
