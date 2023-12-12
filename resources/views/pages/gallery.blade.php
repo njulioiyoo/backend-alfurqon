@@ -13,6 +13,13 @@
 <div class="site-wrapper-reveal">
     <div class="gallery-area section-space--pb_120 section-space--pt_90">
         <div class="container">
+            @unless (count($data))
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>Maaf, saat ini belum ada {{ $menuData['news']['label'] }} yang tersedia.</p>
+                </div>
+            </div>
+            @else
             <div class="row">
                 @foreach ($data as $index => $item)
                 <div class="col-lg-4 col-md-6">
@@ -37,6 +44,7 @@
                 </div>
                 @endforeach
             </div>
+            @endunless
         </div>
     </div>
 </div>
