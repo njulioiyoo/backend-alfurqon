@@ -3,16 +3,21 @@
 namespace App\Repositories;
 
 use App\Models\Content;
+use App\Models\News;
 
 class NewsRepository implements NewsRepositoryInterface
 {
     public function getBySlug($slug)
     {
-        return Content::select('type', 'slug', 'name', 'active', 'created_at')
+        $data = Content::select('id', 'type', 'slug', 'name', 'parent_id', 'active', 'created_at')
             ->where([
-                'type' => $slug,
+                'type' => 'news_type',
+                'slug' => $slug,
                 'active' => '1'
-            ])
-            ->orderBy('created_at', 'desc')->get();
+            ])->with(['news' => function ($query) {
+                $query->select('name', 'slug', 'image', 'description', 'parent_id', 'active', 'created_at');
+            }])->first();
+
+        return $data;
     }
 }

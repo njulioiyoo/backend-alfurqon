@@ -21,4 +21,9 @@ class Content extends Model
     {
         return $this->belongsTo(ContentType::class, 'parent_id');
     }
+
+    public function news()
+    {
+        return $this->hasMany(News::class, 'parent_id', 'id');
+    }
 }
