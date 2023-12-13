@@ -1,6 +1,6 @@
 @extends('templates.layout')
 
-@section('title', 'Tentang Kami')
+@section('title', $menuData['about']['label'])
 
 @section('breadcrumb-title', $menuData['about']['label'])
 @section('breadcrumbs')

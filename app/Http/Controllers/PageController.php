@@ -13,14 +13,12 @@ class PageController extends Controller
     private $aboutUsRepository;
     private $galleryRepository;
     private $newsRepository;
-    private $prayerTimes;
 
-    public function __construct(AboutUsRepositoryInterface $aboutUsRepository, GalleryRepositoryInterface $galleryRepository, PrayerTimesRepositoryInterface $prayerTimes, NewsRepositoryInterface $newsRepository)
+    public function __construct(AboutUsRepositoryInterface $aboutUsRepository, GalleryRepositoryInterface $galleryRepository, NewsRepositoryInterface $newsRepository)
     {
         $this->aboutUsRepository = $aboutUsRepository;
         $this->galleryRepository = $galleryRepository;
         $this->newsRepository = $newsRepository;
-        $this->prayerTimes = $prayerTimes;
     }
 
     public function home(Request $request)
@@ -30,9 +28,12 @@ class PageController extends Controller
         return view('welcome');
     }
 
-    public function show($slug, $repository, $view)
+    public function show($slug, $repository, $view, $detail = '')
     {
-        $data = $this->{$repository}->getBySlug($slug);
+        // Gunakan getDetailBySlug jika $detail tidak kosong, jika tidak, gunakan getBySlug
+        $data = $detail
+            ? $this->{$repository}->getDetailBySlug($slug, $detail)
+            : $this->{$repository}->getBySlug($slug);
 
         return view("pages.{$view}", compact('data'));
     }
@@ -49,6 +50,13 @@ class PageController extends Controller
 
     public function news($slug)
     {
+        // Jangan mengirimkan parameter $slug yang tidak diperlukan pada metode news
         return $this->show($slug, 'newsRepository', 'news');
+    }
+
+    public function detailNews($newsType, $slug)
+    {
+        // Kirimkan $newsType sebagai parameter tambahan
+        return $this->show($newsType, 'newsRepository', 'detail-news', $slug);
     }
 }
