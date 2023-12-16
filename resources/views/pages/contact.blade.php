@@ -43,7 +43,7 @@
                         </div>
                         <div class="contact-info">
                             <h4>Mail</h4>
-                            <p><a href="mailto:{{ $website_mail }}">{{ $website_mail ?? '' }}</a>
+                            <p><a href="mailto:{{ $website_mail ?? '' }}">{{ $website_mail ?? '' }}</a>
                         </div>
                     </div>
                 </div>
@@ -133,61 +133,42 @@
 @endsection
 
 @push('extend-scripts')
-<!-- Add this code to your existing script -->
 <script type="text/javascript">
     $('#reload').click(function () {
-        $.ajax({
+      $.ajax({
         type: 'GET',
         url: '{{ route('reload-captcha') }}',
         success: function (data) {
-            $(".captcha span").html(data.captcha);
+          $(".captcha span").html(data.captcha);
         }
-        });
+      });
     });
+
     document.querySelector('#contact').addEventListener('submit', function(e) {
-        e.preventDefault();
-        var form = this;
-        swal({
-            title: "Apakah kamu yakin?",
-            text: "Pesan anda akan dimasukkan ke kotak masuk kami!",
-            icon: "warning",
-            buttons: [
-                "Tidak, batalkan!",
-                "Ya, saya yakin!"
-            ],
-            dangerMode: true,
-        }).then(function(isConfirm) {
-            if (isConfirm) {
-                swal("Harap tunggu kami sedang memeriksa pesan anda!", {
-                    buttons: false,
-                    timer: 3000,
-                }).then(function() {
-                    // Submit the form using AJAX
-                    $.ajax({
-                        type: 'POST',
-                        url: form.action,
-                        data: $(form).serialize(),
-                        success: function (response) {
-                            // Display a success message using SweetAlert
-                            swal({
-                                title: "Berhasil!",
-                                text: "Pesan anda telah terkirim.",
-                                icon: "success",
-                            }).then(function() {
-                                // Redirect to the contact page after the user clicks "OK"
-                                window.location.href = "{{ route('contact') }}";
-                            });
-                        },
-                        error: function (error) {
-                            // Handle errors if the form submission fails
-                            swal("Oops!", "Terjadi kesalahan. Silakan coba lagi.", "error");
-                        }
-                    });
-                });
-            } else {
-                swal("Dibatalkan", "Pesan anda telah dibatalkan :)", "error");
-            }
-        });
+      var form = this;
+      let timerInterval;
+      e.preventDefault();
+      swal({
+       title: "Apakah kamu yakin?",
+        text: "Pesan anda akan dimasukkan ke kotak masuk kami!",
+        icon: "warning",
+        buttons: [
+            "Tidak, batalkan!",
+            "Ya, saya yakin!"
+        ],
+        dangerMode: true,
+      }).then(function(isConfirm) {
+        if (isConfirm) {
+          swal("Harap tunggu kami sedang memeriksa pesan anda!", {
+            buttons: false,
+            timer: 3000,
+          }).then(function() {
+            form.submit();
+          });
+        } else {
+          swal("Dibatalkan", "Pesan anda telah dibatalkan :)", "error");
+        }
+      });
     });
-</script>
+  </script>
 @endpush
