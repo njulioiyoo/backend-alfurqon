@@ -5,15 +5,6 @@ declare(strict_types=1);
 use App\Orchid\Screens\About\HistoryAndBackgroundScreen;
 use App\Orchid\Screens\About\OrgStructureAndLeadershipScreen;
 use App\Orchid\Screens\About\VisionAndMissionScreen;
-use App\Orchid\Screens\Examples\ExampleActionsScreen;
-use App\Orchid\Screens\Examples\ExampleCardsScreen;
-use App\Orchid\Screens\Examples\ExampleChartsScreen;
-use App\Orchid\Screens\Examples\ExampleFieldsAdvancedScreen;
-use App\Orchid\Screens\Examples\ExampleFieldsScreen;
-use App\Orchid\Screens\Examples\ExampleGridScreen;
-use App\Orchid\Screens\Examples\ExampleLayoutsScreen;
-use App\Orchid\Screens\Examples\ExampleScreen;
-use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
@@ -31,6 +22,8 @@ use App\Orchid\Screens\MasterData\Partnership\PartnershipEditScreen;
 use App\Orchid\Screens\MasterData\Partnership\PartnershipListScreen;
 use App\Orchid\Screens\News\NewsEditScreen;
 use App\Orchid\Screens\News\NewsListScreen;
+use App\Orchid\Screens\Program\ProgramListScreen;
+use App\Orchid\Screens\Program\ProgramEditScreen;
 
 /*
 |--------------------------------------------------------------------------
@@ -213,3 +206,25 @@ Route::screen('news/{news}/edit', NewsEditScreen::class)
     ->breadcrumbs(fn (Trail $trail, $news) => $trail
         ->parent('platform.systems.news')
         ->push($news->name, route('platform.systems.news.edit', $news)));
+
+
+// Platform > System > Program
+Route::screen('program', ProgramListScreen::class)
+    ->name('platform.systems.program')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.index')
+        ->push(__('Program'), route('platform.systems.program')));
+
+// Platform > System > Program > Create
+Route::screen('program/create', ProgramEditScreen::class)
+    ->name('platform.systems.program.create')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.systems.program')
+        ->push(__('Create'), route('platform.systems.program.create')));
+
+// Platform > System > Program > Edit
+Route::screen('program/{program}/edit', ProgramEditScreen::class)
+    ->name('platform.systems.program.edit')
+    ->breadcrumbs(fn (Trail $trail, $program) => $trail
+        ->parent('platform.systems.program')
+        ->push($program->name, route('platform.systems.program.edit', $program)));

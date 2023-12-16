@@ -53,19 +53,12 @@ class AppServiceProvider extends ServiceProvider
 
     private function getMenuData()
     {
-        $newsType = Content::select('type', 'slug', 'name', 'active', 'created_at')->where([
-            'type' => 'news_type',
-            'active' => '1'
-        ])->orderBy('created_at', 'desc')->get();
+        // Mendapatkan submenu untuk berita
+        $newsSubMenu = $this->getSubMenu('news_type', 'news');
 
-        $newsSubMenu = [];
+        // Mendapatkan submenu untuk program
+        $programSubMenu = $this->getSubMenu('program_type', 'program');
 
-        foreach ($newsType as $type) {
-            $newsSubMenu[] = [
-                'url' => route('news', $type->slug),
-                'label' => $type->name,
-            ];
-        }
 
         $menuData = [
             'about' => [
@@ -85,14 +78,10 @@ class AppServiceProvider extends ServiceProvider
                     ['url' => route('gallery', 'video'), 'label' => 'Video rekaman acara-acara penting'],
                 ],
             ],
-            'programs' => [
+            'program' => [
                 'url' => '#',
                 'label' => 'PROGRAM',
-                'submenu' => [
-                    ['url' => '#', 'label' => 'Rekaman khutbah dan ceramah'],
-                    ['url' => '#', 'label' => 'Artikel atau teks khutbah terbaru'],
-                    ['url' => '#', 'label' => 'Daftar pembicara dan khatib'],
-                ],
+                'submenu' => $programSubMenu,
             ],
             'news' => [
                 'url' => '#',
@@ -100,11 +89,29 @@ class AppServiceProvider extends ServiceProvider
                 'submenu' => $newsSubMenu,
             ],
             'contact' => [
-                'url' => '#',
+                'url' => route('contact'),
                 'label' => 'HUBUNGI KAMI'
             ]
         ];
 
         return $menuData;
+    }
+
+    private function getSubMenu($contentType, $routeName)
+    {
+        return Content::select('type', 'slug', 'name', 'active', 'created_at')
+            ->where([
+                'type' => $contentType,
+                'active' => '1'
+            ])
+            ->orderBy('created_at', 'desc')
+            ->get()
+            ->map(function ($item) use ($routeName) {
+                return [
+                    'url' => route($routeName, $item->slug),
+                    'label' => $item->name,
+                ];
+            })
+            ->toArray();
     }
 }

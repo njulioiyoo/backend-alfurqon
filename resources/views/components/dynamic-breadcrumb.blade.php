@@ -1,9 +1,9 @@
 @php
     $breadcrumbKey = $breadcrumbKey ?? 'gallery'; // Default key
-@endphp
+    @endphp
 
 @if (isset($menuData[$breadcrumbKey]['submenu']))
-    @php
+@php
         $routeParams = request()->route()->parameters;
         $breadcrumbDisplayed = false;
     @endphp
@@ -13,7 +13,7 @@
             $selectedSlug = Str::afterLast($submenuItem['url'], '/');
         @endphp
 
-        @if (!$breadcrumbDisplayed && $routeParams['slug'] === $selectedSlug)
+        @if (!$breadcrumbDisplayed && $routeParams['type'] === $selectedSlug)
             <li class="breadcrumb-item active">{{ $submenuItem['label'] }}</li>
             @php $breadcrumbDisplayed = true; @endphp
         @endif

@@ -4,5 +4,5 @@ namespace App\Repositories;
 
 interface GalleryRepositoryInterface
 {
-    public function getBySlug($slug);
+    public function getBySlug($type, $slug);
 }

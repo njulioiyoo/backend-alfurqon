@@ -1,27 +1,27 @@
 @extends('templates.layout')
 
-@section('title', $menuData['gallery']['label'])
+@section('title', 'Program')
 
-@section('breadcrumb-title', $menuData['gallery']['label'])
+@section('breadcrumb-title', $menuData['program']['label'])
 @section('breadcrumbs')
-    @include('components.dynamic-breadcrumb', ['breadcrumbKey' => 'gallery'])
+    @include('components.dynamic-breadcrumb', ['breadcrumbKey' => 'program'])
 @endsection
 
 @section('content')
-    @include('components.breadcrumb')
+@include('components.breadcrumb')
 
 <div class="site-wrapper-reveal">
     <div class="gallery-area section-space--pb_120 section-space--pt_90">
         <div class="container">
-            @unless (count($data))
+            @unless (count($data['program']))
             <div class="row">
                 <div class="col-12 text-center">
-                    <p>Maaf, saat ini belum ada {{ $menuData['gallery']['label'] }} yang tersedia.</p>
+                    <p>Maaf, saat ini belum ada {{ $menuData['program']['label'] }} yang tersedia.</p>
                 </div>
             </div>
             @else
             <div class="row">
-                @foreach ($data as $index => $item)
+                @foreach ($data['program'] as $index => $item)
                 <div class="col-lg-4 col-md-6">
                     <div class="single-service-wrap mt-40">
                         <div class="single-gallery-wrap">
@@ -48,4 +48,5 @@
         </div>
     </div>
 </div>
+
 @endsection

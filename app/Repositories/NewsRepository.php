@@ -7,22 +7,32 @@ use App\Models\News;
 
 class NewsRepository implements NewsRepositoryInterface
 {
-    public function getBySlug($slug)
+    public function getBySlug($type, $slug)
     {
-        return Content::with(['news' => function ($query) {
-            $query->select('name', 'slug', 'image', 'description', 'parent_id', 'active', 'created_at')
-                ->where('active', '1');
-        }])
+        return Content::with($this->getRelationConstraints())
             ->select('id', 'type', 'slug', 'name', 'parent_id', 'active', 'created_at')
-            ->where('type', 'news_type')
+            ->where('type', $type)
             ->where('slug', $slug)
             ->where('active', '1')
             ->first();
     }
 
-    public function getDetailBySlug($newsType, $slug)
+    protected function getRelationConstraints()
     {
-        $newsType = $this->getBySlug($newsType);
+        $baseQuery = function ($query) {
+            $query->select('name', 'slug', 'image', 'description', 'parent_id', 'active', 'created_at')
+                ->where('active', '1');
+        };
+
+        return [
+            'news' => $baseQuery,
+            'program' => $baseQuery,
+        ];
+    }
+
+    public function getDetailBySlug($type, $newsType, $slug)
+    {
+        $newsType = $this->getBySlug($type, $newsType);
 
         return News::with('user:id,name,email', 'parent:id,name')
             ->where([

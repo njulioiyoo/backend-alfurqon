@@ -4,11 +4,11 @@
 
 @section('breadcrumb-title', $data['name'])
 @section('breadcrumbs')
-    @include('components.dynamic_breadcrumb', ['breadcrumbKey' => 'news'])
+    @include('components.dynamic-breadcrumb', ['breadcrumbKey' => 'news'])
 @endsection
 
 @section('content')
-@include('components._breadcrumb')
+@include('components.breadcrumb')
 
 <div class="site-wrapper-reveal">
     <div class="church-about-area section-space--ptb_120 ">

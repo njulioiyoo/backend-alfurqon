@@ -3,7 +3,7 @@
         <div class="col-lg-12 d-flex align-items-center">
             <div class="header__logo">
                 <div class="logo">
-                    <a href="{{ route('home') }}"><img src="{{ $website_logo_header }}" alt=""></a>
+                    <a href="{{ route('home') }}"><img src="{{ $website_logo_header ?? '' }}" alt=""></a>
                 </div>
             </div>
             <div class="header-right">

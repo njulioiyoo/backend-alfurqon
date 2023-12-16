@@ -24,6 +24,7 @@ class ContentTypeEditLayout extends Rows
             Select::make('contentType.type')
                 ->options([
                     'news_type' => 'News',
+                    'program_type' => 'Program',
                 ])
                 ->title('Select type')
                 ->help('Allow search bots to index'),

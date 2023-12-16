@@ -4,11 +4,11 @@
 
 @section('breadcrumb-title', $menuData['news']['label'])
 @section('breadcrumbs')
-    @include('components.dynamic_breadcrumb', ['breadcrumbKey' => 'news'])
+    @include('components.dynamic-breadcrumb', ['breadcrumbKey' => 'news'])
 @endsection
 
 @section('content')
-@include('components._breadcrumb')
+@include('components.breadcrumb')
 
 <div class="site-wrapper-reveal">
     <div class="events-area section-space--pb_120 section-space--pt_90">
@@ -36,7 +36,7 @@
                                     <p>{{ Str::limit($newsItem['description'], 150) }}</p>
                                 </div>
                                 <div class="ticket-button-box mt-20">
-                                    <a href="{{ route('detail.news', ['news_type' => $data['slug'], 'slug' => $newsItem['slug']]) }}" class="btn ticket-btn">Baca Selengkapnya</a>
+                                    <a href="{{ route('detail.news', ['type' => $data['slug'], 'slug' => $newsItem['slug']]) }}" class="btn ticket-btn">Baca Selengkapnya</a>
                                 </div>
                             </div>
                         </div>

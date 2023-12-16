@@ -26,4 +26,9 @@ class Content extends Model
     {
         return $this->hasMany(News::class, 'parent_id', 'id');
     }
+
+    public function program()
+    {
+        return $this->hasMany(Program::class, 'parent_id', 'id');
+    }
 }

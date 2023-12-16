@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}">
 
+    <link rel="stylesheet" href="{{ asset("assets/css/sweetalert.min.css") }}">
     @foreach (['vendor/bootstrap.min.css', 'vendor/flaticon.css', 'plugins/swiper.min.css', 'plugins/magnific-popup.css', 'style.css'] as $style)
         <link rel="stylesheet" href="{{ asset("assets/css/$style") }}">
     @endforeach
@@ -32,12 +33,13 @@
         <i class="arrow-bottom flaticon-up-arrow"></i>
     </a>
     <div class="mobile-menu-overlay" id="mobile-menu-overlay">
-        @include('components.mobile_header')
+        @include('components.mobile-header')
     </div>
 
     @foreach (['vendor/modernizr-2.8.3.min.js', 'vendor/jquery-3.5.1.min.js', 'vendor/jquery-migrate-3.3.0.min.js', 'vendor/bootstrap.min.js', 'plugins/swiper.min.js', 'plugins/waypoints.min.js', 'plugins/counterup.min.js', 'plugins/jquery.magnific-popup.min.js', 'plugins/wow.min.js', 'plugins/ajax.mail.js', 'main.js'] as $script)
         <script src="{{ asset("assets/js/$script") }}"></script>
     @endforeach
+    <script src="{{ asset("assets/js/sweetalert.min.js") }}"></script>
 
     @stack('extend-scripts')
 </body>

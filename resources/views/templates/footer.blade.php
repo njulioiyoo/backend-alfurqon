@@ -82,8 +82,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="copy-right-box">
-                    <p class="text-white">Copyright &copy; 2020 Hastech <a href="https://hasthemes.com/" target="_blank">All Right Reserved</a>.</p>
-                    <p class=" text-white"><a href="#">Privacy policy</a></p>
+                    <p class="text-white">Copyright © {{ config('app.name') }} {{ date('Y') }}. All rights reserved. No part of this website may be reproduced, distributed, or transmitted in any form or by any means without the prior written permission of {{ config('app.name') }}.</p>
                 </div>
             </div>
         </div>

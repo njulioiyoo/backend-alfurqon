@@ -15,12 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PageController::class, 'home'])->name('home');
-Route::get('/about-us/{slug}', [PageController::class, 'about'])->name('about');
-Route::get('/gallery/{slug}', [PageController::class, 'gallery'])->name('gallery');
-Route::get('/news/{slug}', [PageController::class, 'news'])->name('news');
+Route::get('/about-us/{type}', [PageController::class, 'about'])->name('about');
+Route::get('/gallery/{type}', [PageController::class, 'gallery'])->name('gallery');
 Route::prefix('news')->group(function () {
-    Route::get('/{news_type}', [PageController::class, 'news'])->name('news');
-    Route::get('/{news_type}/detail/{slug}', [PageController::class, 'detailNews'])->name('detail.news');
+    Route::get('/{type}', [PageController::class, 'news'])->name('news');
+    Route::get('/{type}/detail/{slug}', [PageController::class, 'detailNews'])->name('detail.news');
+});
+Route::match(['GET', 'POST'], 'contact', [PageController::class, 'contact'])->name('contact');
+Route::get('/reload-captcha',  [PageController::class, 'reloadCaptcha'])->name('reload-captcha');
+Route::prefix('program')->group(function () {
+    Route::get('/{type}', [PageController::class, 'program'])->name('program');
+    Route::get('/{type}/detail/{slug}', [PageController::class, 'detailProgram'])->name('program.news');
 });
 
 Route::fallback(function ($e) {

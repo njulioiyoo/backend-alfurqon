@@ -4,6 +4,6 @@ namespace App\Repositories;
 
 interface NewsRepositoryInterface
 {
-    public function getBySlug($slug);
-    public function getDetailBySlug($newsType, $slug);
+    public function getBySlug($type, $slug);
+    public function getDetailBySlug($type, $newsType, $slug);
 }

@@ -106,6 +106,12 @@ class ConfigurationScreen extends Screen
                         ->placeholder('Enter website contact information')
                         ->rows(5)
                         ->value($configurations['website_contact_info'] ?? ''),
+                    Input::make('website_phone_number')
+                        ->horizontal()
+                        ->title('Website Phone Number')
+                        ->placeholder('Enter website phone number')
+                        ->type('number')
+                        ->value($configurations['website_phone_number'] ?? ''),
                     Input::make('website_mail')
                         ->horizontal()
                         ->title('Website Email')

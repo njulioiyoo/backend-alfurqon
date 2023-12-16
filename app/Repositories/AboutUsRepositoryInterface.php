@@ -4,5 +4,5 @@ namespace App\Repositories;
 
 interface AboutUsRepositoryInterface
 {
-    public function getBySlug($key);
+    public function getBySlug($type, $key);
 }

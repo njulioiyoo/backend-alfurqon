@@ -51,6 +51,7 @@ class PlatformProvider extends OrchidServiceProvider
                         ->permission('platform.systems.about.organizational-structure-and-leadership')
                         ->route('platform.systems.about.organizational-structure-and-leadership'),
                 ]),
+
             Menu::make(__('Gallery'))
                 ->icon('bs.photo')
                 ->list([
@@ -63,6 +64,12 @@ class PlatformProvider extends OrchidServiceProvider
                         ->permission('platform.systems.gallery.video')
                         ->route('platform.systems.gallery.video')
                 ]),
+
+            Menu::make(__('Program'))
+                ->icon('bs.monitor')
+                ->route('platform.systems.program')
+                ->permission('platform.systems.program'),
+
             Menu::make(__('News & Announcements'))
                 ->icon('bs.notebook')
                 ->route('platform.systems.news')
@@ -111,6 +118,7 @@ class PlatformProvider extends OrchidServiceProvider
             ItemPermission::group(__('System'))
                 ->addPermission('platform.systems.roles', __('Roles'))
                 ->addPermission('platform.systems.users', __('Users'))
+                ->addPermission('platform.systems.program', __('Program'))
                 ->addPermission('platform.systems.news', __('News & Announcements')),
 
             ItemPermission::group(__('Settings'))
