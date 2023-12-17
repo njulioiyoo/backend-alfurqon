@@ -36,16 +36,10 @@
             <div class="col-lg-3 col-md-6">
                 <div class="widget-footer mt-30">
                     <div class="footer-title">
-                        <h6>Information</h6>
+                        <h6>Informasi Waktu Shalat</h6>
                     </div>
                     <div class="footer-contents">
-                        <ul>
-                            <li>Sun Rise: 6:00 am</li>
-                            <li>Sun Sat: 5:50 pm</li>
-                            <li>Start Time: 9:00 am</li>
-                            <li>End Time: 11.00 pm</li>
-                            <li>Lunch: 01:30 pm</li>
-                        </ul>
+                        <ul id="prayerTimesInfoContainer"></ul>
                     </div>
                 </div>
             </div>

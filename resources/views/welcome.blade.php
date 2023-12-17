@@ -15,8 +15,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="salat-content" id="prayerTimesContainer">
-                    </div>
+                    <div class="salat-content" id="prayerTimesContainer"></div>
                 </div>
             </div>
         </div>
@@ -460,7 +459,7 @@
 @endsection
 
 @push('extend-scripts')
-<script>
+{{-- <script text="type/javascript">
     // Fungsi untuk mendapatkan waktu shalat dari API Aladhan
     function getPrayerTimes(latitude, longitude) {
         var xhr = new XMLHttpRequest();
@@ -500,7 +499,7 @@
     }
 
     // Fungsi untuk menampilkan waktu salat dalam format HTML
-    function displayPrayerTimes(prayerTimes) {
+    function displayPrayerTimesCopy(prayerTimes) {
         var container = document.getElementById('prayerTimesContainer');
         container.innerHTML = ''; // Menghapus konten sebelumnya
 
@@ -514,6 +513,32 @@
                 </div>
             `;
             container.innerHTML += html;
+        });
+    }
+
+    // Fungsi untuk menampilkan waktu salat dalam format HTML
+    function displayPrayerTimes(prayerTimes) {
+        var container = document.getElementById('prayerTimesContainer');
+        var infoContainer = document.getElementById('prayerTimesInfoContainer');
+        
+        container.innerHTML = ''; // Menghapus konten sebelumnya
+        infoContainer.innerHTML = ''; // Menghapus konten sebelumnya
+
+        prayerTimes.forEach(function (prayerTime) {
+            // Tambahkan elemen HTML ke container waktu salat
+            var html = `
+                <div class="single-salat-time">
+                    <div class="img"><img src="assets/images/icons/${prayerTime.icon}" alt="${prayerTime.name}"></div>
+                    <div class="salat-times__box">
+                        <h4>${prayerTime.name}</h4><span>${prayerTime.time}</span>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += html;
+
+            // Tambahkan informasi waktu salat ke container informasi
+            var infoHtml = `<li>${prayerTime.name}: ${prayerTime.time}</li>`;
+            infoContainer.innerHTML += infoHtml;
         });
     }
 
@@ -537,5 +562,5 @@
     }
 
     getLatitudeAndLongitude();
-</script>
+</script> --}}
 @endpush

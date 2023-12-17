@@ -135,13 +135,13 @@
 @push('extend-scripts')
 <script type="text/javascript">
     $('#reload').click(function () {
-      $.ajax({
-        type: 'GET',
-        url: '{{ route('reload-captcha') }}',
-        success: function (data) {
-          $(".captcha span").html(data.captcha);
-        }
-      });
+        $.ajax({
+            type: 'GET',
+            url: '{{ route('reload-captcha') }}',
+            success: function (data) {
+                $(".captcha span").html(data.captcha);
+            }
+        });
     });
 
     document.querySelector('#contact').addEventListener('submit', function(e) {
@@ -149,26 +149,26 @@
       let timerInterval;
       e.preventDefault();
       swal({
-       title: "Apakah kamu yakin?",
-        text: "Pesan anda akan dimasukkan ke kotak masuk kami!",
-        icon: "warning",
-        buttons: [
-            "Tidak, batalkan!",
-            "Ya, saya yakin!"
-        ],
-        dangerMode: true,
-      }).then(function(isConfirm) {
-        if (isConfirm) {
-          swal("Harap tunggu kami sedang memeriksa pesan anda!", {
-            buttons: false,
-            timer: 3000,
-          }).then(function() {
-            form.submit();
-          });
-        } else {
-          swal("Dibatalkan", "Pesan anda telah dibatalkan :)", "error");
-        }
-      });
+        title: "Apakah kamu yakin?",
+            text: "Pesan anda akan dimasukkan ke kotak masuk kami!",
+            icon: "warning",
+            buttons: [
+                "Tidak, batalkan!",
+                "Ya, saya yakin!"
+            ],
+            dangerMode: true,
+        }).then(function(isConfirm) {
+            if (isConfirm) {
+                swal("Harap tunggu kami sedang memeriksa pesan anda!", {
+                    buttons: false,
+                    timer: 3000,
+                }).then(function() {
+                    form.submit();
+                });
+            } else {
+            swal("Dibatalkan", "Pesan anda telah dibatalkan :)", "error");
+            }
+        });
     });
   </script>
 @endpush
