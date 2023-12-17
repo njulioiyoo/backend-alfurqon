@@ -55,8 +55,8 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <div class="embed-responsive-item">
-                            <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDI33BK7-y6bqpyOiFImvWSymq6sofXFwI&zoom=16&q={{ $website_contact_info }}" style="border:0; height: 400px; width: 600px;"></iframe>
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDI33BK7-y6bqpyOiFImvWSymq6sofXFwI&zoom=16&q={{ $website_contact_info }}" style="border:0;"></iframe>
                         </div>
                     </div>
                     <div class="col-lg-6">
