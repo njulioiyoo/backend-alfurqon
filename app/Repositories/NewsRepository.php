@@ -10,7 +10,7 @@ class NewsRepository implements NewsRepositoryInterface
     public function getBySlug($type, $slug)
     {
         return Content::with($this->getRelationConstraints())
-            ->select('id', 'type', 'slug', 'name', 'parent_id', 'active', 'created_at')
+            ->select('id', 'type', 'slug', 'name', 'body', 'parent_id', 'active', 'created_at')
             ->where('type', $type)
             ->where('slug', $slug)
             ->where('active', '1')
@@ -20,7 +20,7 @@ class NewsRepository implements NewsRepositoryInterface
     protected function getRelationConstraints()
     {
         $baseQuery = function ($query) {
-            $query->select('name', 'slug', 'image', 'description', 'parent_id', 'active', 'created_at')
+            $query->select('name', 'slug', 'image', 'description', 'body', 'source', 'parent_id', 'active', 'created_at')
                 ->where('active', '1');
         };
 

@@ -130,6 +130,13 @@ class ConfigurationScreen extends Screen
                         ->value($websiteLogoFooter)
                         ->targetUrl()
                         ->horizontal(),
+                    Cropper::make('main_picture_about')
+                        ->title('Main Picture (595x629)')
+                        ->maxWidth(595)
+                        ->maxHeight(629)
+                        ->value($configurations['main_picture_about'] ?? '')
+                        ->targetUrl()
+                        ->horizontal(),
                     Switcher::make('is_maintenance')
                         ->sendTrueOrFalse()
                         ->title('Maintenance')
@@ -171,19 +178,22 @@ class ConfigurationScreen extends Screen
                 Layout::rows([
                     Cropper::make('promo_ad_250x250')
                         ->title('Promo Ad (250x250)')
-                        ->keepAspectRatio()
                         ->value($promoAd250x250)
+                        ->maxWidth(250)
+                        ->maxHeight(250)
                         ->targetUrl()
                         ->horizontal(),
                     Cropper::make('promo_ad_870x200')
                         ->title('Promo Ad (870x200)')
-                        ->keepAspectRatio()
+                        ->maxWidth(870)
+                        ->maxHeight(200)
                         ->value($promoAd870x200)
                         ->targetUrl()
                         ->horizontal(),
                     Cropper::make('main_banner')
                         ->title('Main Banner (1920×790)')
-                        ->keepAspectRatio()
+                        ->maxWidth(1920)
+                        ->maxHeight(790)
                         ->value($configurations['main_banner'] ?? '')
                         ->targetUrl()
                         ->horizontal(),

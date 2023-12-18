@@ -14,6 +14,7 @@ use Orchid\Screen\Actions\Button;
 use Orchid\Support\Facades\Toast;
 use Orchid\Screen\Fields\Cropper;
 use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Fields\Upload;
 use Orchid\Screen\Fields\Switcher;
 
 class EventPhotoEditScreen extends Screen
@@ -105,11 +106,10 @@ class EventPhotoEditScreen extends Screen
                     ->help('Specify a short descriptive name for this photo.'),
 
                 Cropper::make('photo.image')
-                    ->title('Image')
+                    ->title('Image (370x300)')
                     ->required()
-                    ->width(1000)
-                    ->height(476)
-                    ->keepAspectRatio()
+                    ->maxWidth(370)
+                    ->maxHeight(300)
                     ->horizontal(),
 
                 Switcher::make('photo.active')

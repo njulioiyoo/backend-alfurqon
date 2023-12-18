@@ -95,18 +95,16 @@ class HistoryAndBackgroundScreen extends Screen
 
                 Cropper::make('image')
                     ->title('Main Banner (1920×350)')
-                    ->width(1920)
-                    ->height(350)
+                    ->maxWidth(1920)
+                    ->maxHeight(350)
                     ->value($about['image'] ?? '')
-                    ->keepAspectRatio()
                     ->horizontal(),
 
                 Cropper::make('attr_2')
                     ->title('Banner (570×420)')
-                    ->width(570)
-                    ->height(420)
+                    ->maxWidth(570)
+                    ->maxHeight(420)
                     ->value($about['attr_2'] ?? '')
-                    ->keepAspectRatio()
                     ->horizontal(),
 
                 Quill::make('body')

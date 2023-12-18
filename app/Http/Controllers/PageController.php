@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\News;
+use App\Models\Program;
+use App\Models\Configuration;
 use Illuminate\Http\Request;
 use App\Repositories\GalleryRepositoryInterface;
 use App\Repositories\AboutUsRepositoryInterface;
 use App\Repositories\NewsRepositoryInterface;
-use App\Repositories\PrayerTimesRepositoryInterface;
 
 class PageController extends Controller
 {
@@ -24,9 +26,61 @@ class PageController extends Controller
 
     public function home(Request $request)
     {
-        // $prayerTimes = $this->prayerTimes->getPrayerTimes($request);
+        // Sample data for the "Foundation" section
+        $foundationData = [
+            [
+                'image' => 'assets/images/foundation/mosque-fondation-01.png',
+                'title' => 'UAE adu Mosque',
+                'location' => 'Abu Dhabi, United Arab Emirates',
+            ],
+        ];
 
-        return view('welcome');
+        $programData = Program::where('active', '1')->where('is_highlight', '1')->orderBy('created_at', 'desc')->limit(3)->get();
+        $serviceData = [];
+        foreach ($programData as $program) {
+            $serviceData[] = [
+                'image' => $program->image, // Change to the actual image attribute in your Program model
+                'title' => $program->name,
+                'source' => $program->source,
+                'content' => $program->body,
+            ];
+        }
+
+        // Sample data for the "Donation" section
+        $donationData = [
+            [
+                'image' => 'assets/images/donation/muslim-donate-01.png',
+                'title' => 'Education for all rural children.',
+                'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Ipsum has been standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+                'currentAmount' => 4500.00,
+                'goalAmount' => 8500.00,
+                'donateLink' => '#',
+            ],
+            // Add more donation data as needed
+        ];
+
+        $newsData = News::with('parent')->where('active', '1')->where('is_highlight', '1')->orderBy('created_at', 'desc')->limit(3)->get();
+        $activitiesData = [];
+        foreach ($newsData as $news) {
+            $activitiesData[] = [
+                'image' => $news->image, // Change to the actual image attribute in your Program model
+                'time' => \Carbon\Carbon::parse($news->created_at)->format('j M Y'),
+                'title' => $news->name,
+                'slug'  => $news->slug,
+                'news_type'  => $news['parent']->slug,
+                'content' => $news->description,
+            ];
+        }
+
+        // Combine all sections into a single array
+        $data = [
+            'foundation' => $foundationData,
+            'service' => $serviceData,
+            'donation' => $donationData,
+            'others_activities' => $activitiesData,
+        ];
+        // dd($data);
+        return view('welcome', compact('data'));
     }
 
     public function show($type, $slug, $repository, $view, $detail = '')

@@ -25,20 +25,20 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="single-service-wrap mt-40">
                         <div class="single-gallery-wrap">
-                            @if ($item['type'] === 'video')
+                            @if (!empty($item['source']))
                             <a href="{{ $item['source'] }}" class="video-link popup-youtube">
-                                <img src="{{ $item['image'] }}" class="img-fluid" alt="Service image">
+                                <img src="{{ $item['image'] }}" class="img-fluid" alt="Service image" style="width: 370px; height: 300px;">
                             </a>
                             @else
                             <a href="{{ $item['image'] }}" class="img-popup">
                                 <img src="{{ $item['image'] }}" class="img-fluid"
-                                    alt="Gallery Image {{ $index + 1 }}" width="370" height="370">
+                                    alt="Gallery Image {{ $index + 1 }}" style="width: 370px; height: 300px;">
                             </a>
                             @endif
                         </div>
                         <div class="service-content">
-                            {{ Str:: limit($item['description'], 150) }}
-                            {{ strlen($item['description']) > 150 ? '...' : '' }}
+                            {{ Str:: limit($item['body'], 150) }}
+                            {{ strlen($item['body']) > 150 ? '...' : '' }}
                         </div>
                     </div>
                 </div>

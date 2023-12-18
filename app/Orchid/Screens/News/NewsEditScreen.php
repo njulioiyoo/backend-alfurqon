@@ -104,12 +104,6 @@ class NewsEditScreen extends Screen
         return [
 
             Layout::rows([
-                Relation::make('news.author')
-                    ->title('Author')
-                    ->required()
-                    ->horizontal()
-                    ->fromModel(User::class, 'name'),
-
                 Relation::make('news.parent_id')
                     ->title('Content Categories')
                     ->required()
@@ -124,10 +118,9 @@ class NewsEditScreen extends Screen
                     ->help('Specify a short descriptive name for this news.'),
 
                 Cropper::make('news.image')
-                    ->title('Image')
-                    ->width(1000)
-                    ->height(476)
-                    ->keepAspectRatio()
+                    ->title('Image (370x300)')
+                    ->maxWidth(370)
+                    ->maxHeight(300)
                     ->horizontal(),
 
                 TextArea::make('news.description')

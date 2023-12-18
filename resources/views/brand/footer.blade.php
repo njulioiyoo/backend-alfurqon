@@ -7,7 +7,7 @@
             </svg>
         </span>
 
-        by Julio Notodiprodyo
+        by <a href="https://www.linkedin.com/in/julio-notodiprodyo-b6154010a/" target="_blank" rel="noopener noreferrer">Julio Notodiprodyo</a>
     </p>
 </div>
 <p class="small text-center mb-1 px-5">

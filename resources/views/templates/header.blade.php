@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="header-btn text-right d-none d-sm-block ml-lg-4">
-                    <a class="btn-circle btn-default btn" href="#">Donate</a>
+                    <a id="donateButton" class="btn-circle btn-default btn" href="#">Donate</a>
                 </div>
 
                 <!-- mobile menu -->
@@ -41,3 +41,24 @@
         </div>
     </div>
 </div>
+
+@push('extend-scripts')
+<!-- Tambahkan script JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Ambil elemen tombol donate berdasarkan ID
+        var donateButton = document.getElementById('donateButton');
+
+        // Tambahkan event click
+        donateButton.addEventListener('click', function () {
+            // Tampilkan notifikasi SweetAlert
+            swal({
+                title: 'Fitur Belum Tersedia',
+                text: 'Maaf, fitur ini masih belum tersedia saat ini.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        });
+    });
+</script>
+@endpush

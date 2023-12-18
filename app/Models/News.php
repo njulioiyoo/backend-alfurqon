@@ -7,6 +7,7 @@ use Orchid\Attachment\Attachable;
 use App\Orchid\Presenters\UserPresenter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Auth;
 
 class News extends Content
 {
@@ -41,6 +42,7 @@ class News extends Content
 
         self::creating(function ($model) use ($type) {
             $model->type = $type;
+            $model->author    = Auth::user()->id;
         });
     }
 }
