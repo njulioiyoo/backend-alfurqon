@@ -135,7 +135,6 @@ class ConfigurationScreen extends Screen
                         ->maxWidth(595)
                         ->maxHeight(629)
                         ->value($configurations['main_picture_about'] ?? '')
-                        ->targetUrl()
                         ->horizontal(),
                     Switcher::make('is_maintenance')
                         ->sendTrueOrFalse()
