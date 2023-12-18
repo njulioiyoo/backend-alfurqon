@@ -161,6 +161,7 @@
         </div>
     </div>
     <!-- ======== Foundation Area End ========== -->
+    @if(!empty($data['service']))
     <!-- ======== Service Area Start ========== -->
     <div class="service-area section-space--pb_120">
         <div class="container">
@@ -172,27 +173,7 @@
                 </div>
             </div>
             <div class="row">
-                @foreach ($data['service'] as $index => $item)    
-                {{-- <div class="col-lg-4 col-md-6">
-                    <div class="single-service-wrap mt-40">
-                        <div class="single-gallery-wrap">
-                            @if (!empty($item['source']))
-                            <a href="{{ $item['source'] }}" class="video-link popup-youtube">
-                                <img src="{{ $item['image'] }}" class="img-fluid" alt="Service image" style="width: 370px; height: 300px;">
-                            </a>
-                            @else
-                            <a href="{{ $item['image'] }}" class="img-popup">
-                                <img src="{{ $item['image'] }}" class="img-fluid"
-                                    alt="Gallery Image {{ $index + 1 }}" style="width: 370px; height: 300px;">
-                            </a>
-                            @endif
-                        </div>
-                        <div class="service-content">
-                            {{ Str:: limit($item['content'], 150) }}
-                            {{ strlen($item['content']) > 150 ? '...' : '' }}
-                        </div>
-                    </div>
-                </div> --}}
+                @foreach ($data['service'] as $index => $item)
                 <div class="col-lg-4 col-md-6">
                     <div class="single-service-wrap mt-30">
                         <div class="single-gallery-wrap">
@@ -219,6 +200,7 @@
         </div>
     </div>
     <!-- ======== Service Area End ========== -->
+    @endif
     <!-- ======== Donation Area Start ========== -->
     <div class="donation-area section-space--pb_120">
         <div class="container">
