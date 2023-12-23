@@ -1,4 +1,8 @@
-<div class="breadcrumb-area bg-overlay-black-4">
+@php
+    $breadcrumbImage = $breadcrumbImage ?? asset('assets/images/bg/breadcrumb-01.png'); // Default image
+@endphp
+
+<div class="breadcrumb-area bg-overlay-black-4" style="background-image: url({{ $breadcrumbImage }})">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

@@ -174,7 +174,7 @@ class ProgramEditScreen extends Screen
             'source' => $data['source'] ?? null,
             'name' => $data['name'] ?? $resultVideo->getSnippet()->getTitle(),
             'slug' => $data['source'] ? Str::slug($resultVideo->getSnippet()->getTitle()) : Str::slug($data['name']),
-            'body' => $data['name'] ?? $resultVideo->getSnippet()->getDescription(),
+            'description' => $data['source'] ? $resultVideo->getSnippet()->getDescription() : $data['description'],
             'attr_1' => $data['source'] ? $formattedDuration : null,
             'image' => $data['image'] ? url($data['image']) : $image,
             'is_highlight' => $data['is_highlight'],

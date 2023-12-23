@@ -27,6 +27,10 @@ Route::prefix('program')->group(function () {
     Route::get('/{type}', [PageController::class, 'program'])->name('program');
     Route::get('/{type}/detail/{slug}', [PageController::class, 'detailProgram'])->name('program.news');
 });
+Route::prefix('facility')->group(function () {
+    Route::get('/{type}', [PageController::class, 'facility'])->name('facility');
+    // Route::get('/{type}/detail/{slug}', [PageController::class, 'detailProgram'])->name('program.news');
+});
 
 Route::fallback(function ($e) {
     return redirect('/');

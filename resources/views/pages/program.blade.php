@@ -8,7 +8,8 @@
 @endsection
 
 @section('content')
-@include('components.breadcrumb')
+
+@include('components.breadcrumb', ['breadcrumbImage' => $banner_menu_program ?? asset('assets/images/bg/breadcrumb-01.png')])
 
 <div class="site-wrapper-reveal">
     <div class="gallery-area section-space--pb_120 section-space--pt_90">
@@ -37,8 +38,8 @@
                             @endif
                         </div>
                         <div class="service-content">
-                            {{ Str:: limit($item['body'], 150) }}
-                            {{ strlen($item['body']) > 150 ? '...' : '' }}
+                            {{ Str:: limit($item['description'], 200) }}
+                            {{ strlen($item['description']) > 200 ? '...' : '' }}
                         </div>
                     </div>
                 </div>

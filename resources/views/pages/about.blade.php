@@ -26,7 +26,10 @@
                         <div class="section-title-wrap">
                             <h3 class="section-title--two left-style mb-30">{{ $data['name'] }}</h3>
                         </div>
-                        {!! $data['description'] !!}
+                        @php
+                            $descriptionWithResponsiveImg = preg_replace('/<img(.*?)>/i', '<img$1 class="img-fluid">', $data['description']);
+                        @endphp
+                        {!! $descriptionWithResponsiveImg !!}
                     </div>
                 </div>
             </div>

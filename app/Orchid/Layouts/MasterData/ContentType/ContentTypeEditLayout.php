@@ -25,6 +25,7 @@ class ContentTypeEditLayout extends Rows
                 ->options([
                     'news_type' => 'News',
                     'program_type' => 'Program',
+                    'facility_type' => 'Facility',
                 ])
                 ->title('Select type')
                 ->help('Allow search bots to index'),

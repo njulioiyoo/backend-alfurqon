@@ -83,8 +83,6 @@ class ConfigurationScreen extends Screen
         $configurations = Configuration::pluck('value', 'key')->all();
         $websiteLogoHeader = $configurations['website_logo_header'] ?? '';
         $websiteLogoFooter = $configurations['website_logo_footer'] ?? '';
-        $promoAd250x250 = $configurations['promo_ad_250x250'] ?? '';
-        $promoAd870x200 = $configurations['promo_ad_870x200'] ?? '';
 
         return [
             Layout::tabs([
@@ -175,18 +173,32 @@ class ConfigurationScreen extends Screen
                 ]),
                 'Banner' =>
                 Layout::rows([
-                    Cropper::make('promo_ad_250x250')
-                        ->title('Promo Ad (250x250)')
-                        ->value($promoAd250x250)
-                        ->maxWidth(250)
-                        ->maxHeight(250)
+                    Cropper::make('banner_menu_program')
+                        ->title('Banner Menu Program (1920x350)')
+                        ->maxWidth(1920)
+                        ->maxHeight(350)
+                        ->value($configurations['banner_menu_program'] ?? '')
                         ->targetUrl()
                         ->horizontal(),
-                    Cropper::make('promo_ad_870x200')
-                        ->title('Promo Ad (870x200)')
-                        ->maxWidth(870)
-                        ->maxHeight(200)
-                        ->value($promoAd870x200)
+                    Cropper::make('banner_menu_facility')
+                        ->title('Banner Menu Fasilitas (1920x350)')
+                        ->maxWidth(1920)
+                        ->maxHeight(350)
+                        ->value($configurations['banner_menu_facility'] ?? '')
+                        ->targetUrl()
+                        ->horizontal(),
+                    Cropper::make('banner_menu_news')
+                        ->title('Banner Menu News (1920x350)')
+                        ->maxWidth(1920)
+                        ->maxHeight(350)
+                        ->value($configurations['banner_menu_news'] ?? '')
+                        ->targetUrl()
+                        ->horizontal(),
+                    Cropper::make('banner_menu_gallery')
+                        ->title('Banner Menu Gallery (1920x350)')
+                        ->maxWidth(1920)
+                        ->maxHeight(350)
+                        ->value($configurations['banner_menu_gallery'] ?? '')
                         ->targetUrl()
                         ->horizontal(),
                     Cropper::make('main_banner')

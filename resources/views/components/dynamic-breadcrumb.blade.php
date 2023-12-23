@@ -1,6 +1,6 @@
 @php
     $breadcrumbKey = $breadcrumbKey ?? 'gallery'; // Default key
-    @endphp
+@endphp
 
 @if (isset($menuData[$breadcrumbKey]['submenu']))
 @php

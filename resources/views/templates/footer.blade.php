@@ -52,16 +52,16 @@
                         <a href="{{ route('home') }}"><img src="{{ $website_logo_footer }}" alt=""></a>
                     </div>
                     <div class="footer-contents">
-                        <p> Subscribe to our Newsletter & stay update. </p>
+                        {{-- <p> Subscribe to our Newsletter & stay update. </p>
                         <div class="newsletter-box">
                             <input type="text" placeholder="Enter your mail address">
                             <button><i class="flaticon-paper-plane"></i></button>
-                        </div>
+                        </div> --}}
 
                         <ul class="footer-social-share mt-20">
                             <li><a href="#"><i class="flaticon-facebook"></i></a></li>
                             <li><a href="#"><i class="flaticon-twitter"></i></a></li>
-                            <li><a href="#"><i class="flaticon-pinterest-social-logo"></i></a></li>
+                            {{-- <li><a href="#"><i class="flaticon-pinterest-social-logo"></i></a></li> --}}
                             <li><a href="#"><i class="flaticon-youtube"></i></a></li>
                         </ul>
 

@@ -103,6 +103,11 @@ class PageController extends Controller
         return $this->show('gallery', $slug, 'galleryRepository', 'gallery');
     }
 
+    public function facility($slug)
+    {
+        return $this->show('facility_type', $slug, 'newsRepository', 'facility');
+    }
+
     public function news($slug)
     {
         // Jangan mengirimkan parameter $slug yang tidak diperlukan pada metode news

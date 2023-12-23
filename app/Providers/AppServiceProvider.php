@@ -55,9 +55,10 @@ class AppServiceProvider extends ServiceProvider
     {
         // Mendapatkan submenu untuk berita
         $newsSubMenu = $this->getSubMenu('news_type', 'news');
-
         // Mendapatkan submenu untuk program
         $programSubMenu = $this->getSubMenu('program_type', 'program');
+        // Mendapatkan submenu untuk fasilitas
+        $facilitySubMenu = $this->getSubMenu('facility_type', 'facility');
 
 
         $menuData = [
@@ -67,8 +68,23 @@ class AppServiceProvider extends ServiceProvider
                 'submenu' => [
                     ['url' => route('about', 'history-and-background'), 'label' => 'Sejarah dan latar belakang masjid'],
                     ['url' => route('about', 'vision-and-mission'), 'label' => 'Visi dan misi masjid'],
-                    ['url' => '#', 'label' => 'Struktur organisasi dan pimpinan'],
+                    ['url' => route('about', 'organizational-structure-and-leadership'), 'label' => 'Struktur organisasi dan pimpinan'],
                 ],
+            ],
+            'program' => [
+                'url' => '#',
+                'label' => 'PROGRAM',
+                'submenu' => $programSubMenu,
+            ],
+            'facility' => [
+                'url' => '#',
+                'label' => 'FASILITAS',
+                'submenu' => $facilitySubMenu,
+            ],
+            'news' => [
+                'url' => '#',
+                'label' => 'INFORMASI',
+                'submenu' => $newsSubMenu,
             ],
             'gallery' => [
                 'url' => '#',
@@ -77,16 +93,6 @@ class AppServiceProvider extends ServiceProvider
                     ['url' => route('gallery', 'photo'), 'label' => 'Foto-foto masjid, acara, dan kegiatan'],
                     ['url' => route('gallery', 'video'), 'label' => 'Video rekaman acara-acara penting'],
                 ],
-            ],
-            'program' => [
-                'url' => '#',
-                'label' => 'PROGRAM',
-                'submenu' => $programSubMenu,
-            ],
-            'news' => [
-                'url' => '#',
-                'label' => 'BERITA DAN PENGUMUMAN',
-                'submenu' => $newsSubMenu,
             ],
             'contact' => [
                 'url' => route('contact'),

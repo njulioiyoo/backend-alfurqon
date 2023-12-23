@@ -27,6 +27,7 @@ class NewsRepository implements NewsRepositoryInterface
         return [
             'news' => $baseQuery,
             'program' => $baseQuery,
+            'facility' => $baseQuery,
         ];
     }
 

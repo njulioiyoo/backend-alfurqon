@@ -31,4 +31,9 @@ class Content extends Model
     {
         return $this->hasMany(Program::class, 'parent_id', 'id');
     }
+
+    public function facility()
+    {
+        return $this->hasMany(Facility::class, 'parent_id', 'id');
+    }
 }
