@@ -38,8 +38,8 @@
                             @endif
                         </div>
                         <div class="service-content">
-                            {{ Str:: limit($item['description'], 200) }}
-                            {{ strlen($item['description']) > 200 ? '...' : '' }}
+                            {{ Str:: limit($item['body'], 200) }}
+                            {{ strlen($item['body']) > 200 ? '...' : '' }}
                         </div>
                     </div>
                 </div>

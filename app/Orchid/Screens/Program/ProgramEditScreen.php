@@ -129,11 +129,10 @@ class ProgramEditScreen extends Screen
                     ->maxHeight(300)
                     ->horizontal(),
 
-                TextArea::make('program.description')
+                TextArea::make('program.body')
                     ->title('Description')
                     ->horizontal()
                     ->rows(3)
-                    ->maxlength(200)
                     ->placeholder('Brief description for preview'),
 
                 Group::make([
@@ -174,7 +173,7 @@ class ProgramEditScreen extends Screen
             'source' => $data['source'] ?? null,
             'name' => $data['name'] ?? $resultVideo->getSnippet()->getTitle(),
             'slug' => $data['source'] ? Str::slug($resultVideo->getSnippet()->getTitle()) : Str::slug($data['name']),
-            'description' => $data['source'] ? $resultVideo->getSnippet()->getDescription() : $data['description'],
+            'body' => $data['source'] ? $resultVideo->getSnippet()->getDescription() : $data['body'],
             'attr_1' => $data['source'] ? $formattedDuration : null,
             'image' => $data['image'] ? url($data['image']) : $image,
             'is_highlight' => $data['is_highlight'],

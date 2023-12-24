@@ -3389,7 +3389,7 @@ input[type="checkbox"] {
 }
 
 .service-content {
-  text-align: center;
+  text-align: justify;
   padding: 0 12px;
   margin-top: 25px;
 }
