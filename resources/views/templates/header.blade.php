@@ -43,7 +43,6 @@
 </div>
 
 @push('extend-scripts')
-<!-- Tambahkan script JavaScript -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         // Ambil elemen tombol donate berdasarkan ID

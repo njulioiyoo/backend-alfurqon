@@ -66,9 +66,9 @@ class AppServiceProvider extends ServiceProvider
                 'url' => '#',
                 'label' => 'TENTANG KAMI',
                 'submenu' => [
-                    ['url' => route('about', 'history-and-background'), 'label' => 'Sejarah dan latar belakang masjid'],
-                    ['url' => route('about', 'vision-and-mission'), 'label' => 'Visi dan misi masjid'],
-                    ['url' => route('about', 'organizational-structure-and-leadership'), 'label' => 'Struktur organisasi dan pimpinan'],
+                    ['url' => route('about', 'history-and-background'), 'label' => 'SEJARAH DAN LATAR BELAKANG MASJID'],
+                    ['url' => route('about', 'vision-and-mission'), 'label' => 'VISI DAN MISI MASJID'],
+                    ['url' => route('about', 'organizational-structure-and-leadership'), 'label' => 'STRUKTUR ORGANISASI DAN PIMPINAN'],
                 ],
             ],
             'program' => [
@@ -90,8 +90,8 @@ class AppServiceProvider extends ServiceProvider
                 'url' => '#',
                 'label' => 'GALERI',
                 'submenu' => [
-                    ['url' => route('gallery', 'photo'), 'label' => 'Foto-foto masjid, acara, dan kegiatan'],
-                    ['url' => route('gallery', 'video'), 'label' => 'Video rekaman acara-acara penting'],
+                    ['url' => route('gallery', 'photo'), 'label' => 'FOTO-FOTO MASJID, ACARA DAN KEGIATAN'],
+                    ['url' => route('gallery', 'video'), 'label' => 'VIDEO REKAMAN ACARA-ACARA PENTING'],
                 ],
             ],
             'contact' => [

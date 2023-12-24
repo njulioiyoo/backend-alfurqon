@@ -70,6 +70,11 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.systems.program')
                 ->permission('platform.systems.program'),
 
+            Menu::make(__('Facility'))
+                ->icon('bs.modules')
+                ->route('platform.systems.program')
+                ->permission('platform.systems.program'),
+
             Menu::make(__('News & Announcements'))
                 ->icon('bs.notebook')
                 ->route('platform.systems.news')
