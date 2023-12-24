@@ -72,9 +72,9 @@
                             @endif
                         </div>
                         <div class="service-content">
-                            <h4 class="service-title"><a href="#">{{ $item['title'] }}</a></h4>
-                            {{ Str:: limit($item['content'], 150) }}
-                            {{ strlen($item['content']) > 150 ? '...' : '' }}
+                            <h4 class="service-title">{{ $item['title'] }}</h4>
+                            {{ Str:: limit($item['content'], 200) }}
+                            {{ strlen($item['content']) > 200 ? '...' : '' }}
                         </div>
                     </div>
                 </div>
