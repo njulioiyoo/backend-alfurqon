@@ -29,6 +29,7 @@
                         @php
                             $descriptionWithResponsiveImg = preg_replace('/<img(.*?)>/i', '<img$1 class="img-fluid">', $data['description']);
                         @endphp
+                        
                         {!! $descriptionWithResponsiveImg !!}
                     </div>
                 </div>

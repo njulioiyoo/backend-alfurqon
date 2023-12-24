@@ -14,6 +14,8 @@ use App\Orchid\Screens\User\UserProfileScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 use App\Orchid\Screens\ConfigurationScreen;
+use App\Orchid\Screens\Facility\FacilityEditScreen;
+use App\Orchid\Screens\Facility\FacilityListScreen;
 use App\Orchid\Screens\Gallery\Photo\EventPhotoEditScreen;
 use App\Orchid\Screens\Gallery\Photo\EventPhotoListScreen;
 use App\Orchid\Screens\Gallery\Video\EventVideoScreen;
@@ -228,3 +230,24 @@ Route::screen('program/{program}/edit', ProgramEditScreen::class)
     ->breadcrumbs(fn (Trail $trail, $program) => $trail
         ->parent('platform.systems.program')
         ->push($program->name, route('platform.systems.program.edit', $program)));
+
+// Platform > System > Facility
+Route::screen('facility', FacilityListScreen::class)
+    ->name('platform.systems.facility')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.index')
+        ->push(__('Facility'), route('platform.systems.facility')));
+
+// Platform > System > Facility > Create
+Route::screen('facility/create', FacilityEditScreen::class)
+    ->name('platform.systems.facility.create')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.systems.facility')
+        ->push(__('Create'), route('platform.systems.facility.create')));
+
+// // Platform > System > Facility > Edit
+Route::screen('facility/{facility}/edit', FacilityEditScreen::class)
+    ->name('platform.systems.facility.edit')
+    ->breadcrumbs(fn (Trail $trail, $facility) => $trail
+        ->parent('platform.systems.facility')
+        ->push($facility->name, route('platform.systems.facility.edit', $facility)));

@@ -72,8 +72,8 @@ class PlatformProvider extends OrchidServiceProvider
 
             Menu::make(__('Facility'))
                 ->icon('bs.modules')
-                ->route('platform.systems.program')
-                ->permission('platform.systems.program'),
+                ->route('platform.systems.facility')
+                ->permission('platform.systems.facility'),
 
             Menu::make(__('News & Announcements'))
                 ->icon('bs.notebook')
@@ -123,6 +123,7 @@ class PlatformProvider extends OrchidServiceProvider
             ItemPermission::group(__('System'))
                 ->addPermission('platform.systems.roles', __('Roles'))
                 ->addPermission('platform.systems.users', __('Users'))
+                ->addPermission('platform.systems.facility', __('Facility'))
                 ->addPermission('platform.systems.program', __('Program'))
                 ->addPermission('platform.systems.news', __('News & Announcements')),
 

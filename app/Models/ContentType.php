@@ -38,4 +38,14 @@ class ContentType extends Content
     {
         return $query->where('type', 'program_type');
     }
+
+    /**
+     * @param Builder $query
+     *
+     * @return Builder
+     */
+    public function scopeFacilityType(Builder $query)
+    {
+        return $query->where('type', 'facility_type');
+    }
 }
