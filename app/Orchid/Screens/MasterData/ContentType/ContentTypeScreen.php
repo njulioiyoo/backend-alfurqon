@@ -177,8 +177,14 @@ class ContentTypeScreen extends Screen
      *
      * @return void
      */
-    public function delete(ContentType $contentType)
+    public function delete(Request $request)
     {
-        $contentType->delete();
+        $contentType = $request->input('ContentType');
+
+        ContentType::where('id', $contentType)->delete();
+
+        Toast::info('You have successfully deleted the post.');
+
+        return redirect()->route('platform.systems.content_type');
     }
 }
