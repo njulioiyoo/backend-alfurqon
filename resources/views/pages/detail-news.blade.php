@@ -8,7 +8,7 @@
 @endsection --}}
 
 @section('content')
-@include('components.breadcrumb')
+@include('components.breadcrumb', ['breadcrumbImage' => $banner_menu_news ?? asset('assets/images/bg/breadcrumb-01.png')])
 
 <div class="site-wrapper-reveal">
     <div class="church-about-area section-space--ptb_120 ">
