@@ -2,10 +2,10 @@
 
 @section('title', $menuData['contact']['label'])
 
-@section('breadcrumb-title', $menuData['contact']['label'])
+{{-- @section('breadcrumb-title', $menuData['contact']['label'])
 @section('breadcrumbs')
     @include('components.dynamic-breadcrumb', ['breadcrumbKey' => 'contact'])
-@endsection
+@endsection --}}
 
 @section('content')
 @include('components.breadcrumb', ['breadcrumbImage' => $banner_menu_contact ?? asset('assets/images/bg/breadcrumb-01.png')])

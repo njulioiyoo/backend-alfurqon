@@ -2,10 +2,10 @@
 
 @section('title', 'Fasilitas')
 
-@section('breadcrumb-title', $menuData['facility']['label'])
+{{-- @section('breadcrumb-title', $menuData['facility']['label'])
 @section('breadcrumbs')
     @include('components.dynamic-breadcrumb', ['breadcrumbKey' => 'facility'])
-@endsection
+@endsection --}}
 
 @section('content')
 @include('components.breadcrumb', ['breadcrumbImage' => $banner_menu_facility ?? asset('assets/images/bg/breadcrumb-01.png')])

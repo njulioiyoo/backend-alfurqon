@@ -2,10 +2,10 @@
 
 @section('title', 'Berita & Pengumuman')
 
-@section('breadcrumb-title', $menuData['news']['label'])
+{{-- @section('breadcrumb-title', $menuData['news']['label'])
 @section('breadcrumbs')
     @include('components.dynamic-breadcrumb', ['breadcrumbKey' => 'news'])
-@endsection
+@endsection --}}
 
 @section('content')
 @include('components.breadcrumb', ['breadcrumbImage' => $banner_menu_news ?? asset('assets/images/bg/breadcrumb-01.png')])

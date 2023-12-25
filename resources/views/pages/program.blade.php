@@ -2,13 +2,12 @@
 
 @section('title', 'Program')
 
-@section('breadcrumb-title', $menuData['program']['label'])
+{{-- @section('breadcrumb-title', $menuData['program']['label'])
 @section('breadcrumbs')
     @include('components.dynamic-breadcrumb', ['breadcrumbKey' => 'program'])
-@endsection
+@endsection --}}
 
 @section('content')
-
 @include('components.breadcrumb', ['breadcrumbImage' => $banner_menu_program ?? asset('assets/images/bg/breadcrumb-01.png')])
 
 <div class="site-wrapper-reveal">

@@ -2,10 +2,10 @@
 
 @section('title', $data['name'])
 
-@section('breadcrumb-title', $data['name'])
+{{-- @section('breadcrumb-title', $data['name'])
 @section('breadcrumbs')
     @include('components.dynamic-breadcrumb', ['breadcrumbKey' => 'news'])
-@endsection
+@endsection --}}
 
 @section('content')
 @include('components.breadcrumb')
