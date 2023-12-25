@@ -201,6 +201,13 @@ class ConfigurationScreen extends Screen
                         ->value($configurations['banner_menu_gallery'] ?? '')
                         ->targetUrl()
                         ->horizontal(),
+                    Cropper::make('banner_menu_contact')
+                        ->title('Banner Menu Contact (1920x350)')
+                        ->maxWidth(1920)
+                        ->maxHeight(350)
+                        ->value($configurations['banner_menu_contact'] ?? '')
+                        ->targetUrl()
+                        ->horizontal(),
                     Cropper::make('main_banner')
                         ->title('Main Banner (1920×790)')
                         ->maxWidth(1920)
