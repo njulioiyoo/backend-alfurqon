@@ -36,7 +36,7 @@
                                     <p>{{ Str::limit($facilityItem['description'], 150) }}</p>
                                 </div>
                                 <div class="ticket-button-box mt-20">
-                                    <a href="{{ route('detail.news', ['type' => $data['slug'], 'slug' => $facilityItem['slug']]) }}" class="btn ticket-btn">Baca Selengkapnya</a>
+                                    <a href="{{ route('detail.facility', ['type' => $data['slug'], 'slug' => $facilityItem['slug']]) }}" class="btn ticket-btn">Baca Selengkapnya</a>
                                 </div>
                             </div>
                         </div>

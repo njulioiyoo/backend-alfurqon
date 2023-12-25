@@ -29,7 +29,7 @@ Route::prefix('program')->group(function () {
 });
 Route::prefix('facility')->group(function () {
     Route::get('/{type}', [PageController::class, 'facility'])->name('facility');
-    // Route::get('/{type}/detail/{slug}', [PageController::class, 'detailProgram'])->name('program.news');
+    Route::get('/{type}/detail/{slug}', [PageController::class, 'detailFacility'])->name('detail.facility');
 });
 
 Route::fallback(function ($e) {
