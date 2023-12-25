@@ -147,18 +147,18 @@ class ConfigurationScreen extends Screen
                         ->placeholder('Enter facebook url')
                         ->type('url')
                         ->value($configurations['facebook'] ?? ''),
-                    Input::make('twitter')
-                        ->horizontal()
-                        ->title('Twitter')
-                        ->placeholder('Enter twitter url')
-                        ->type('url')
-                        ->value($configurations['facebook'] ?? ''),
                     Input::make('instagram')
                         ->horizontal()
                         ->title('Instagram')
                         ->placeholder('Enter instagram url')
                         ->type('url')
                         ->value($configurations['instagram'] ?? ''),
+                    Input::make('youtube')
+                        ->horizontal()
+                        ->title('Youtube')
+                        ->placeholder('Enter youtube channel')
+                        ->type('url')
+                        ->value($configurations['youtube'] ?? ''),
                 ]),
                 'Policies' =>
                 Layout::rows([

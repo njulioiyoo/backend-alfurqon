@@ -59,10 +59,10 @@
                         </div> --}}
 
                         <ul class="footer-social-share mt-20">
-                            <li><a href="#"><i class="flaticon-facebook"></i></a></li>
-                            <li><a href="#"><i class="flaticon-twitter"></i></a></li>
+                            <li><a href="{{ $facebook ?? route('home') }}"><i class="flaticon-facebook"></i></a></li>
+                            <li><a href="{{ $instagram ?? route('home') }}"><i class="flaticon-twitter"></i></a></li>
                             {{-- <li><a href="#"><i class="flaticon-pinterest-social-logo"></i></a></li> --}}
-                            <li><a href="#"><i class="flaticon-youtube"></i></a></li>
+                            <li><a href="{{ $youtube ?? route('home') }}" target="_blank"><i class="flaticon-youtube"></i></a></li>
                         </ul>
 
                     </div>
