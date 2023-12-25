@@ -173,6 +173,13 @@ class ConfigurationScreen extends Screen
                 ]),
                 'Banner' =>
                 Layout::rows([
+                    Cropper::make('banner_menu_about')
+                        ->title('Banner Menu About Us (1920x350)')
+                        ->maxWidth(1920)
+                        ->maxHeight(350)
+                        ->value($configurations['banner_menu_about'] ?? '')
+                        ->targetUrl()
+                        ->horizontal(),
                     Cropper::make('banner_menu_program')
                         ->title('Banner Menu Program (1920x350)')
                         ->maxWidth(1920)
@@ -202,7 +209,7 @@ class ConfigurationScreen extends Screen
                         ->targetUrl()
                         ->horizontal(),
                     Cropper::make('banner_menu_contact')
-                        ->title('Banner Menu Contact (1920x350)')
+                        ->title('Banner Menu Contact Us(1920x350)')
                         ->maxWidth(1920)
                         ->maxHeight(350)
                         ->value($configurations['banner_menu_contact'] ?? '')
