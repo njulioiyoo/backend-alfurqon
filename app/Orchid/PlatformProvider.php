@@ -52,6 +52,21 @@ class PlatformProvider extends OrchidServiceProvider
                         ->route('platform.systems.about.organizational-structure-and-leadership'),
                 ]),
 
+            Menu::make(__('Program'))
+                ->icon('bs.monitor')
+                ->route('platform.systems.program')
+                ->permission('platform.systems.program'),
+
+            Menu::make(__('Facility'))
+                ->icon('bs.modules')
+                ->route('platform.systems.facility')
+                ->permission('platform.systems.facility'),
+
+            Menu::make(__('Information'))
+                ->icon('bs.notebook')
+                ->route('platform.systems.news')
+                ->permission('platform.systems.news'),
+
             Menu::make(__('Gallery'))
                 ->icon('bs.photo')
                 ->list([
@@ -65,21 +80,10 @@ class PlatformProvider extends OrchidServiceProvider
                         ->route('platform.systems.gallery.video')
                 ]),
 
-            Menu::make(__('Program'))
-                ->icon('bs.monitor')
-                ->route('platform.systems.program')
-                ->permission('platform.systems.program'),
-
-            Menu::make(__('Facility'))
-                ->icon('bs.modules')
-                ->route('platform.systems.facility')
-                ->permission('platform.systems.facility'),
-
-            Menu::make(__('News & Announcements'))
-                ->icon('bs.notebook')
-                ->route('platform.systems.news')
-                ->permission('platform.systems.news')
-                ->divider(),
+            Menu::make(__('Contact Us'))
+                ->icon('bs.phone')
+                ->route('platform.systems.contact')
+                ->permission('platform.systems.contact')->divider(),
 
             Menu::make(__('Partnerships'))
                 ->icon('bs.server')
@@ -125,7 +129,8 @@ class PlatformProvider extends OrchidServiceProvider
                 ->addPermission('platform.systems.users', __('Users'))
                 ->addPermission('platform.systems.facility', __('Facility'))
                 ->addPermission('platform.systems.program', __('Program'))
-                ->addPermission('platform.systems.news', __('News & Announcements')),
+                ->addPermission('platform.systems.news', __('Information'))
+                ->addPermission('platform.systems.contact', __('Contact Us')),
 
             ItemPermission::group(__('Settings'))
                 ->addPermission('platform.systems.configurations', __('Configurations')),

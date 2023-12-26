@@ -20,6 +20,7 @@ use App\Orchid\Screens\Gallery\Photo\EventPhotoEditScreen;
 use App\Orchid\Screens\Gallery\Photo\EventPhotoListScreen;
 use App\Orchid\Screens\Gallery\Video\EventVideoScreen;
 use App\Orchid\Screens\MasterData\ContentType\ContentTypeScreen;
+use App\Orchid\Screens\Contact\ContactScreen;
 use App\Orchid\Screens\MasterData\Partnership\PartnershipEditScreen;
 use App\Orchid\Screens\MasterData\Partnership\PartnershipListScreen;
 use App\Orchid\Screens\News\NewsEditScreen;
@@ -107,6 +108,15 @@ Route::screen('content-type', ContentTypeScreen::class)
         return $trail
             ->parent('platform.index')
             ->push('Content Type');
+    });
+
+// Platform > System > Contact Us
+Route::screen('contact', ContactScreen::class)
+    ->name('platform.systems.contact')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push('Contact Us');
     });
 
 // Platform > System > Master Data > Partnership
@@ -208,7 +218,6 @@ Route::screen('news/{news}/edit', NewsEditScreen::class)
     ->breadcrumbs(fn (Trail $trail, $news) => $trail
         ->parent('platform.systems.news')
         ->push($news->name, route('platform.systems.news.edit', $news)));
-
 
 // Platform > System > Program
 Route::screen('program', ProgramListScreen::class)
