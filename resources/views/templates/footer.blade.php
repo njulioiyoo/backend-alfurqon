@@ -52,16 +52,10 @@
                         <a href="{{ route('home') }}"><img src="{{ $website_logo_footer }}" alt=""></a>
                     </div>
                     <div class="footer-contents">
-                        {{-- <p> Subscribe to our Newsletter & stay update. </p>
-                        <div class="newsletter-box">
-                            <input type="text" placeholder="Enter your mail address">
-                            <button><i class="flaticon-paper-plane"></i></button>
-                        </div> --}}
 
                         <ul class="footer-social-share mt-20">
                             <li><a href="{{ $facebook ?? route('home') }}"><i class="flaticon-facebook"></i></a></li>
                             <li><a href="{{ $instagram ?? route('home') }}"><i class="flaticon-twitter"></i></a></li>
-                            {{-- <li><a href="#"><i class="flaticon-pinterest-social-logo"></i></a></li> --}}
                             <li><a href="{{ $youtube ?? route('home') }}" target="_blank"><i class="flaticon-youtube"></i></a></li>
                         </ul>
 
@@ -76,7 +70,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="copy-right-box">
-                    <p class="text-white">Copyright © {{ config('app.name') }} {{ date('Y') }}. All rights reserved. No part of this website may be reproduced, distributed, or transmitted in any form or by any means without the prior written permission of {{ config('app.name') }}.</p>
+                    <p class="text-white">Hak Cipta © {{ config('app.name') }} {{ date('Y') }}. Semua hak dilindungi. Tidak ada bagian dari situs web ini yang boleh direproduksi, didistribusikan, atau ditransmisikan dalam bentuk apa pun atau dengan cara apa pun tanpa izin tertulis sebelumnya dari {{ config('app.name') }}.</p>
                 </div>
             </div>
         </div>

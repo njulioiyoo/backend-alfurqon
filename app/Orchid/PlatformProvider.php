@@ -8,7 +8,6 @@ use Orchid\Platform\Dashboard;
 use Orchid\Platform\ItemPermission;
 use Orchid\Platform\OrchidServiceProvider;
 use Orchid\Screen\Actions\Menu;
-use Orchid\Support\Color;
 
 class PlatformProvider extends OrchidServiceProvider
 {
@@ -34,19 +33,19 @@ class PlatformProvider extends OrchidServiceProvider
     public function menu(): array
     {
         return [
-            Menu::make('About Us')
+            Menu::make('Tentang Kami')
                 ->icon('bs.puzzle')
                 ->title(__('Pages'))
                 ->list([
-                    Menu::make('History and Background')
+                    Menu::make('Sejarah dan Latar Belakang Masjid')
                         ->icon('bs.building')
                         ->permission('platform.systems.about.history_and_background')
                         ->route('platform.systems.about.history_and_background'),
-                    Menu::make('Vision and Mission')
+                    Menu::make('Visi dan Misi Masjid')
                         ->icon('bs.eye')
                         ->permission('platform.systems.about.vision_and_mission')
                         ->route('platform.systems.about.vision_and_mission'),
-                    Menu::make('Organizational Structure & Leadership')
+                    Menu::make('Struktur Organisasi dan Pimpinan')
                         ->icon('bs.organization')
                         ->permission('platform.systems.about.organizational-structure-and-leadership')
                         ->route('platform.systems.about.organizational-structure-and-leadership'),
@@ -57,41 +56,41 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.systems.program')
                 ->permission('platform.systems.program'),
 
-            Menu::make(__('Facility'))
+            Menu::make(__('Fasilitas'))
                 ->icon('bs.modules')
                 ->route('platform.systems.facility')
                 ->permission('platform.systems.facility'),
 
-            Menu::make(__('Information'))
+            Menu::make(__('Informasi'))
                 ->icon('bs.notebook')
                 ->route('platform.systems.news')
                 ->permission('platform.systems.news'),
 
-            Menu::make(__('Gallery'))
+            Menu::make(__('Galeri'))
                 ->icon('bs.photo')
                 ->list([
-                    Menu::make('Mosque photos, events, and activities')
+                    Menu::make('FOTO-FOTO MASJID, ACARA DAN KEGIATAN')
                         ->icon('bs.picture')
                         ->permission('platform.systems.gallery.photo')
                         ->route('platform.systems.gallery.photo'),
-                    Menu::make('Video recordings of important events')
+                    Menu::make('VIDEO REKAMAN ACARA-ACARA PENTING')
                         ->icon('bs.video')
                         ->permission('platform.systems.gallery.video')
                         ->route('platform.systems.gallery.video')
                 ]),
 
-            Menu::make(__('Contact Us'))
+            Menu::make(__('Hubungi Kami'))
                 ->icon('bs.phone')
                 ->route('platform.systems.contact')
                 ->permission('platform.systems.contact')->divider(),
 
-            Menu::make(__('Partnerships'))
+            Menu::make(__('Kemitraan'))
                 ->icon('bs.server')
                 ->title(__('Master Data'))
                 ->route('platform.systems.partnerships')
                 ->permission('platform.systems.partnerships'),
 
-            Menu::make(__('Content Type'))
+            Menu::make(__('Jenis Konten'))
                 ->icon('new-doc')
                 ->route('platform.systems.content_type')
                 ->permission('platform.systems.content_type')->divider(),
@@ -108,7 +107,7 @@ class PlatformProvider extends OrchidServiceProvider
                 ->permission('platform.systems.roles')
                 ->divider(),
 
-            Menu::make(__('Configurations'))
+            Menu::make(__('Konfigurasi'))
                 ->icon('settings')
                 ->route('platform.systems.configurations')
                 ->permission('platform.systems.configurations')

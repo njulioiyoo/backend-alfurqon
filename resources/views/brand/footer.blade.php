@@ -11,5 +11,5 @@
     </p>
 </div>
 <p class="small text-center mb-1 px-5">
-    Copyright © {{ config('app.name') }} {{ date('Y') }}. All rights reserved. No part of this website may be reproduced, distributed, or transmitted in any form or by any means without the prior written permission of {{ config('app.name') }}.
+    Hak Cipta © {{ config('app.name') }} {{ date('Y') }}. Semua hak dilindungi. Tidak ada bagian dari situs web ini yang boleh direproduksi, didistribusikan, atau ditransmisikan dalam bentuk apa pun atau dengan cara apa pun tanpa izin tertulis sebelumnya dari {{ config('app.name') }}.
 </p>

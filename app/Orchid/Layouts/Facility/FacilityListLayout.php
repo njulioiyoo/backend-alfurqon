@@ -50,7 +50,7 @@ class FacilityListLayout extends Table
 
             TD::make('parent_id', __('Categories'))
                 ->sort()
-                ->render(fn (Facility $facility) => $facility->parent->name),
+                ->render(fn (Facility $facility) => $facility->parent->name ?? null),
 
             TD::make('author', __('Author'))
                 ->sort()
