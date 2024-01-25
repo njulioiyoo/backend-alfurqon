@@ -46,7 +46,7 @@
     <!-- ======== Tai About Area End ========== -->
     @if(!empty($data['service']))
     <!-- ======== Service Area Start ========== -->
-    <div class="service-area section-space--pb_120">
+    <div class="gallery-area section-space--pb_120 section-space--pt_90">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -55,21 +55,45 @@
                     </div>
                 </div>
             </div>
+            @unless (count($data['service']))
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>Maaf, saat ini belum ada {{ $menuData['program']['label'] }} yang tersedia.</p>
+                </div>
+            </div>
+            @else
             <div class="row">
                 @foreach ($data['service'] as $index => $item)
                 <div class="col-lg-4 col-md-6">
                     <div class="single-service-wrap mt-30">
                         <div class="single-gallery-wrap">
-                            @if (!empty($item['source']))
-                            <a href="{{ $item['source'] }}" class="video-link popup-youtube">
-                                <img src="{{ $item['image'] }}" class="img-fluid" alt="Service image" style="width: 370px; height: 300px;">
+                            <a href="#" data-toggle="modal" data-target="#mediaModal{{ $index }}">
+                                <img src="{{ $item['image'] }}" class="img-fluid" alt="{{ !empty($item['source']) ? 'Service image' : 'Gallery Image ' . ($index + 1) }}" style="width: 370px; height: 300px;">
                             </a>
-                            @else
-                            <a href="{{ $item['image'] }}" class="img-popup">
-                                <img src="{{ $item['image'] }}" class="img-fluid"
-                                    alt="Gallery Image {{ $index + 1 }}" style="width: 370px; height: 300px;">
-                            </a>
-                            @endif
+                            
+                            <!-- Media Modal -->
+                            <div class="modal fade" id="mediaModal{{ $index }}" tabindex="-1" role="dialog" aria-labelledby="mediaModalLabel{{ $index }}" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="mediaModalLabel{{ $index }}">{{ !empty($item['source']) ? 'Video' : 'Gallery' }}</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body text-center">
+                                            @if (!empty($item['source']))
+                                                <div class="embed-responsive embed-responsive-16by9">
+                                                    <iframe class="embed-responsive-item" src="{{ str_replace('watch?v=', 'embed/', $item['source']) }}" allowfullscreen></iframe>
+                                                </div>
+                                            @else
+                                                <img src="{{ $item['image'] }}" class="img-fluid mx-auto my-auto" alt="{{ !empty($item['source']) ? 'Service image' : 'Gallery Image ' . ($index + 1) }}" style="max-width: 100%; max-height: 100%;">
+                                            @endif
+                                            <p>{{ $item['content'] }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="service-content">
                             <h4 class="service-title">{{ $item['title'] }}</h4>
@@ -80,6 +104,7 @@
                 </div>
                 @endforeach
             </div>
+            @endunless
         </div>
     </div>
     <!-- ======== Service Area End ========== -->
