@@ -45,14 +45,21 @@
         // Fungsi untuk mendapatkan waktu shalat dari API Aladhan
         function getPrayerTimes(latitude, longitude) {
             var xhr = new XMLHttpRequest();
-            var apiUrl = 'http://api.aladhan.com/v1/calendar?latitude=' + latitude + '&longitude=' + longitude + '&method=2';
+            var today = new Date();
 
+            var dd = String(today.getDate()).padStart(2, '0'); 
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+            var yyyy = today.getFullYear();
+
+            var formattedDate = dd + '-' + mm + '-' + yyyy;
+
+            var apiUrl = 'http://api.aladhan.com/v1/timings/' + formattedDate + '?latitude=' + latitude + '&longitude=' + longitude + '&method=20';
             xhr.open('GET', apiUrl, true);
 
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     var responseData = JSON.parse(xhr.responseText);
-                    var prayerTimes = responseData.data[0].timings;
+                    var prayerTimes = responseData.data.timings;
 
                     var salatNames = {
                         'Fajr': 'fajr-icon.png',
