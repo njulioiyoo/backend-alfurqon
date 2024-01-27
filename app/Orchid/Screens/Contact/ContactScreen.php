@@ -35,7 +35,7 @@ class ContactScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'We are here to assist you! Reach out through our contact form, send us an email at [our email address], visit the Help Center for FAQs, follow us on [social media platform] for updates, or call us at [our phone number] for immediate assistance. Your questions and feedback are important to us!';
+        return 'Kami disini siap melayani anda jika anda membutuhkan informasi layanan lainnya dari kami ataupun berupa kritik dan saran dapat menghubungi Kami melalui formulir kontak kami, kirimkan email kepada kami di [alamat email kami], atau dapat juga kunjungi Pusat Bantuan kami di [platform media social kami atau telepon kami di [nomor telepon kami] untuk bantuan segera. Pertanyaan dan masukan Anda penting bagi kami!';
     }
 
 

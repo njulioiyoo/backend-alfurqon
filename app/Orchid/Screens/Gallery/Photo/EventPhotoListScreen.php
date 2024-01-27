@@ -32,7 +32,7 @@ class EventPhotoListScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Mosque Moments';
+        return 'Galeri Kegiatan DKM';
     }
 
     /**
@@ -42,7 +42,7 @@ class EventPhotoListScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'Explore the soul of our mosque through a visual journey of prayer, community events, and diverse activities. From serene prayer scenes to joyous celebrations, our curated photos encapsulate the spiritual ambiance and vibrancy of our sacred space.';
+        return 'Dokumentasi kegiatan DKM Masjid Besar Al Furqon Bekasi Barat dan aktifitas social kemasyarakatan dalam rangka kegiatan rutin ataupun kegaiatan dengan melibatkan pihak pihak lainnya.';
     }
 
     /**

@@ -41,7 +41,7 @@ class EventVideoScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Video';
+        return 'Galeri Kegiatan DKM';
     }
 
     /**
@@ -51,7 +51,7 @@ class EventVideoScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'Discover pivotal moments in our video recordings of important events. Stay informed and relive key milestones effortlessly.';
+        return 'Dokumentasi kegiatan DKM Masjid Besar Al Furqon Bekasi Barat dan aktifitas social kemasyarakatan dalam rangka kegiatan rutin ataupun kegaiatan dengan melibatkan pihak pihak lainnya.';
     }
 
     /**

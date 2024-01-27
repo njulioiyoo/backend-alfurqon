@@ -49,6 +49,8 @@ class PlatformProvider extends OrchidServiceProvider
                         ->icon('bs.organization')
                         ->permission('platform.systems.about.organizational-structure-and-leadership')
                         ->route('platform.systems.about.organizational-structure-and-leadership'),
+                    Menu::make('Aksi Sosial')
+                        ->icon('bs.heart')
                 ]),
 
             Menu::make(__('Program'))
@@ -69,11 +71,11 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make(__('Galeri'))
                 ->icon('bs.photo')
                 ->list([
-                    Menu::make('FOTO-FOTO MASJID, ACARA DAN KEGIATAN')
+                    Menu::make('Foto-foto masjid, acara dan kegiatan')
                         ->icon('bs.picture')
                         ->permission('platform.systems.gallery.photo')
                         ->route('platform.systems.gallery.photo'),
-                    Menu::make('VIDEO REKAMAN ACARA-ACARA PENTING')
+                    Menu::make('Video rekaman acara-acara penting')
                         ->icon('bs.video')
                         ->permission('platform.systems.gallery.video')
                         ->route('platform.systems.gallery.video')
