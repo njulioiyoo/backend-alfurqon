@@ -26,7 +26,7 @@
                     <div class="single-service-wrap mt-40">
                         <div class="single-gallery-wrap">
                             <a href="#" data-toggle="modal" data-target="#mediaModal{{ $index }}">
-                                <img src="{{ $item['image'] }}" class="img-fluid" alt="{{ !empty($item['source']) ? 'Service image' : 'Gallery Image ' . ($index + 1) }}" style="width: 370px; height: 300px;">
+                                <img src="{{ $item['image'] }}" class="img-fluid" alt="{{ !empty($item['source']) ? 'Video Gambar' : 'Galeri Gambar' . ($index + 1) }}" style="width: 370px; height: 300px;">
                             </a>
 
                             <!-- Media Modal -->
@@ -34,7 +34,7 @@
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="mediaModalLabel{{ $index }}">{{ !empty($item['source']) ? 'Video' : 'Gallery' }}</h5>
+                                            <h5 class="modal-title" id="mediaModalLabel{{ $index }}">{{ !empty($item['source']) ? 'Video' : 'Galeri' }}</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -45,7 +45,7 @@
                                                     <iframe class="embed-responsive-item" src="{{ str_replace('watch?v=', 'embed/', $item['source']) }}" allowfullscreen></iframe>
                                                 </div>
                                             @else
-                                                <img src="{{ $item['image'] }}" class="img-fluid mx-auto my-auto" alt="{{ !empty($item['source']) ? 'Service image' : 'Gallery Image ' . ($index + 1) }}" style="max-width: 100%; max-height: 100%;">
+                                                <img src="{{ $item['image'] }}" class="img-fluid mx-auto my-auto" alt="{{ !empty($item['source']) ? 'Video Gambar' : 'Galeri Gambar' . ($index + 1) }}" style="max-width: 100%; max-height: 100%;">
                                             @endif
                                             <p>{{ $item['body'] }}</p>
                                         </div>
