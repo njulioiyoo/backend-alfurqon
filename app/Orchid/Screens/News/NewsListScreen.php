@@ -32,7 +32,7 @@ class NewsListScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'News and Announcements';
+        return 'Berita dan Informasi';
     }
 
     /**
@@ -42,7 +42,7 @@ class NewsListScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'News and Announcements: Stay informed with our latest updates and noteworthy announcements. Explore a diverse range of news articles covering events, achievements, and important information within our community. Stay connected for the latest happenings.';
+        return 'Berita terkini  baik berupa informasi dan peristiwa yang perlu diketahui  serta Info berupa laporan penerimaan Kas Masjid secara berkala  khususnya yang diterima dari tromol Jumat dan  Kotak Donasi lainnya';
     }
 
     /**

@@ -42,7 +42,7 @@ class ProgramListScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'Program: Explore a diverse range of program articles covering events, achievements, and important information within our community. Stay connected for the latest happenings.';
+        return 'Beragam artikel program yang meliputi kegiatan syiar keagamaan, dan beragam aktifitas serta informasi baik pencapaian ataupun informasi lainnya dari DKM Masjid Besar Al-Furqon Bekasi Barat.';
     }
 
     /**

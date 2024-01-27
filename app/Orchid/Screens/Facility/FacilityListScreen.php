@@ -32,7 +32,7 @@ class FacilityListScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Facility';
+        return 'Fasilitas';
     }
 
     /**
@@ -42,7 +42,7 @@ class FacilityListScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'Our venue offers a range of carefully designed facilities to cater to diverse needs. From the serene Prayer Room on the 2nd floor to the elegant VIP Room for special guests, each area is crafted with special attention. The multipurpose hall on the 1st floor provides flexibility for large events, while the TPQ Learning Room on the 2nd floor is dedicated to Quranic education. The Administration Room ensures efficient administrative operations. Additional amenities include ample parking space for visitor convenience, equipped with CCTV surveillance for security. All of these make our venue an ideal choice for various activities, from religious gatherings to business and social events.';
+        return 'Berbagai fasilitas dan layanan yang tersedia di Masjid besar Al-Furqon Bekasi Barat, yang meliputi fasilitas tempat Ibadah yang luas dan nyaman beserta sarana tempat wudhu baik di dalam ataupun diluar Gedung tersedia juga tempat kamar kecil (restroom). Selain tempat ibadah terdapat Aula serbaguna “Graha Subagdja” yang dapat di gunakan untuk pertemuan dan acara resepsi pernikahan dan sebagainya. Area Parkir yang luas yang di lengkapi camera pengawas CCTV. Ruang Belajar TPQ di lantai 2 didedikasikan untuk pendidikan Alquran. Ruang Administrasi Kesekretariatan.';
     }
 
     /**
