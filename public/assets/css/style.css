@@ -1100,9 +1100,9 @@ input[type="checkbox"] {
   position: relative;
 }
 
-.section-title-muslim::after {
+/* .section-title-muslim::after {
   content: url("../images/icons/muslim-title.png");
-}
+} */
 
 .section-title--two {
   margin-bottom: 30px;

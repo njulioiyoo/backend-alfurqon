@@ -51,7 +51,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title-muslim text-center">
-                        <h3 class="mb-20">Program Pilihan</h3>
+                        <h3 class="section-title center-style">Program Pilihan</h3>
                     </div>
                 </div>
             </div>
@@ -115,10 +115,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title-muslim text-center">
-                        <h3 class="mb-20">Bantuan Keagamaan Kami</h3>
+                        <h3 class="section-title center-style">Bantuan Keagamaan Kami</h3>
                     </div>
                 </div>
             </div>
+            
             <div class="row">
 
                 <div class="col-lg-12">
