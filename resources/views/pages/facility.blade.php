@@ -25,7 +25,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="single-event-wrap mt-40">
                             <div class="event-image">
-                                <img src="{{ $facilityItem['image'] ?? asset('assets/images/events/event-01.png') }}" class="img-fluid" alt="Event Image" style="width: 370px; height: 300px;">
+                                <img src="{{ $facilityItem['image'] ?? asset('assets/images/events/event-01.png') }}" class="img-fluid" alt="Event Image" style="width: 370px; height: 200px;">
                             </div>
                             <div class="event-content">
                                 <div class="content-title">

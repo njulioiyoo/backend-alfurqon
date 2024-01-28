@@ -34,7 +34,7 @@ class VisionAndMissionScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Vision and Mission';
+        return 'Visi dan Misi';
     }
 
     /**
@@ -44,7 +44,7 @@ class VisionAndMissionScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'Explore the vision and mission of the mosque';
+        return 'Jelajahi visi dan misi masjid.';
     }
 
     /**

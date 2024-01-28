@@ -34,7 +34,7 @@ class OrgStructureAndLeadershipScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Organizational Structure and Leadership';
+        return 'Struktur Organisasi dan Kepemimpinan';
     }
 
     /**
@@ -44,7 +44,7 @@ class OrgStructureAndLeadershipScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'Explore the organizational structure and leadership of the mosque';
+        return 'Jelajahi struktur organisasi dan kepemimpinan masjid.';
     }
 
     /**

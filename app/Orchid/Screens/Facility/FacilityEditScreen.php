@@ -52,7 +52,7 @@ class FacilityEditScreen extends Screen
      */
     public function name(): ?string
     {
-        return $this->facility->exists ? 'Edit Facility' : 'Creating a New Facility';
+        return $this->facility->exists ? 'Mengedit Fasilitas' : 'Membuat Fasilitas Baru';
     }
 
     /**
@@ -62,7 +62,7 @@ class FacilityEditScreen extends Screen
      */
     public function description(): ?string
     {
-        return "Create facility effortlessly with our user-friendly platform. Craft engaging articles, upload media, and choose relevant categories. Your facility, your way. Empower your content creation with our intuitive facility creation process.";
+        return "Buat fasilitas dengan mudah menggunakan platform ramah pengguna kami. Buat artikel menarik, unggah media, dan pilih kategori yang relevan. Fasilitas Anda, sesuai keinginan Anda. Tingkatkan kreativitas konten Anda dengan proses pembuatan fasilitas yang intuitif.";
     }
 
     /**

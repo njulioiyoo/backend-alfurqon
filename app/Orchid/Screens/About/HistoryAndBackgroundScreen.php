@@ -34,7 +34,7 @@ class HistoryAndBackgroundScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'History and Background';
+        return 'Sejarah dan Latar Belakang';
     }
 
     /**
@@ -44,7 +44,7 @@ class HistoryAndBackgroundScreen extends Screen
      */
     public function description(): ?string
     {
-        return 'Explore the history and background of the mosque';
+        return 'Jelajahi sejarah dan latar belakang masjid.';
     }
 
     /**

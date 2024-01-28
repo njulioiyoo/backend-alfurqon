@@ -54,7 +54,7 @@ class ProgramEditScreen extends Screen
      */
     public function name(): ?string
     {
-        return $this->program->exists ? 'Edit Program' : 'Creating a New Program';
+        return $this->program->exists ? 'Mengedit Program' : 'Membuat Program Baru';
     }
 
     /**
@@ -64,7 +64,7 @@ class ProgramEditScreen extends Screen
      */
     public function description(): ?string
     {
-        return "Create program effortlessly with our user-friendly platform. Craft engaging articles, upload media, and choose relevant categories. Your program, your way. Empower your content creation with our intuitive program creation process.";
+        return "Buat program dengan mudah menggunakan platform yang ramah pengguna kami. Buat artikel menarik, unggah media, dan pilih kategori yang relevan. Program Anda, sesuai keinginan Anda. Tingkatkan kreativitas konten Anda dengan proses pembuatan program yang intuitif.";
     }
 
     /**

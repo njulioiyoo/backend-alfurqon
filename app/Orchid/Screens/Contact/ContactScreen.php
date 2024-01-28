@@ -27,7 +27,7 @@ class ContactScreen extends Screen
      */
     public function name(): ?string
     {
-        return 'Contact Us';
+        return 'Hubungi Kami';
     }
 
     /**

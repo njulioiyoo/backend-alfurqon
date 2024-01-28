@@ -53,7 +53,7 @@ class NewsEditScreen extends Screen
      */
     public function name(): ?string
     {
-        return $this->news->exists ? 'Edit News' : 'Creating a New News';
+        return $this->news->exists ? 'Mengedit Berita' : 'Membuat Berita Baru';
     }
 
     /**
@@ -63,7 +63,7 @@ class NewsEditScreen extends Screen
      */
     public function description(): ?string
     {
-        return "Create news effortlessly with our user-friendly platform. Craft engaging articles, upload media, and choose relevant categories. Your news, your way. Empower your content creation with our intuitive news creation process.";
+        return "Buat berita dengan mudah menggunakan platform ramah pengguna kami. Buat artikel menarik, unggah media, dan pilih kategori yang relevan. Berita Anda, sesuai keinginan Anda. Tingkatkan kreativitas pembuatan konten Anda dengan proses pembuatan berita yang intuitif.";
     }
 
     /**
