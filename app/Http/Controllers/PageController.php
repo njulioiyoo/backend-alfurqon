@@ -130,10 +130,11 @@ class PageController extends Controller
     {
         if (request()->isMethod('POST')) {
             $rules = [
-                'name'    => 'required|regex:/^[A-Za-z0-9,. -:]+$/',
-                'email'   => 'required|email',
-                'message' => 'required|regex:/^[A-Za-z0-9,. -:]+$/',
-                'captcha' => 'required|captcha'
+                'name'      => 'required|regex:/^[A-Za-z0-9,. -:]+$/',
+                'email'     => 'required|email',
+                'telephone' => 'required',
+                'message'   => 'required|regex:/^[A-Za-z0-9,. -:]+$/',
+                'captcha'   => 'required|captcha'
             ];
 
             $validator = validator()->make(request()->all(), $rules);
@@ -142,9 +143,10 @@ class PageController extends Controller
             }
 
             Contact::create([
-                'name'    => request()->name,
-                'email'   => request()->email,
-                'message' => request()->message,
+                'name'      => request()->name,
+                'email'     => request()->email,
+                'telephone' => request()->telephone,
+                'message'   => request()->message,
             ]);
 
             return redirect()->route('contact');

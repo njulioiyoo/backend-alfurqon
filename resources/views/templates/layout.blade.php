@@ -8,7 +8,6 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}">
-
     @foreach (['vendor/bootstrap.min.css', 'vendor/flaticon.css', 'plugins/swiper.min.css', 'plugins/magnific-popup.css', 'style.css', 'sweetalert.min.css'] as $style)
         <link rel="stylesheet" href="{{ asset("assets/css/$style") }}">
     @endforeach

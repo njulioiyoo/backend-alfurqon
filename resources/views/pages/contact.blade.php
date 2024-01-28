@@ -87,6 +87,17 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <div class="input email">
+                                        <label>No Telepon</label>
+                                        <input name="telephone" value="{{ old('telephone') }}" class="form-control" placeholder="No Telepon" maxlength="20" type="number" />
+                                        @error('email')
+                                        <div class="alert alert-danger">
+                                            Sebuah entri diperlukan atau memiliki nilai yang tidak valid. Harap perbaiki dan coba lagi.
+                                        </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <div class="input textarea">
                                         <label>Pesan</label>
                                         <textarea name="message" value="{{ old('message') }}" class="form-control" placeholder="Pesan" cols="30" rows="6"></textarea>
