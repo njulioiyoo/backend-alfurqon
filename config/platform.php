@@ -245,7 +245,7 @@ return [
      */
 
     'search' => [
-        // \App\Models\User::class
+        // \App\Models\Idea::class,
     ],
 
     /*

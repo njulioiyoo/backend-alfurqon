@@ -76,6 +76,10 @@ class ContactScreen extends Screen
                     ->sort()
                     ->render(fn (Contact $contact) => $contact->email),
 
+                TD::make('telephone', __('Telephone'))
+                    ->sort()
+                    ->render(fn (Contact $contact) => $contact->telephone),
+
                 TD::make('message', __('Message'))
                     ->sort()
                     ->render(fn (Contact $contact) => $contact->message),

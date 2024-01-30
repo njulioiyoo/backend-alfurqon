@@ -68,7 +68,7 @@
                     <div class="single-service-wrap mt-30">
                         <div class="single-gallery-wrap">
                             <a href="#" data-toggle="modal" data-target="#mediaModal{{ $index }}">
-                                <img src="{{ $item['image'] }}" class="img-fluid" alt="{{ !empty($item['source']) ? 'Service image' : 'Gallery Image ' . ($index + 1) }}" style="width: 370px; height: 300px;">
+                                <img src="{{ $item['image'] }}" class="img-fluid" alt="{{ !empty($item['source']) ? 'Service image' : 'Gallery Image ' . ($index + 1) }}" style="width: 370px; height: 200px;">
                             </a>
                             
                             <!-- Media Modal -->
@@ -291,7 +291,7 @@
                     <!-- Single Activities Start -->
                     <div class="single-activities-wrap">
                         <a href="#" class="activities-imgaes">
-                            <img src="{{ $item['image'] }}" class="img-fluid" alt="">
+                            <img src="{{ $item['image'] }}" class="img-fluid" alt="" style="width: 370px; height: 200px;">
                         </a>
                         <div class="activities-content text-center">
                             <div class="widget-metadata"><span>{{ $item['time'] }}</span></div>

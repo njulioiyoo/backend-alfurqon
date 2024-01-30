@@ -58,4 +58,10 @@ class ContentType extends Content
     {
         return $query->where('type', 'facility_type');
     }
+
+    public function scopeFilters($query)
+    {
+        // Logika filter atau pencarian
+        return $query;
+    }
 }

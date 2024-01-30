@@ -110,7 +110,7 @@ class AppServiceProvider extends ServiceProvider
                 'type' => $contentType,
                 'active' => '1'
             ])
-            ->orderBy('created_at', 'desc')
+            ->orderBy('attr_2', 'asc')
             ->get()
             ->map(function ($item) use ($routeName) {
                 return [

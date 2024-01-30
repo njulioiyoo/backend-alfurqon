@@ -4,11 +4,14 @@ namespace App\Models;
 
 use Orchid\Filters\Types\Like;
 use Orchid\Filters\Types\Where;
+use Laravel\Scout\Searchable;
 use Orchid\Filters\Types\WhereDateStartEnd;
 use Orchid\Platform\Models\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    use Searchable;
+
     /**
      * The attributes that are mass assignable.
      *

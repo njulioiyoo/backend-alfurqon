@@ -14,6 +14,8 @@ use Orchid\Support\Facades\Toast;
 use Orchid\Screen\Fields\Switcher;
 use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Actions\ModalToggle;
+use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Fields\Group;
 use App\Orchid\Layouts\MasterData\ContentType\ContentTypeEditLayout;
 
 
@@ -27,7 +29,7 @@ class ContentTypeScreen extends Screen
     public function query(): iterable
     {
         return [
-            'ContentType' => ContentType::whereIn('type', ['news_type', 'program_type', 'facility_type'])->latest()->paginate(10),
+            'ContentType' => ContentType::whereIn('type', ['news_type', 'program_type', 'facility_type'])->filters()->latest()->paginate(10),
         ];
     }
 
@@ -82,8 +84,6 @@ class ContentTypeScreen extends Screen
         return [
             Layout::table('ContentType', [
                 TD::make('name', __('Name'))
-                    ->sort()
-                    ->cantHide()
                     ->filter(Input::make())
                     ->render(fn (ContentType $contentType) => ModalToggle::make($contentType->name)
                         ->modal('asyncEditContentTypeModal')
@@ -94,16 +94,17 @@ class ContentTypeScreen extends Screen
                         ])),
 
                 TD::make('type', __('Type'))
-                    ->sort()
+                    ->filter(Input::make())
                     ->render(fn (ContentType $contentType) => $contentType->type),
 
+                TD::make('attr_2', __('Order Position'))
+                    ->render(fn (ContentType $contentType) => $contentType->attr_2 ?? 0),
+
                 TD::make('status', __('Status Active'))
-                    ->sort()
                     ->render(fn (ContentType $contentType) => $contentType->active ? '<i class="text-success">●</i> True'
                         : '<i class="text-danger">●</i> False'),
 
                 TD::make('updated_at', __('Last edit'))
-                    ->sort()
                     ->render(fn (ContentType $contentType) => $contentType->updated_at),
 
                 TD::make('Actions')
@@ -122,15 +123,25 @@ class ContentTypeScreen extends Screen
                     ])
                     ->title('Select type')
                     ->help('Allow search bots to index'),
+
                 Input::make('contentType.name')
                     ->title('Name')
                     ->placeholder('Enter Content Type name')
                     ->help('The name of the Content Type to be created.'),
-                Switcher::make('contentType.active')
-                    ->sendTrueOrFalse()
-                    ->align(TD::ALIGN_RIGHT)
-                    ->help('Slide the switch to on to change it to true.')
-                    ->title('Status Active'),
+
+                Group::make([
+                    Input::make('contentType.attr_2')
+                        ->title('Order Position')
+                        ->type('number')
+                        ->placeholder('Enter Order Position')
+                        ->help('The number of the Order Position to be created.'),
+
+                    Switcher::make('contentType.active')
+                        ->sendTrueOrFalse()
+                        ->align(TD::ALIGN_RIGHT)
+                        ->help('Slide the switch to on to change it to true.')
+                        ->title('Status Active'),
+                ]),
             ]))
                 ->title('Create Content Type')
                 ->applyButton('Add Content Type'),

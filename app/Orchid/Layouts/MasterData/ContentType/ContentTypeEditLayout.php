@@ -10,6 +10,7 @@ use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Rows;
 use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Fields\Switcher;
+use Orchid\Screen\Fields\Group;
 
 class ContentTypeEditLayout extends Rows
 {
@@ -29,17 +30,27 @@ class ContentTypeEditLayout extends Rows
                 ])
                 ->title('Select type')
                 ->help('Allow search bots to index'),
+
             Input::make('contentType.name')
                 ->type('text')
                 ->max(50)
                 ->required()
                 ->title(__('Name'))
                 ->placeholder(__('Name')),
-            Switcher::make('contentType.active')
-                ->sendTrueOrFalse()
-                ->align(TD::ALIGN_RIGHT)
-                ->help('Slide the switch to on to change it to true.')
-                ->title('Status Active'),
+
+            Group::make([
+                Input::make('contentType.attr_2')
+                    ->title('Order Position')
+                    ->type('number')
+                    ->placeholder('Enter Order Position')
+                    ->help('The number of the Order Position to be created.'),
+
+                Switcher::make('contentType.active')
+                    ->sendTrueOrFalse()
+                    ->align(TD::ALIGN_RIGHT)
+                    ->help('Slide the switch to on to change it to true.')
+                    ->title('Status Active'),
+            ]),
         ];
     }
 }
