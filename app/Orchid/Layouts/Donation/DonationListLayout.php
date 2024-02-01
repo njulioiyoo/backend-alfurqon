@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Orchid\Layouts\News;
+namespace App\Orchid\Layouts\Donation;
 
 use Orchid\Screen\TD;
-use App\Models\Article;
 use App\Models\News;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Actions\Link;
@@ -13,7 +12,7 @@ use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\DropDown;
 
-class NewsListLayout extends Table
+class DonationListLayout extends Table
 {
     /**
      * @var string
@@ -26,7 +25,7 @@ class NewsListLayout extends Table
     public function columns(): array
     {
         return [
-            TD::make('name', 'Name')
+            TD::make('name', 'Nama')
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
@@ -35,29 +34,29 @@ class NewsListLayout extends Table
                         ->route('platform.systems.news.edit', $news);
                 }),
 
-            TD::make(__('Image'))
+            TD::make(__('Gambar'))
                 ->render(function (News $news) {
                     return '<img src="' . $news->image . '" width="100">';
                 }),
 
-            TD::make('is_highlight', __('Highlight Article'))
+            TD::make('is_highlight', __('Donasi Unggulan'))
                 ->sort()
                 ->render(fn (News $news) => $news->is_highlight ? '<i class="text-success">●</i> True'
                     : '<i class="text-danger">●</i> False'),
 
-            TD::make('viewed', __('Total Viewed'))
+            TD::make('viewed', __('Jumlah Dilihat'))
                 ->sort()
                 ->render(fn (News $news) => $news->viewed),
 
-            TD::make('parent_id', __('Categories'))
+            TD::make('parent_id', __('Kategori'))
                 ->sort()
-                ->render(fn (News $news) => $news->parent->name ?? null),
+                ->render(fn (News $news) => $news->parent->name),
 
-            TD::make('author', __('Author'))
+            TD::make('author', __('Penulis'))
                 ->sort()
                 ->render(fn (News $news) => $news->user->name),
 
-            TD::make('updated_at', __('Last edit'))
+            TD::make('updated_at', __('Edit terakhir'))
                 ->sort()
                 ->render(fn (News $news) => $news->updated_at),
 
@@ -66,20 +65,15 @@ class NewsListLayout extends Table
                 ->render(fn (News $news) => $news->active ? '<i class="text-success">●</i> True'
                     : '<i class="text-danger">●</i> False'),
 
-            TD::make(__('Actions'))
+            TD::make(__('Tindakan'))
                 ->align(TD::ALIGN_CENTER)
                 ->width('100px')
                 ->render(fn (News $news) => DropDown::make()
                     ->icon('options-vertical')
                     ->list([
-
-                        // Link::make(__('Edit'))
-                        //     ->route('platform.systems.article.edit', $news->id)
-                        //     ->icon('pencil'),
-
-                        Button::make(__('Delete'))
+                        Button::make(__('Hapus'))
                             ->icon('trash')
-                            ->confirm(__('Once the article is deleted, all of its resources and data will be permanently deleted. Before deleting your article, please download any data or information that you wish to retain.'))
+                            ->confirm(__('Setelah donasi dihapus, semua sumber daya dan data akan dihapus secara permanen. Sebelum menghapus donasi Anda, harap unduh semua data atau informasi yang ingin Anda simpan.'))
                             ->method('remove', [
                                 'id' => $news->id,
                             ]),

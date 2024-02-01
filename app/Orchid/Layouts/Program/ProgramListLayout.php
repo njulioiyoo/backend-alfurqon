@@ -50,7 +50,7 @@ class ProgramListLayout extends Table
 
             TD::make('parent_id', __('Categories'))
                 ->sort()
-                ->render(fn (Program $program) => $program->parent->name),
+                ->render(fn (Program $program) => $program->parent->name ?? null),
 
             TD::make('author', __('Author'))
                 ->sort()

@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Orchid\Screens\About\Donation;
+namespace App\Orchid\Screens\Donation;
 
+use App\Models\Donation;
 use App\Models\News;
+use App\Orchid\Layouts\Donation\DonationListLayout;
 use App\Orchid\Layouts\News\NewsListLayout;
 use Orchid\Screen\Screen;
 use Illuminate\Http\Request;
@@ -21,7 +23,7 @@ class DonationListScreen extends Screen
     public function query(): iterable
     {
         return [
-            'news' => News::latest()->paginate(10),
+            'donation' => Donation::latest()->paginate(10),
         ];
     }
 
@@ -51,7 +53,7 @@ class DonationListScreen extends Screen
     public function permission(): ?iterable
     {
         return [
-            'platform.systems.news',
+            'platform.systems.donation',
         ];
     }
 
@@ -65,7 +67,7 @@ class DonationListScreen extends Screen
         return [
             Link::make(__('Add'))
                 ->icon('plus')
-                ->route('platform.systems.news.create'),
+                ->route('platform.systems.donation.create'),
         ];
     }
 
@@ -77,7 +79,7 @@ class DonationListScreen extends Screen
     public function layout(): iterable
     {
         return [
-            NewsListLayout::class,
+            DonationListLayout::class,
         ];
     }
 
@@ -86,7 +88,7 @@ class DonationListScreen extends Screen
      */
     public function remove(Request $request): void
     {
-        News::findOrFail($request->get('id'))->delete();
+        Donation::findOrFail($request->get('id'))->delete();
 
         Toast::info(__('News was removed'));
     }

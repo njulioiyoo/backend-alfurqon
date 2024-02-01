@@ -89,19 +89,19 @@ class HistoryAndBackgroundScreen extends Screen
             Layout::rows([
                 Input::make('name')
                     ->horizontal()
-                    ->title('Name')
-                    ->placeholder('Enter name')
+                    ->title('Nama')
+                    ->placeholder('Masukan Nama')
                     ->value($about['name'] ?? ''),
 
                 Cropper::make('image')
-                    ->title('Main Banner (1920×350)')
+                    ->title('Spanduk Utama (1920×350)')
                     ->maxWidth(1920)
                     ->maxHeight(350)
                     ->value($about['image'] ?? '')
                     ->horizontal(),
 
                 Cropper::make('attr_2')
-                    ->title('Banner (570×420)')
+                    ->title('Spanduk (570×420)')
                     ->maxWidth(570)
                     ->maxHeight(420)
                     ->value($about['attr_2'] ?? '')
@@ -109,7 +109,7 @@ class HistoryAndBackgroundScreen extends Screen
 
                 Quill::make('body')
                     ->horizontal()
-                    ->title('Description')
+                    ->title('Deskripsi')
                     ->value($about['body'] ?? '')
                     ->options([
                         'theme' => 'bubble',
@@ -117,14 +117,14 @@ class HistoryAndBackgroundScreen extends Screen
 
                 Input::make('attr_1')
                     ->horizontal()
-                    ->title('Youtube URL')
+                    ->title('URL YouTube')
                     ->value($about['attr_1'] ?? '')
-                    ->placeholder('Enter Youtube URL')
+                    ->placeholder('Masukan URL YouTube')
                     ->type('url'),
 
                 Switcher::make('active')
                     ->sendTrueOrFalse()
-                    ->title('Status Active')
+                    ->title('Status Aktif')
                     ->value($about['active'] ?? '')
                     ->horizontal()
             ]),
@@ -157,7 +157,7 @@ class HistoryAndBackgroundScreen extends Screen
             ]
         );
 
-        Toast::info(__('History and Background was saved.'));
+        Toast::info(__('Sejarah dan Latar Belakang telah disimpan.'));
 
         return redirect()->route('platform.systems.about.history_and_background');
     }

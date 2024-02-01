@@ -21,8 +21,10 @@ use App\Orchid\Screens\Gallery\Photo\EventPhotoListScreen;
 use App\Orchid\Screens\Gallery\Video\EventVideoScreen;
 use App\Orchid\Screens\MasterData\ContentType\ContentTypeScreen;
 use App\Orchid\Screens\Contact\ContactScreen;
+use App\Orchid\Screens\Donation\DonationListScreen;
 use App\Orchid\Screens\MasterData\Partnership\PartnershipEditScreen;
 use App\Orchid\Screens\MasterData\Partnership\PartnershipListScreen;
+use App\Orchid\Screens\Donation\DonationEditScreen;
 use App\Orchid\Screens\News\NewsEditScreen;
 use App\Orchid\Screens\News\NewsListScreen;
 use App\Orchid\Screens\Program\ProgramListScreen;
@@ -260,3 +262,24 @@ Route::screen('facility/{facility}/edit', FacilityEditScreen::class)
     ->breadcrumbs(fn (Trail $trail, $facility) => $trail
         ->parent('platform.systems.facility')
         ->push($facility->name, route('platform.systems.facility.edit', $facility)));
+
+// Platform > System > Donation
+Route::screen('donation', DonationListScreen::class)
+    ->name('platform.systems.donation')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.index')
+        ->push(__('Donation'), route('platform.systems.donation')));
+
+// Platform > System > Donation > Create
+Route::screen('donation/create', DonationEditScreen::class)
+    ->name('platform.systems.donation.create')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.systems.donation')
+        ->push(__('Create'), route('platform.systems.donation.create')));
+
+// Platform > System > Donation > Edit
+Route::screen('donation/{donation}/edit', DonationEditScreen::class)
+    ->name('platform.systems.donation.edit')
+    ->breadcrumbs(fn (Trail $trail, $donation) => $trail
+        ->parent('platform.systems.donation')
+        ->push($donation->name, route('platform.systems.donation.edit', $donation)));

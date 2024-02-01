@@ -51,6 +51,8 @@ class PlatformProvider extends OrchidServiceProvider
                         ->route('platform.systems.about.organizational-structure-and-leadership'),
                     Menu::make('Aksi Sosial')
                         ->icon('bs.heart')
+                        ->permission('platform.systems.donation')
+                        ->route('platform.systems.donation'),
                 ]),
 
             Menu::make(__('Program'))
@@ -128,26 +130,27 @@ class PlatformProvider extends OrchidServiceProvider
             ItemPermission::group(__('System'))
                 ->addPermission('platform.systems.roles', __('Roles'))
                 ->addPermission('platform.systems.users', __('Users'))
-                ->addPermission('platform.systems.facility', __('Facility'))
+                ->addPermission('platform.systems.facility', __('Fasilitas'))
                 ->addPermission('platform.systems.program', __('Program'))
-                ->addPermission('platform.systems.news', __('Information'))
-                ->addPermission('platform.systems.contact', __('Contact Us')),
+                ->addPermission('platform.systems.news', __('Informasi'))
+                ->addPermission('platform.systems.contact', __('Hubungi Kami')),
 
             ItemPermission::group(__('Settings'))
-                ->addPermission('platform.systems.configurations', __('Configurations')),
+                ->addPermission('platform.systems.configurations', __('Konfigurasi')),
 
             ItemPermission::group(__('Master Data'))
-                ->addPermission('platform.systems.content_type', __('Content Type'))
-                ->addPermission('platform.systems.partnerships', __('Partnerships')),
+                ->addPermission('platform.systems.content_type', __('Jenis Konten'))
+                ->addPermission('platform.systems.partnerships', __('Kemitraan')),
 
             ItemPermission::group(__('About Us'))
-                ->addPermission('platform.systems.about.history_and_background', __('History and Background'))
-                ->addPermission('platform.systems.about.vision_and_mission', __('Vision and Mission'))
-                ->addPermission('platform.systems.about.organizational-structure-and-leadership', __('Organizational Structure and Leadership')),
+                ->addPermission('platform.systems.about.history_and_background', __('Sejarah dan Latar Belakang'))
+                ->addPermission('platform.systems.about.vision_and_mission', __('Visi dan Misi'))
+                ->addPermission('platform.systems.about.organizational-structure-and-leadership', __('Struktur Organisasi dan Pimpinan'))
+                ->addPermission('platform.systems.donation', __('Aksi Sosial')),
 
             ItemPermission::group(__('Gallery'))
-                ->addPermission('platform.systems.gallery.photo', __('Mosque photos, events, and activities'))
-                ->addPermission('platform.systems.gallery.video', __('Video recordings of important events'))
+                ->addPermission('platform.systems.gallery.photo', __('Foto-foto masjid, acara dan kegiatan'))
+                ->addPermission('platform.systems.gallery.video', __('Video rekaman acara-acara penting'))
 
         ];
     }

@@ -2,27 +2,24 @@
 
 namespace App\Models;
 
-use App\Orchid\Presenters\IdeaPresenter;
+use App\Orchid\Presenters\UserPresenter;
 use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Idea extends Model
 {
     use Searchable;
-    protected $table   = 'contents';
-
-    protected $fillable = [
-        'name',
-    ];
+    protected $table   = 'users';
+    protected $guarded = [];
 
     /**
      * Get the presenter for the model.
      *
-     * @return IdeaPresenter
+     * @return UserPresenter
      */
     public function presenter()
     {
-        return new IdeaPresenter($this);
+        return new UserPresenter($this);
     }
 
     /**
@@ -32,7 +29,6 @@ class Idea extends Model
      */
     public function toSearchableArray()
     {
-        dd($this->name);
         return [
             'id' => $this->id,
             'name' => $this->name,
