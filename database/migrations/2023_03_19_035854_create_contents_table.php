@@ -19,7 +19,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->nullable();
             $table->string('image')->nullable();
+            $table->string('banner')->nullable();
             $table->string('source')->nullable();
+            $table->string('source_type')->nullable();
             $table->string('description')->nullable();
             $table->text('body')->nullable();
             $table->bigInteger('author')->nullable();
@@ -31,6 +33,10 @@ return new class extends Migration
             $table->bigInteger('attr_2')->nullable();
             $table->text('attr_3')->nullable();
             $table->bigInteger('active')->nullable();
+            $table->dateTime('start_date')->nullable();
+            $table->dateTime('end_date')->nullable();
+            $table->tinyInteger('is_banner_donation')->nullable();
+            $table->bigInteger('donation_id')->nullable();
             $table->timestamps();
         });
     }

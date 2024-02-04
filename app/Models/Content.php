@@ -36,4 +36,9 @@ class Content extends Model
     {
         return $this->hasMany(Facility::class, 'parent_id', 'id');
     }
+
+    public function donation()
+    {
+        return $this->belongsTo(Donation::class, 'donation_id');
+    }
 }

@@ -20,7 +20,7 @@ class NewsRepository implements NewsRepositoryInterface
     protected function getRelationConstraints()
     {
         $baseQuery = function ($query) {
-            $query->select('name', 'slug', 'image', 'description', 'body', 'source', 'parent_id', 'active', 'created_at')
+            $query->select('name', 'slug', 'image', 'description', 'body', 'source', 'source_type', 'parent_id', 'active', 'created_at')
                 ->where('active', '1');
         };
 
@@ -34,13 +34,12 @@ class NewsRepository implements NewsRepositoryInterface
     public function getDetailBySlug($type, $newsType, $slug)
     {
         $newsType = $this->getBySlug($type, $newsType);
-        // dd($newsType);
-        return Content::with('user:id,name,email', 'parent:id,name')
+        return Content::with('user:id,name,email', 'parent:id,name', 'donation:id,name,banner')
             ->where([
                 ['slug', $slug],
                 ['parent_id', $newsType->id],
                 ['active', '1']
             ])
-            ->first(['id', 'name', 'slug', 'image', 'source', 'description', 'body', 'author', 'viewed', 'parent_id', 'created_at']);
+            ->first(['id', 'name', 'slug', 'image', 'source', 'description', 'body', 'author', 'viewed', 'parent_id', 'created_at', 'donation_id', 'is_banner_donation']);
     }
 }

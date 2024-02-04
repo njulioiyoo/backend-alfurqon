@@ -24,10 +24,8 @@
                 @foreach ($data['program'] as $index => $item)
                 <div class="col-lg-4 col-md-6">
                     <div class="single-service-wrap mt-40">
-                        <div class="single-gallery-wrap">
-                            <a href="#" data-toggle="modal" data-target="#mediaModal{{ $index }}">
-                                <img src="{{ $item['image'] }}" class="img-fluid" alt="{{ !empty($item['source']) ? 'Video Gambar' : 'Galeri Gambar' . ($index + 1) }}" style="width: 370px; height: 200px;">
-                            </a>
+                        <div class="event-image">
+                            <img src="{{ $item['image'] }}" class="img-fluid" alt="{{ !empty($item['source']) ? 'Video Gambar' : 'Galeri Gambar' . ($index + 1) }}" style="width: 370px; height: 200px;">
 
                             <!-- Media Modal -->
                             <div class="modal fade" id="mediaModal{{ $index }}" tabindex="-1" role="dialog" aria-labelledby="mediaModalLabel{{ $index }}" aria-hidden="true">
@@ -53,9 +51,22 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="service-content">
-                            {{ Str:: limit($item['body'], 200) }}
-                            {{ strlen($item['body']) > 200 ? '...' : '' }}
+
+                        <div class="event-content">
+                            <div class="content-title">
+                                <h4 class="mb-15">{{ $item['name'] }}</h4>
+                                <div class="event-date">
+                                    <span>{{ \Carbon\Carbon::parse($item['created_at'])->format('j M Y') }}</span>
+                                </div>
+                                <p>{{ Str::limit($item['body'], 200) }}</p>
+                            </div>
+                            <div class="ticket-button-box mt-20">
+                                <a href="{{ $item['source_type'] === 'video' ? '#' : route('detail.program', ['type' => $data['slug'], 'slug' => $item['slug']]) }}" 
+                                    @if($item['source_type'] === 'video')
+                                        data-toggle="modal" data-target="#mediaModal{{ $index }}"
+                                    @endif
+                                    class="btn ticket-btn">Baca Selengkapnya</a>
+                            </div>
                         </div>
                     </div>
                 </div>

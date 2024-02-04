@@ -25,7 +25,7 @@ class ProgramListLayout extends Table
     public function columns(): array
     {
         return [
-            TD::make('name', 'Name')
+            TD::make('name', 'Nama')
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
@@ -34,29 +34,42 @@ class ProgramListLayout extends Table
                         ->route('platform.systems.program.edit', $program);
                 }),
 
-            TD::make(__('Image'))
+            TD::make(__('Gambar'))
                 ->render(function (Program $program) {
                     return '<img src="' . $program->image . '" width="100">';
                 }),
 
-            TD::make('is_highlight', __('Highlight Article'))
+            TD::make('is_highlight', __('Program Unggulan'))
                 ->sort()
                 ->render(fn (Program $program) => $program->is_highlight ? '<i class="text-success">●</i> True'
                     : '<i class="text-danger">●</i> False'),
 
-            TD::make('viewed', __('Total Viewed'))
+            TD::make('is_banner_donation', __('Tampilkan Banner Donation'))
+                ->sort()
+                ->render(fn (Program $program) => $program->is_banner_donation ? '<i class="text-success">●</i> True'
+                    : '<i class="text-danger">●</i> False'),
+
+            TD::make('source_type', __('Tipe Program'))
+                ->sort()
+                ->render(fn (Program $program) => $program->source_type),
+
+            TD::make('viewed', __('Total Dilihat'))
                 ->sort()
                 ->render(fn (Program $program) => $program->viewed),
 
-            TD::make('parent_id', __('Categories'))
+            TD::make('source_type', __('Tipe Program'))
+                ->sort()
+                ->render(fn (Program $program) => $program->source_type),
+
+            TD::make('parent_id', __('Konten Kategori'))
                 ->sort()
                 ->render(fn (Program $program) => $program->parent->name ?? null),
 
-            TD::make('author', __('Author'))
+            TD::make('author', __('Penulis'))
                 ->sort()
                 ->render(fn (Program $program) => $program->user->name),
 
-            TD::make('updated_at', __('Last edit'))
+            TD::make('updated_at', __('Edit terakhir'))
                 ->sort()
                 ->render(fn (Program $program) => $program->updated_at),
 
@@ -71,14 +84,9 @@ class ProgramListLayout extends Table
                 ->render(fn (Program $program) => DropDown::make()
                     ->icon('options-vertical')
                     ->list([
-
-                        // Link::make(__('Edit'))
-                        //     ->route('platform.systems.article.edit', $program->id)
-                        //     ->icon('pencil'),
-
-                        Button::make(__('Delete'))
+                        Button::make(__('Hapus'))
                             ->icon('trash')
-                            ->confirm(__('Once the article is deleted, all of its resources and data will be permanently deleted. Before deleting your article, please download any data or information that you wish to retain.'))
+                            ->confirm(__('Setelah program dihapus, semua sumber daya dan data akan dihapus secara permanen. Sebelum menghapus program Anda, harap unduh semua data atau informasi yang ingin Anda simpan.'))
                             ->method('remove', [
                                 'id' => $program->id,
                             ]),

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Models\News;
 use App\Models\Program;
-use App\Models\Configuration;
+use App\Models\Donation;
 use Illuminate\Http\Request;
 use App\Repositories\GalleryRepositoryInterface;
 use App\Repositories\AboutUsRepositoryInterface;
@@ -35,29 +35,25 @@ class PageController extends Controller
             ],
         ];
 
-        $programData = Program::where('active', '1')->where('is_highlight', '1')->orderBy('created_at', 'desc')->limit(3)->get();
+        $programData = Program::with('parent')->where('active', '1')->where('is_highlight', '1')->orderBy('created_at', 'desc')->limit(3)->get();
         $serviceData = [];
         foreach ($programData as $program) {
             $serviceData[] = [
                 'image' => $program->image, // Change to the actual image attribute in your Program model
+                'slug' => $program->slug,
                 'title' => $program->name,
                 'source' => $program->source,
+                'source_type' => $program->source_type,
                 'content' => $program->body,
+                'parent' => $program->parent->slug,
+                'created_at' => $program->created_at,
             ];
         }
 
         // Sample data for the "Donation" section
-        $donationData = [
-            [
-                'image' => 'assets/images/donation/muslim-donate-01.png',
-                'title' => 'Education for all rural children.',
-                'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Ipsum has been standard dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-                'currentAmount' => 4500.00,
-                'goalAmount' => 8500.00,
-                'donateLink' => '#',
-            ],
-            // Add more donation data as needed
-        ];
+        $donationData = Donation::select('name', 'slug', 'image', 'description', 'attr_2 as amount')
+            ->where('active', 1)
+            ->get();
 
         $newsData = News::with('parent')->where('active', '1')->where('is_highlight', '1')->orderBy('created_at', 'desc')->limit(3)->get();
         $activitiesData = [];
@@ -79,7 +75,7 @@ class PageController extends Controller
             'donation' => $donationData,
             'others_activities' => $activitiesData,
         ];
-        // dd($data);
+
         return view('welcome', compact('data'));
     }
 
@@ -164,5 +160,10 @@ class PageController extends Controller
     {
         // Jangan mengirimkan parameter $slug yang tidak diperlukan pada metode news
         return $this->show('program_type', $slug, 'newsRepository', 'program');
+    }
+
+    public function detailProgram($programType, $slug)
+    {
+        return $this->show('program_type', $programType, 'newsRepository', 'detail-program', $slug);
     }
 }

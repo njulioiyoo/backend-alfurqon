@@ -7,7 +7,7 @@ namespace App\Orchid\Screens\Program;
 use Orchid\Screen\Action;
 use Orchid\Screen\Screen;
 use App\Models\ContentType;
-use App\Models\User;
+use App\Models\Donation;
 use App\Models\Program;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -23,6 +23,7 @@ use Orchid\Screen\Fields\Group;
 use Orchid\Screen\TD;
 use Google_Service_YouTube;
 use Google_Client;
+use Orchid\Screen\Fields\Select;
 
 class ProgramEditScreen extends Screen
 {
@@ -105,48 +106,68 @@ class ProgramEditScreen extends Screen
         return [
             Layout::rows([
                 Relation::make('program.parent_id')
-                    ->title('Content Categories')
+                    ->title('Kategori Konten')
                     ->required()
                     ->horizontal()
                     ->fromModel(ContentType::class, 'name')->applyScope('programType'),
 
+                Relation::make('program.donation_id')
+                    ->title('Hubungkan Donasi Konten')
+                    ->required()
+                    ->horizontal()
+                    ->fromModel(Donation::class, 'name'),
+
                 Input::make('program.name')
-                    ->title('Name')
+                    ->title('Nama')
                     ->horizontal()
                     ->placeholder('Attractive but mysterious name')
-                    ->help('Specify a short descriptive name for this program.'),
+                    ->help('Tentukan nama deskriptif singkat untuk program ini.'),
 
                 Input::make('program.source')
                     ->title('Youtube URL')
                     ->horizontal()
                     ->type('url')
                     ->placeholder('Share youtube id video on your Video')
-                    ->help('Specify a short descriptive title for this video.'),
+                    ->help('Tentukan nama deskriptif singkat untuk video ini.'),
+
+                Select::make('program.source_type')
+                    ->options([
+                        'video' => 'Video',
+                        'photo' => 'Photo',
+                    ])
+                    ->title('Tipe Program')
+                    ->horizontal(),
 
                 Cropper::make('program.image')
-                    ->title('Image (370x300)')
+                    ->title('Gambar (370x300)')
                     ->maxWidth(370)
                     ->maxHeight(300)
                     ->horizontal(),
 
                 TextArea::make('program.body')
-                    ->title('Description')
+                    ->title('Deskripsi')
                     ->horizontal()
                     ->rows(3)
-                    ->placeholder('Brief description for preview'),
+                    ->placeholder('Deskripsi singkat untuk pratinjau'),
 
                 Group::make([
                     Switcher::make('program.is_highlight')
                         ->sendTrueOrFalse()
                         ->align(TD::ALIGN_RIGHT)
-                        ->help('Slide the switch to on to change it to true.')
-                        ->title('Highlight Program'),
+                        ->help('Geser tombol ke aktif untuk mengubahnya menjadi true.')
+                        ->title('Program Unggulan'),
 
                     Switcher::make('program.active')
                         ->sendTrueOrFalse()
                         ->align(TD::ALIGN_RIGHT)
-                        ->help('Slide the switch to on to change it to true.')
+                        ->help('Geser tombol ke aktif untuk mengubahnya menjadi true.')
                         ->title('Status'),
+
+                    Switcher::make('program.is_banner_donation')
+                        ->sendTrueOrFalse()
+                        ->align(TD::ALIGN_RIGHT)
+                        ->help('Geser tombol ke aktif untuk mengubahnya menjadi true.')
+                        ->title('Tampilkan Banner Donation'),
                 ]),
             ])
 
@@ -170,7 +191,9 @@ class ProgramEditScreen extends Screen
 
         $create = [
             'parent_id' => $data['parent_id'],
+            'donation_id' => $data['donation_id'],
             'source' => $data['source'] ?? null,
+            'source_type' => $data['source_type'] ?? null,
             'name' => $data['name'] ?? $resultVideo->getSnippet()->getTitle(),
             'slug' => $data['source'] ? Str::slug($resultVideo->getSnippet()->getTitle()) : Str::slug($data['name']),
             'body' => $data['source'] ? $resultVideo->getSnippet()->getDescription() : $data['body'],
@@ -178,6 +201,7 @@ class ProgramEditScreen extends Screen
             'image' => $data['image'] ? url($data['image']) : $image,
             'is_highlight' => $data['is_highlight'],
             'active' => $data['active'],
+            'is_banner_donation' => $data['is_banner_donation'],
         ];
 
         $program->fill($create)->save();

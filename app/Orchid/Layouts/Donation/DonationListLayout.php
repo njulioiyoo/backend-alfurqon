@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Orchid\Layouts\Donation;
 
+use App\Models\Donation;
 use Orchid\Screen\TD;
-use App\Models\News;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
@@ -17,7 +17,7 @@ class DonationListLayout extends Table
     /**
      * @var string
      */
-    public $target = 'news';
+    public $target = 'donation';
 
     /**
      * @return TD[]
@@ -29,53 +29,57 @@ class DonationListLayout extends Table
                 ->sort()
                 ->cantHide()
                 ->filter(Input::make())
-                ->render(function (News $news) {
-                    return Link::make($news->name)
-                        ->route('platform.systems.news.edit', $news);
+                ->render(function (Donation $donation) {
+                    return Link::make($donation->name)
+                        ->route('platform.systems.donation.edit', $donation);
                 }),
 
             TD::make(__('Gambar'))
-                ->render(function (News $news) {
-                    return '<img src="' . $news->image . '" width="100">';
+                ->render(function (Donation $donation) {
+                    return '<img src="' . $donation->image . '" width="100">';
                 }),
 
             TD::make('is_highlight', __('Donasi Unggulan'))
                 ->sort()
-                ->render(fn (News $news) => $news->is_highlight ? '<i class="text-success">●</i> True'
+                ->render(fn (Donation $donation) => $donation->is_highlight ? '<i class="text-success">●</i> True'
                     : '<i class="text-danger">●</i> False'),
 
             TD::make('viewed', __('Jumlah Dilihat'))
                 ->sort()
-                ->render(fn (News $news) => $news->viewed),
+                ->render(fn (Donation $donation) => $donation->viewed),
 
-            TD::make('parent_id', __('Kategori'))
+            TD::make('start_date', __('Tanggal Dimulai'))
                 ->sort()
-                ->render(fn (News $news) => $news->parent->name),
+                ->render(fn (Donation $donation) => $donation->start_date),
+
+            TD::make('end_date', __('Tanggal Berakhir'))
+                ->sort()
+                ->render(fn (Donation $donation) => $donation->end_date),
 
             TD::make('author', __('Penulis'))
                 ->sort()
-                ->render(fn (News $news) => $news->user->name),
+                ->render(fn (Donation $donation) => $donation->user->name),
 
             TD::make('updated_at', __('Edit terakhir'))
                 ->sort()
-                ->render(fn (News $news) => $news->updated_at),
+                ->render(fn (Donation $donation) => $donation->updated_at),
 
             TD::make('active', __('Status'))
                 ->sort()
-                ->render(fn (News $news) => $news->active ? '<i class="text-success">●</i> True'
+                ->render(fn (Donation $donation) => $donation->active ? '<i class="text-success">●</i> True'
                     : '<i class="text-danger">●</i> False'),
 
             TD::make(__('Tindakan'))
                 ->align(TD::ALIGN_CENTER)
                 ->width('100px')
-                ->render(fn (News $news) => DropDown::make()
+                ->render(fn (Donation $donation) => DropDown::make()
                     ->icon('options-vertical')
                     ->list([
                         Button::make(__('Hapus'))
                             ->icon('trash')
                             ->confirm(__('Setelah donasi dihapus, semua sumber daya dan data akan dihapus secara permanen. Sebelum menghapus donasi Anda, harap unduh semua data atau informasi yang ingin Anda simpan.'))
                             ->method('remove', [
-                                'id' => $news->id,
+                                'id' => $donation->id,
                             ]),
                     ])),
         ];

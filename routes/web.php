@@ -25,7 +25,7 @@ Route::match(['GET', 'POST'], 'contact', [PageController::class, 'contact'])->na
 Route::get('/reload-captcha',  [PageController::class, 'reloadCaptcha'])->name('reload-captcha');
 Route::prefix('program')->group(function () {
     Route::get('/{type}', [PageController::class, 'program'])->name('program');
-    Route::get('/{type}/detail/{slug}', [PageController::class, 'detailProgram'])->name('program.news');
+    Route::get('/{type}/detail/{slug}', [PageController::class, 'detailProgram'])->name('detail.program');
 });
 Route::prefix('facility')->group(function () {
     Route::get('/{type}', [PageController::class, 'facility'])->name('facility');

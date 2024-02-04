@@ -131,7 +131,7 @@ class DonationEditScreen extends Screen
                     ->maxlength(200)
                     ->placeholder('Deskripsi singkat untuk pratinjau.'),
 
-                Input::make('donation.amount')
+                Input::make('donation.attr_2')
                     ->title('Target Donasi')
                     ->horizontal()
                     ->required()
@@ -139,11 +139,12 @@ class DonationEditScreen extends Screen
                     ->title('Target Donasi')
                     ->placeholder('Target donasi yang diharapkan'),
 
-                DateRange::make('donation_period')
+                DateRange::make('donation.donation_period')
                     ->horizontal()
                     ->required()
                     ->title('Periode Donasi')
                     ->help('Spesifikasikan tanggal mulai dan tanggal selesai untuk periode donasi ini.'),
+
                 Quill::make('donation.body')
                     ->horizontal()
                     ->required()
@@ -176,10 +177,21 @@ class DonationEditScreen extends Screen
     public function save(Donation $donation, Request $request)
     {
         $data = $request->get('donation');
-        $data['slug']   = Str::slug($data['name']);
-        $data['image']  = url('' . $data['image']);
+        $create = [
+            'name'      => $data['name'],
+            'slug'      => Str::slug($data['name']),
+            'image'     => $data['image'],
+            'banner'    => $data['banner'],
+            'description'   => $data['description'],
+            'attr_2'    => $data['attr_2'],
+            'body'      => $data['body'],
+            'is_highlight' => $data['is_highlight'],
+            'active' => $data['active'],
+            'start_date'    => $data['donation_period']['start'],
+            'end_date'      => $data['donation_period']['end'],
+        ];
 
-        $donation->fill($data)->save();
+        $donation->fill($create)->save();
 
         Toast::info(__('Donasi telah disimpan.'));
 

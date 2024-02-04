@@ -12,7 +12,7 @@ class PrayerTimesRepository implements PrayerTimesRepositoryInterface
     {
         // Mendapatkan informasi lokasi pengguna dari layanan ipapi.co
         $locationData = $this->getUserLocation();
-        // dd($locationData);
+
         // Mendapatkan koordinat lintang dan bujur
         $latitude = $locationData['latitude'];
         $longitude = $locationData['longitude'];

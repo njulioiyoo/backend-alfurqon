@@ -90,6 +90,6 @@ class DonationListScreen extends Screen
     {
         Donation::findOrFail($request->get('id'))->delete();
 
-        Toast::info(__('News was removed'));
+        Toast::info(__('Donation was removed'));
     }
 }

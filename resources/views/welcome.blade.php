@@ -66,10 +66,8 @@
                 @foreach ($data['service'] as $index => $item)
                 <div class="col-lg-4 col-md-6">
                     <div class="single-service-wrap mt-30">
-                        <div class="single-gallery-wrap">
-                            <a href="#" data-toggle="modal" data-target="#mediaModal{{ $index }}">
-                                <img src="{{ $item['image'] }}" class="img-fluid" alt="{{ !empty($item['source']) ? 'Service image' : 'Gallery Image ' . ($index + 1) }}" style="width: 370px; height: 200px;">
-                            </a>
+                        <div class="event-image">
+                            <img src="{{ $item['image'] }}" class="img-fluid" alt="{{ !empty($item['source']) ? 'Service image' : 'Gallery Image ' . ($index + 1) }}" style="width: 370px; height: 200px;">
                             
                             <!-- Media Modal -->
                             <div class="modal fade" id="mediaModal{{ $index }}" tabindex="-1" role="dialog" aria-labelledby="mediaModalLabel{{ $index }}" aria-hidden="true">
@@ -95,10 +93,22 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="service-content">
-                            <h4 class="service-title">{{ $item['title'] }}</h4>
-                            {{ Str:: limit($item['content'], 200) }}
-                            {{ strlen($item['content']) > 200 ? '...' : '' }}
+
+                        <div class="event-content">
+                            <div class="content-title">
+                                <h4 class="mb-15">{{ $item['title'] }}</h4>
+                                <div class="event-date">
+                                    <span>{{ \Carbon\Carbon::parse($item['created_at'])->format('j M Y') }}</span>
+                                </div>
+                                <p>{{ Str::limit($item['content'], 200) }}</p>
+                            </div>
+                            <div class="ticket-button-box mt-20">
+                                <a href="{{ $item['source_type'] === 'video' ? '#' : route('detail.program', ['type' => $item['parent'], 'slug' => $item['slug']]) }}" 
+                                    @if($item['source_type'] === 'video')
+                                        data-toggle="modal" data-target="#mediaModal{{ $index }}"
+                                    @endif
+                                    class="btn ticket-btn">Baca Selengkapnya</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -110,6 +120,7 @@
     <!-- ======== Service Area End ========== -->
     @endif
     <!-- ======== Donation Area Start ========== -->
+    @if(!empty($data['donation']))
     <div class="donation-area section-space--pb_120">
         <div class="container">
             <div class="row">
@@ -119,160 +130,69 @@
                     </div>
                 </div>
             </div>
-            
+            @unless (count($data['donation']))
             <div class="row">
-
-                <div class="col-lg-12">
-                    <!-- Single Donation Wrap Start -->
-                    <div class="single-donation-wrap row align-items-center">
-                        <div class="col-lg-5">
-                            <div class="donation-image">
-                                <img src="assets/images/donation/pembangunan-masjid.jpeg" class="img-fluid" alt="Donation Image">
-                            </div>
-                        </div>
-                        <div class="col-lg-7">
-                            <div class="donation-content ml-lg-5">
-                                <div class="content-title">
-                                    <h4 class="mb-15">Donasi Pembangunan Masjid Al-Furqon Bekasi Barat</h4>
-                                    <p>Masjid Al-Furqon di Bekasi Barat memulai proyek pembangunan yang ambisius untuk memperluas dan meningkatkan fasilitasnya, dengan tujuan memberikan pelayanan yang lebih baik kepada umat dan memperkuat ikatan komunitas. Donasi Anda akan membantu mewujudkan visi ini dan memberikan kontribusi positif terhadap kehidupan keagamaan di daerah ini.</p>
-                                </div>
-
-                                <div class="progress-wrap-muslim">
-                                    <div class="row">
-                                        <div class="col-lg-8">
-                                            <div class="progress-bar--two">
-                                                <!-- Start Single Progress Charts -->
-                                                <div class="progress-charts">
-                                                    <div class="progress">
-                                                        <div class="progress-bar wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay=".3s" role="progressbar" style="width: 0%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-                                                            <p class="percent-label">0</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="progress_sold_av">
-                                                        <p class="start-sold">0</p>
-                                                        <p class="sold-av">30.000.000 <br> <span>OUR GOAL</span></p>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Progress Charts -->
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="donate-btn text-lg-right">
-                                                <a href="#" class="btn donate-btn">Donasi Sekarang</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!--// Single Donation Wrap End -->
+                <div class="col-12 text-center">
+                    <p>Maaf, saat ini belum ada donasi yang tersedia.</p>
                 </div>
-
-                <div class="col-lg-12">
-                    <!-- Single Donation Wrap Start -->
-                    <div class="single-donation-wrap row align-items-center">
-                        <div class="col-lg-5">
-                            <div class="donation-image">
-                                <img src="assets/images/donation/santunan-yatim.jpeg" class="img-fluid" alt="Donation Image">
-                            </div>
-                        </div>
-                        <div class="col-lg-7">
-                            <div class="donation-content ml-lg-5">
-                                <div class="content-title">
-                                    <h4 class="mb-15">Donasi untuk Anak Yatim: Memberikan Harapan dan Pemulihan</h4>
-                                    <p>Donasi untuk anak yatim adalah cara luar biasa untuk memberikan dampak positif pada kehidupan anak-anak yang kehilangan satu atau kedua orang tua mereka. Inisiatif ini memberikan dukungan finansial dan emosional kepada anak yatim, membantu mereka membangun masa depan yang lebih baik dan menanggulangi kesulitan hidup yang mereka hadapi.</p>
-                                </div>
-
-                                <div class="progress-wrap-muslim">
-                                    <div class="row">
-                                        <div class="col-lg-8">
-                                            <div class="progress-bar--two">
-                                                <!-- Start Single Progress Charts -->
-                                                <div class="progress-charts">
-                                                    <div class="progress">
-                                                        <div class="progress-bar wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay=".3s" role="progressbar" style="width: 0%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-                                                            <p class="percent-label">0</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="progress_sold_av">
-                                                        <p class="start-sold">0</p>
-                                                        <p class="sold-av">10.000.000 <br> <span>OUR GOAL</span></p>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Progress Charts -->
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="donate-btn text-lg-right">
-                                                <a href="#" class="btn donate-btn">Donasi Sekarang</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!--// Single Donation Wrap End -->
-                </div>
-
-                <div class="col-lg-12">
-                    <!-- Single Donation Wrap Start -->
-                    <div class="single-donation-wrap row align-items-center">
-                        <div class="col-lg-5">
-                            <div class="donation-image">
-                                <img src="assets/images/donation/sedekah.jpeg" class="img-fluid" alt="Donation Image">
-                            </div>
-                        </div>
-                        <div class="col-lg-7">
-                            <div class="donation-content ml-lg-5">
-                                <div class="content-title">
-                                    <h4 class="mb-15">Sedekah: Memberikan Kebaikan yang Menyentuh Hati</h4>
-                                    <p>Sedekah merupakan tindakan mulia memberikan sebagian dari harta atau sumber daya kita kepada mereka yang membutuhkan, tanpa mengharapkan imbalan atau balasan. Ini adalah amal perbuatan yang memiliki dampak positif pada individu dan komunitas secara keseluruhan</p>
-                                </div>
-
-                                <div class="progress-wrap-muslim">
-                                    <div class="row">
-                                        <div class="col-lg-8">
-                                            <div class="progress-bar--two">
-                                                <!-- Start Single Progress Charts -->
-                                                <div class="progress-charts">
-                                                    <div class="progress">
-                                                        <div class="progress-bar wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay=".3s" role="progressbar" style="width: 0%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
-                                                            <p class="percent-label">0</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="progress_sold_av">
-                                                        <p class="start-sold">0</p>
-                                                        <p class="sold-av">10.000.000 <br> <span>OUR GOAL</span></p>
-                                                    </div>
-                                                </div>
-                                                <!-- End Single Progress Charts -->
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="donate-btn text-lg-right">
-                                                <a href="#" class="btn donate-btn">Donasi Sekarang</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <!--// Single Donation Wrap End -->
-                </div>
-
-
             </div>
+            @else
+            <div class="row">
+                @foreach ($data['donation'] as $index => $item)
+                <div class="col-lg-12">
+                    <!-- Single Donation Wrap Start -->
+                    <div class="single-donation-wrap row align-items-center">
+                        <div class="col-lg-5">
+                            <div class="donation-image">
+                                <img src="{{ $item['image'] }}" class="img-fluid" alt="Donation Image">
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="donation-content ml-lg-5">
+                                <div class="content-title">
+                                    <h4 class="mb-15">{{ $item['name'] }}</h4>
+                                    {{ $item['description'] }} ...
+                                </div>
+
+                                <div class="progress-wrap-muslim">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <div class="progress-bar--two">
+                                                <!-- Start Single Progress Charts -->
+                                                <div class="progress-charts">
+                                                    <div class="progress">
+                                                        <div class="progress-bar wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay=".3s" role="progressbar" style="width: 0%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                                            <p class="percent-label">0</p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="progress_sold_av">
+                                                        <p class="start-sold">0</p>
+                                                        <p class="sold-av">{{ number_format($item['amount']) }} <br> <span>Target Donasi</span></p>
+                                                    </div>
+                                                </div>
+                                                <!-- End Single Progress Charts -->
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="donate-btn text-lg-right">
+                                                <a href="#" class="btn donate-btn">Donasi Sekarang</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--// Single Donation Wrap End -->
+                </div>
+                @endforeach
+            </div>
+            @endunless
         </div>
     </div>
+    @endif
     <!-- ======== Donation Area End ========== -->
     @if(!empty($data['others_activities']))
     <!-- ======== Others Activities Area Start ========== -->
