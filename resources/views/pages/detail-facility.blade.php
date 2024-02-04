@@ -30,7 +30,7 @@
                                     <h4 class="mb-15">{{ $data['name'] }}</h4>
                                     <div class="event-date"><span>{{ \Carbon\Carbon::parse($data['created_at'])->format('j M Y') }}</span></div>
                                 </div>
-                                {!! $data['body'] !!}
+                                {!! str_replace('<img', '<img class="img-fluid"', $data['body']) !!}
                             </div>
                         </div>
 
