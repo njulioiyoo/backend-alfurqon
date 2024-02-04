@@ -113,7 +113,6 @@ class ProgramEditScreen extends Screen
 
                 Relation::make('program.donation_id')
                     ->title('Hubungkan Donasi Konten')
-                    ->required()
                     ->horizontal()
                     ->fromModel(Donation::class, 'name'),
 
