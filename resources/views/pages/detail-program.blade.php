@@ -39,8 +39,8 @@
             </div>
         </div>
     </div>
-
     <!-- ======== Ticket Area Start ========== -->
+    @if(!empty($data['donation']))
     <div class="ticket-area section-space--pb_120">
         <div class="container">
             <div class="row">
@@ -56,6 +56,7 @@
             </div>
         </div>
     </div>
+    @endif
     <!-- ======== Ticket  Area End ========== -->
 </div>
 @endsection
