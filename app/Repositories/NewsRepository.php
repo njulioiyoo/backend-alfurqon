@@ -34,7 +34,7 @@ class NewsRepository implements NewsRepositoryInterface
     public function getDetailBySlug($type, $newsType, $slug)
     {
         $newsType = $this->getBySlug($type, $newsType);
-        return Content::with('user:id,name,email', 'parent:id,name', 'donation:id,name,banner')
+        return Content::with('user:id,name,email', 'parent:id,name', 'donation:id,name,banner,slug')
             ->where([
                 ['slug', $slug],
                 ['parent_id', $newsType->id],

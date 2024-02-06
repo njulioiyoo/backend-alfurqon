@@ -46,11 +46,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="newsletter-box-area newsletter-bg" style="background: url({{ $data['donation']['banner'] }})">
-                        <div class="newsletter-title">
-                            <h4>Berikan dengan Hati <br>
-                            Ubah Hidup. </h4>
-                        </div>
-                        <button class="btn single-by-ticket-btn">Donasi Sekarang</button>
+                        <div class="newsletter-title">&nbsp;</div>
+                            <a href="{{ route('detail.donation', ['slug' => $data['donation']['slug']]) }}" class="btn single-by-ticket-btn" style="background: #f3b263;">Donasi Sekarang</a>
                     </div>
                 </div>
             </div>

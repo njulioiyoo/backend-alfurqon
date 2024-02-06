@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Content;
 use App\Models\News;
 use App\Models\Program;
 use App\Models\Donation;
@@ -106,7 +107,6 @@ class PageController extends Controller
 
     public function detailFacility($facilityType, $slug)
     {
-        // Kirimkan $newsType sebagai parameter tambahan
         return $this->show('facility_type', $facilityType, 'newsRepository', 'detail-facility', $slug);
     }
 
@@ -165,5 +165,14 @@ class PageController extends Controller
     public function detailProgram($programType, $slug)
     {
         return $this->show('program_type', $programType, 'newsRepository', 'detail-program', $slug);
+    }
+
+    public function detailDonation($slug)
+    {
+        $data = Donation::select('name', 'image', 'body', 'attr_2 as amount', 'start_date', 'end_date')->where([
+            'slug' => $slug, 'active' => 1
+        ])->first();
+
+        return view('pages.detail-donation', compact('data'));
     }
 }

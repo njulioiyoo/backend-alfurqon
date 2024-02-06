@@ -31,6 +31,9 @@ Route::prefix('facility')->group(function () {
     Route::get('/{type}', [PageController::class, 'facility'])->name('facility');
     Route::get('/{type}/detail/{slug}', [PageController::class, 'detailFacility'])->name('detail.facility');
 });
+Route::prefix('donation')->group(function () {
+    Route::get('/detail/{slug}', [PageController::class, 'detailDonation'])->name('detail.donation');
+});
 
 Route::fallback(function ($e) {
     return redirect('/');
