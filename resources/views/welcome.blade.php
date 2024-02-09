@@ -68,7 +68,7 @@
                     <div class="single-service-wrap mt-30">
                         <div class="event-image">
                             <img src="{{ $item['image'] }}" class="img-fluid" alt="{{ !empty($item['source']) ? 'Service image' : 'Gallery Image ' . ($index + 1) }}" style="width: 370px; height: 200px;">
-                            
+
                             <!-- Media Modal -->
                             <div class="modal fade" id="mediaModal{{ $index }}" tabindex="-1" role="dialog" aria-labelledby="mediaModalLabel{{ $index }}" aria-hidden="true">
                                 <div class="modal-dialog modal-lg" role="document">
@@ -81,11 +81,11 @@
                                         </div>
                                         <div class="modal-body text-center">
                                             @if (!empty($item['source']))
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="{{ str_replace('watch?v=', 'embed/', $item['source']) }}" allowfullscreen></iframe>
-                                                </div>
+                                            <div class="embed-responsive embed-responsive-16by9">
+                                                <iframe class="embed-responsive-item" src="{{ str_replace('watch?v=', 'embed/', $item['source']) }}" allowfullscreen></iframe>
+                                            </div>
                                             @else
-                                                <img src="{{ $item['image'] }}" class="img-fluid mx-auto my-auto" alt="{{ !empty($item['source']) ? 'Service image' : 'Gallery Image ' . ($index + 1) }}" style="max-width: 100%; max-height: 100%;">
+                                            <img src="{{ $item['image'] }}" class="img-fluid mx-auto my-auto" alt="{{ !empty($item['source']) ? 'Service image' : 'Gallery Image ' . ($index + 1) }}" style="max-width: 100%; max-height: 100%;">
                                             @endif
                                             <p>{{ $item['content'] }}</p>
                                         </div>
@@ -103,11 +103,7 @@
                                 <p>{{ Str::limit($item['content'], 200) }}</p>
                             </div>
                             <div class="ticket-button-box mt-20">
-                                <a href="{{ $item['source_type'] === 'video' ? '#' : route('detail.program', ['type' => $item['parent'], 'slug' => $item['slug']]) }}" 
-                                    @if($item['source_type'] === 'video')
-                                        data-toggle="modal" data-target="#mediaModal{{ $index }}"
-                                    @endif
-                                    class="btn ticket-btn">Baca Selengkapnya</a>
+                                <a href="{{ $item['source_type'] === 'video' ? '#' : route('detail.program', ['type' => $item['parent'], 'slug' => $item['slug']]) }}" @if($item['source_type']==='video' ) data-toggle="modal" data-target="#mediaModal{{ $index }}" @endif class="btn ticket-btn">Baca Selengkapnya</a>
                             </div>
                         </div>
                     </div>
@@ -176,7 +172,7 @@
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="donate-btn text-lg-right">
-                                                <a href="#" class="btn donate-btn">Donasi Sekarang</a>
+                                                <a href="{{ route('detail.donation', ['slug' => $item['slug']]) }}" class="btn donate-btn">Donasi Sekarang</a>
                                             </div>
                                         </div>
                                     </div>
@@ -206,7 +202,7 @@
                 </div>
             </div>
             <div class="row">
-                @foreach ($data['others_activities'] as $item)    
+                @foreach ($data['others_activities'] as $item)
                 <div class="col-lg-4 col-md-6 col-12">
                     <!-- Single Activities Start -->
                     <div class="single-activities-wrap">
