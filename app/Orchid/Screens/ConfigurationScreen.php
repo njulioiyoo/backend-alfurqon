@@ -110,6 +110,18 @@ class ConfigurationScreen extends Screen
                         ->placeholder('Enter website phone number')
                         ->type('number')
                         ->value($configurations['website_phone_number'] ?? ''),
+                    Input::make('website_phone_number_second')
+                        ->horizontal()
+                        ->title('Website Phone Number Second')
+                        ->placeholder('Enter website phone number second')
+                        ->type('number')
+                        ->value($configurations['website_phone_number_second'] ?? ''),
+                    Input::make('website_phone_number_third')
+                        ->horizontal()
+                        ->title('Website Phone Number')
+                        ->placeholder('Enter website phone number third')
+                        ->type('number')
+                        ->value($configurations['website_phone_number_third'] ?? ''),
                     Input::make('website_mail')
                         ->horizontal()
                         ->title('Website Email')

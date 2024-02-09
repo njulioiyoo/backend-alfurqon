@@ -33,6 +33,8 @@
                         <div class="contact-info">
                             <h4>Phone</h4>
                             <p><a href="tel:{{ $website_phone_number ?? '' }}">{{ $website_phone_number ?? '' }} </a>
+                            <p><a href="tel:{{ $website_phone_number_second ?? '' }}">{{ $website_phone_number_second ?? '' }} </a>
+                            <p><a href="tel:{{ $website_phone_number_third ?? '' }}">{{ $website_phone_number_third ?? '' }} </a>
                         </div>
                     </div>
                 </div>
@@ -111,21 +113,21 @@
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
                                         <div class="captcha">
-                                        <span>{!! captcha_img() !!}</span>
-                                        </button>
-                                    </div>
+                                            <span>{!! captcha_img() !!}</span>
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class="form-group col-md-3">
                                         <button type="button" class="btn btn-danger" class="reload" id="reload">
-                                        &#x21bb;
+                                            &#x21bb;
                                         </button>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <input id="captcha" type="text" class="form-control" placeholder="Captcha" name="captcha">
                                         @error('message')
-                                            <div class="alert alert-danger">
-                                                ReCAPTCHA tidak dimasukkan dengan benar. Kembali dan coba lagi.
-                                            </div>
+                                        <div class="alert alert-danger">
+                                            ReCAPTCHA tidak dimasukkan dengan benar. Kembali dan coba lagi.
+                                        </div>
                                         @enderror
                                     </div>
                                 </div>
@@ -145,22 +147,22 @@
 
 @push('extend-scripts')
 <script type="text/javascript">
-    $('#reload').click(function () {
+    $('#reload').click(function() {
         $.ajax({
             type: 'GET',
             url: '{{ route('reload-captcha') }}',
-            success: function (data) {
+            success: function(data) {
                 $(".captcha span").html(data.captcha);
             }
         });
     });
 
     document.querySelector('#contact').addEventListener('submit', function(e) {
-      var form = this;
-      let timerInterval;
-      e.preventDefault();
-      swal({
-        title: "Apakah kamu yakin?",
+        var form = this;
+        let timerInterval;
+        e.preventDefault();
+        swal({
+            title: "Apakah kamu yakin?",
             text: "Pesan anda akan dimasukkan ke kotak masuk kami!",
             icon: "warning",
             buttons: [
@@ -177,9 +179,9 @@
                     form.submit();
                 });
             } else {
-            swal("Dibatalkan", "Pesan anda telah dibatalkan :)", "error");
+                swal("Dibatalkan", "Pesan anda telah dibatalkan :)", "error");
             }
         });
     });
-  </script>
+</script>
 @endpush
