@@ -118,7 +118,7 @@ class ConfigurationScreen extends Screen
                         ->value($configurations['website_phone_number_second'] ?? ''),
                     Input::make('website_phone_number_third')
                         ->horizontal()
-                        ->title('Website Phone Number')
+                        ->title('Website Phone Number Third')
                         ->placeholder('Enter website phone number third')
                         ->type('number')
                         ->value($configurations['website_phone_number_third'] ?? ''),
