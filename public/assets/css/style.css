@@ -1,30 +1,30 @@
 /*============================
-    CSS Index         
+    CSS Index
 ==============================
 
     01. Default Css
-        - Heading Default 
+        - Heading Default
         - Default Class
-        - Breadvrumb 
-        - Preloader   
-        - Scroll top 
-        - Section title Css 
+        - Breadvrumb
+        - Preloader
+        - Scroll top
+        - Section title Css
     02. Section Spacing Css
     03. container Css
-    04. Header Css 
+    04. Header Css
         - Navigation Menu Css
         - Multilevel Submenu Css
         - Mega Menu Css
         - Mobile Menu Overlay Css
     05. Footer Css
     06. Hero Area Css
-    07. Services Css 
-    08. Services Css 
+    07. Services Css
+    08. Services Css
     09. Donate Css
     10. Feature Css
-    11. Counters Css 
+    11. Counters Css
     12. Contact Us Css
-    13. Gallery Css 
+    13. Gallery Css
 
 
 /*=====  End of CSS Index  ======*/
@@ -58,7 +58,7 @@ body {
 }
 
 /*===================================
-    - Heading Default   
+    - Heading Default
 =================================*/
 h1, h2, h3, h4, h5, h6 {
   color: #333333;
@@ -710,7 +710,7 @@ input[type="checkbox"] {
 }
 
 /*===================================
-    - Breadvrumb  
+    - Breadvrumb
 =================================*/
 .breadcrumb-area {
   background-repeat: no-repeat;
@@ -979,7 +979,7 @@ input[type="checkbox"] {
 }
 
 /*=============================================
-   - Scroll top         
+   - Scroll top
 =============================================*/
 .scroll-top {
   position: fixed;
@@ -1063,7 +1063,7 @@ input[type="checkbox"] {
 }
 
 /*=================================
-    - Section title Css                
+    - Section title Css
 ===================================*/
 .section-title {
   margin-bottom: 30px;
@@ -2188,7 +2188,7 @@ input[type="checkbox"] {
   font-size: 15px;
 }
 
-/*============================== 
+/*==============================
     - Navigation Menu Css
 ===============================*/
 .navigation-menu > ul {
@@ -2661,7 +2661,7 @@ input[type="checkbox"] {
   }
 }
 
-/*================================ 
+/*================================
     - Mobile Menu Overlay Css
 ==================================*/
 .mobile-menu-overlay {
@@ -3928,7 +3928,7 @@ input[type="checkbox"] {
   top: 0;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  /* background: rgba(0, 0, 0, 0.6); */
   content: '';
   border-radius: 5px;
 }
