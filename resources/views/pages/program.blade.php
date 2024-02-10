@@ -39,13 +39,13 @@
                                         </div>
                                         <div class="modal-body text-center">
                                             @if (!empty($item['source']))
-                                                <div class="embed-responsive embed-responsive-16by9">
-                                                    <iframe class="embed-responsive-item" src="{{ str_replace('watch?v=', 'embed/', $item['source']) }}" allowfullscreen></iframe>
-                                                </div>
+                                            <div class="embed-responsive embed-responsive-16by9">
+                                                <iframe class="embed-responsive-item" src="{{ str_replace('watch?v=', 'embed/', $item['source']) }}" allowfullscreen></iframe>
+                                            </div>
                                             @else
-                                                <img src="{{ $item['image'] }}" class="img-fluid mx-auto my-auto" alt="{{ !empty($item['source']) ? 'Video Gambar' : 'Galeri Gambar' . ($index + 1) }}" style="max-width: 100%; max-height: 100%;">
+                                            <img src="{{ $item['image'] }}" class="img-fluid mx-auto my-auto" alt="{{ !empty($item['source']) ? 'Video Gambar' : 'Galeri Gambar' . ($index + 1) }}" style="max-width: 100%; max-height: 100%;">
                                             @endif
-                                            <p>{{ $item['body'] }}</p>
+                                            <p>{{ $item['description'] ?? $item['body'] }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -58,14 +58,10 @@
                                 <div class="event-date">
                                     <span>{{ \Carbon\Carbon::parse($item['created_at'])->format('j M Y') }}</span>
                                 </div>
-                                <p>{{ Str::limit($item['body'], 200) }}</p>
+                                <p>{{ Str::limit($item['description'] ?? $item['body'], 200) }}</p>
                             </div>
                             <div class="ticket-button-box mt-20">
-                                <a href="{{ $item['source_type'] === 'video' ? '#' : route('detail.program', ['type' => $data['slug'], 'slug' => $item['slug']]) }}" 
-                                    @if($item['source_type'] === 'video')
-                                        data-toggle="modal" data-target="#mediaModal{{ $index }}"
-                                    @endif
-                                    class="btn ticket-btn">Baca Selengkapnya</a>
+                                <a href="{{ $item['source_type'] === 'video' ? '#' : route('detail.program', ['type' => $data['slug'], 'slug' => $item['slug']]) }}" @if($item['source_type']==='video' ) data-toggle="modal" data-target="#mediaModal{{ $index }}" @endif class="btn ticket-btn">Baca Selengkapnya</a>
                             </div>
                         </div>
                     </div>

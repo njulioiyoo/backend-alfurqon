@@ -24,6 +24,7 @@ use Orchid\Screen\TD;
 use Google_Service_YouTube;
 use Google_Client;
 use Orchid\Screen\Fields\Select;
+use Orchid\Screen\Fields\Quill;
 
 class ProgramEditScreen extends Screen
 {
@@ -143,11 +144,16 @@ class ProgramEditScreen extends Screen
                     ->maxHeight(300)
                     ->horizontal(),
 
-                TextArea::make('program.body')
+                TextArea::make('program.description')
                     ->title('Deskripsi')
                     ->horizontal()
                     ->rows(3)
                     ->placeholder('Deskripsi singkat untuk pratinjau'),
+
+                Quill::make('program.body')
+                    ->horizontal()
+                    ->required()
+                    ->title('Main text'),
 
                 Group::make([
                     Switcher::make('program.is_highlight')
