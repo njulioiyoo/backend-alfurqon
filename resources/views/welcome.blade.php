@@ -87,7 +87,7 @@
                                             @else
                                             <img src="{{ $item['image'] }}" class="img-fluid mx-auto my-auto" alt="{{ !empty($item['source']) ? 'Service image' : 'Gallery Image ' . ($index + 1) }}" style="max-width: 100%; max-height: 100%;">
                                             @endif
-                                            <p>{{ $item['content'] }}</p>
+                                            <p>{!! $item['content'] !!}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@
                                 <div class="event-date">
                                     <span>{{ \Carbon\Carbon::parse($item['created_at'])->format('j M Y') }}</span>
                                 </div>
-                                <p>{{ Str::limit($item['content'], 200) }}</p>
+                                <p>{!! Str::limit($item['content'], 200) !!}</p>
                             </div>
                             <div class="ticket-button-box mt-20">
                                 <a href="{{ $item['source_type'] === 'video' ? '#' : route('detail.program', ['type' => $item['parent'], 'slug' => $item['slug']]) }}" @if($item['source_type']==='video' ) data-toggle="modal" data-target="#mediaModal{{ $index }}" @endif class="btn ticket-btn">Baca Selengkapnya</a>
