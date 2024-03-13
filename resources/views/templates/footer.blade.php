@@ -48,6 +48,12 @@
                     <div class="footer-title">
                         <h6>Related Links</h6>
                     </div>
+                    <div class="footer-contents">
+                        <ul>
+                            <li><a href="{{ route('terms-and-conditions') }}">Syarat dan Ketentuan</a></li>
+                            <li><a href="{{ route('privacy-policy') }}">Kebijakan Privasi</a></li>
+                        </ul>
+                    </div>
                     <div class="footer-logo mb-15">
                         <a href="{{ route('home') }}"><img src="{{ $website_logo_footer }}" alt=""></a>
                     </div>
@@ -57,6 +63,7 @@
                             <li><a href="{{ $facebook ?? route('home') }}"><i class="flaticon-facebook"></i></a></li>
                             <li><a href="{{ $instagram ?? route('home') }}"><i class="flaticon-twitter"></i></a></li>
                             <li><a href="{{ $youtube ?? route('home') }}" target="_blank"><i class="flaticon-youtube"></i></a></li>
+                            <li><a href="{{ $whatsapp ?? route('home') }}" target="_blank"><i class="flaticon-whatsapp"></i></a></li>
                         </ul>
 
                     </div>

@@ -35,6 +35,11 @@ Route::prefix('donation')->group(function () {
     Route::get('/detail/{slug}', [PageController::class, 'detailDonation'])->name('detail.donation');
 });
 
+
+// Static view
+Route::view('/terms-and-conditions', 'terms-and-conditions')->name('terms-and-conditions');
+Route::view('/privacy-policy', 'privacy-policy')->name('privacy-policy');
+
 Route::fallback(function ($e) {
     return redirect('/');
 });

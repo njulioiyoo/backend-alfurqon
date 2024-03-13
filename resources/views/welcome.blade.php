@@ -36,7 +36,7 @@
                         <div class="section-title-muslim text-left">
                             <h3 class="mb-20">{{ $website_name ?? '' }}</h3>
                         </div>
-                        <p>{{ $website_description ?? '' }}</p>
+                        <p>{!! $brief_history ?? '' !!}</p>
                     </div>
 
                 </div>

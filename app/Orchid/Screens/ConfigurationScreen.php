@@ -171,6 +171,12 @@ class ConfigurationScreen extends Screen
                         ->placeholder('Enter youtube channel')
                         ->type('url')
                         ->value($configurations['youtube'] ?? ''),
+                    Input::make('whatsapp')
+                        ->horizontal()
+                        ->title('Whatsapp')
+                        ->placeholder('Enter whatsapp number')
+                        ->type('url')
+                        ->value($configurations['whatsapp'] ?? ''),
                 ]),
                 'Policies' =>
                 Layout::rows([
@@ -234,6 +240,13 @@ class ConfigurationScreen extends Screen
                         ->value($configurations['main_banner'] ?? '')
                         ->targetUrl()
                         ->horizontal(),
+                ]),
+                'Summary' =>
+                Layout::rows([
+                    Quill::make('brief_history')
+                        ->horizontal()
+                        ->value($configurations['brief_history'] ?? '')
+                        ->title('A Brief History'),
                 ]),
             ]),
         ];
