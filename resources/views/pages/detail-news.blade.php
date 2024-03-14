@@ -24,6 +24,7 @@
                                     <div class="event-date">
                                         <span>{{ \Carbon\Carbon::parse($data['created_at'])->format('j M Y') }}</span>
                                     </div>
+                                    {!! $share !!}
                                 </div>
 
                                 @php

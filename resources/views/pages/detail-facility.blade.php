@@ -12,6 +12,7 @@
 
 <div class="site-wrapper-reveal">
     <div class="donation-area section-space--pb_120 section-space--pt_90">
+        
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -29,6 +30,7 @@
                                 <div class="donation-title mb-30">
                                     <h4 class="mb-15">{{ $data['name'] }}</h4>
                                     <div class="event-date"><span>{{ \Carbon\Carbon::parse($data['created_at'])->format('j M Y') }}</span></div>
+                                    {!! $share !!}
                                 </div>
                                 {!! str_replace('<img', '<img class="img-fluid"' , $data['body']) !!} </div>
                             </div>

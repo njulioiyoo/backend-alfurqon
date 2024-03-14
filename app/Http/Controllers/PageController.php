@@ -87,7 +87,13 @@ class PageController extends Controller
             ? $this->{$repository}->getDetailBySlug($type, $slug, $detail)
             : $this->{$repository}->getBySlug($type, $slug);
 
-        return view("pages.{$view}", compact('data'));
+        $share = \Share::page(url()->current(), $data['name'])
+            ->facebook()
+            ->twitter()
+            ->linkedin('Extra linkedin summary can be passed here')
+            ->whatsapp();
+
+        return view("pages.{$view}", compact('data', 'share'));
     }
 
     public function about($slug)

@@ -23,6 +23,7 @@
                                     <div class="donation-title mb-30">
                                         <h4 class="mb-15">{{ $data['name'] }}</h4>
                                         <div class="event-date"><span>{{ \Carbon\Carbon::parse($data['created_at'])->format('j M Y') }} </span></div>
+                                        {!! $share !!}
                                     </div>
 
                                     <div class="progress-wrap-muslim">

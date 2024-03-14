@@ -11,6 +11,7 @@
         "php": "^8.1",
         "google/apiclient": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
+        "jorenvanhocht/laravel-share": "^4.2",
         "laravel/framework": "^10.10",
         "laravel/pulse": "^1.0@beta",
         "laravel/sanctum": "^3.3",

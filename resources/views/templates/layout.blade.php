@@ -8,9 +8,42 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
     @foreach (['vendor/bootstrap.min.css', 'vendor/flaticon.css', 'plugins/swiper.min.css', 'plugins/magnific-popup.css', 'style.css', 'sweetalert.min.css'] as $style)
         <link rel="stylesheet" href="{{ asset("assets/css/$style") }}">
     @endforeach
+
+    <style>
+        div#social-links {
+            position: fixed;
+            top: 50%; /* Anda dapat menyesuaikan posisi vertikal sesuai kebutuhan */
+            transform: translateY(-50%);
+            max-width: 500px;
+            float: left; /* Mengubah floating menjadi di sebelah kiri */
+            left: 0; /* Menempatkan elemen di sebelah kiri */
+        }
+
+        div#social-links ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 5px; /* Mengatur padding agar kotak ul menjadi kecil */
+        }
+
+        div#social-links ul li {
+            display: block; /* Mengubah display menjadi block agar tidak mengambang di samping */
+            margin-bottom: 5px; /* Menambahkan ruang antara setiap ikon sosial */
+        }
+
+        div#social-links ul li a {
+            display: block; /* Mengubah display menjadi block agar tidak mengambang di samping */
+            padding: 10px; /* Mengatur padding agar ikon menjadi lebih kecil */
+            border: 1px solid #ccc;
+            font-size: 20px; /* Mengurangi ukuran font ikon */
+            color: #222;
+            background-color: #ccc;
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -33,6 +66,9 @@
     <div class="mobile-menu-overlay" id="mobile-menu-overlay">
         @include('components.mobile-header')
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/share.js') }}"></script>
 
     @foreach (['vendor/modernizr-2.8.3.min.js', 'vendor/jquery-3.5.1.min.js', 'vendor/jquery-migrate-3.3.0.min.js', 'vendor/bootstrap.min.js', 'plugins/swiper.min.js', 'plugins/waypoints.min.js', 'plugins/counterup.min.js', 'plugins/jquery.magnific-popup.min.js', 'plugins/wow.min.js', 'plugins/ajax.mail.js', 'main.js', 'sweetalert.min.js'] as $script)
         <script src="{{ asset("assets/js/$script") }}"></script>
