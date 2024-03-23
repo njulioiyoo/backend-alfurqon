@@ -80,6 +80,15 @@ class PageController extends Controller
         return view('welcome', compact('data'));
     }
 
+    private function shareSocialMedia($data)
+    {
+        return \Share::page(url()->current(), $data['name'])
+            ->facebook()
+            ->twitter()
+            ->linkedin('Extra linkedin summary can be passed here')
+            ->whatsapp();
+    }
+
     public function show($type, $slug, $repository, $view, $detail = '')
     {
         // Gunakan getDetailBySlug jika $detail tidak kosong, jika tidak, gunakan getBySlug
@@ -87,11 +96,7 @@ class PageController extends Controller
             ? $this->{$repository}->getDetailBySlug($type, $slug, $detail)
             : $this->{$repository}->getBySlug($type, $slug);
 
-        $share = \Share::page(url()->current(), $data['name'])
-            ->facebook()
-            ->twitter()
-            ->linkedin('Extra linkedin summary can be passed here')
-            ->whatsapp();
+        $share = $this->shareSocialMedia($data);
 
         return view("pages.{$view}", compact('data', 'share'));
     }
@@ -179,6 +184,8 @@ class PageController extends Controller
             'slug' => $slug, 'active' => 1
         ])->first();
 
-        return view('pages.detail-donation', compact('data'));
+        $share = $this->shareSocialMedia($data);
+
+        return view('pages.detail-donation', compact('data', 'share'));
     }
 }
