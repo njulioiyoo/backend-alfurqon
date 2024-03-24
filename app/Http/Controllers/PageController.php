@@ -96,7 +96,10 @@ class PageController extends Controller
             ? $this->{$repository}->getDetailBySlug($type, $slug, $detail)
             : $this->{$repository}->getBySlug($type, $slug);
 
-        $share = $this->shareSocialMedia($data);
+        $share = null; // inisialisasi $share dengan null
+        if ($detail) {
+            $share = $this->shareSocialMedia($data); // Hanya mengatur $share jika $detail tidak kosong
+        }
 
         return view("pages.{$view}", compact('data', 'share'));
     }
