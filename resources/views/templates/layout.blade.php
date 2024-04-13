@@ -88,7 +88,7 @@
 
             var formattedDate = dd + '-' + mm + '-' + yyyy;
 
-            var apiUrl = 'http://api.aladhan.com/v1/timings/' + formattedDate + '?latitude=' + latitude + '&longitude=' + longitude + '&method=20';
+            var apiUrl = 'https://api.aladhan.com/v1/timings/' + formattedDate + '?latitude=' + latitude + '&longitude=' + longitude + '&method=20';
             xhr.open('GET', apiUrl, true);
 
             xhr.onreadystatechange = function () {
