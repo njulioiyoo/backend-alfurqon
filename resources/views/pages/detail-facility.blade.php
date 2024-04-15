@@ -40,5 +40,15 @@
                 </div>
             </div>
         </div>
+
+        <div class="ticket-area section-space--pb_120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div id="disqus_thread"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     @endsection
